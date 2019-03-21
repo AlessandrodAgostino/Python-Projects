@@ -43,7 +43,7 @@ import os
 os.remove("transazioni_01.tsv")        
 #%%
 with open("transazioni_01.tsv", 'r') as f:
-    reader = csv.reader(f,delimiter=' ')
+    reader = csv.reader(f,delimiter='\t')
     for row in reader:
         print(row)  
           

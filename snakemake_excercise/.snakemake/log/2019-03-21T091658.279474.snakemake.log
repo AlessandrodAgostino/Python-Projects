@@ -1,3 +1,0 @@
-NameError in line 7 of /home/alessandro/Python/snakemake_excercise/Snakefile:
-name 'transizioni_07' is not defined
-  File "/home/alessandro/Python/snakemake_excercise/Snakefile", line 7, in <module>
