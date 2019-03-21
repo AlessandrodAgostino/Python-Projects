@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	download_transazione0
+	1	prova
+	2
+
+[Thu Mar 21 09:40:53 2019]
+rule download_transazione0:
+    output: transizioni_02.tsv
+    jobid: 1
+    wildcards: number=2
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/alessandro/Python/snakemake_excercise/.snakemake/log/2019-03-21T094053.714588.snakemake.log

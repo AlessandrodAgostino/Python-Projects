@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 2 of /home/alessandro/Python/snakemake_lesson/Snakefile:
+Missing input files for rule all:
+partial_1.txt
+partial_2.txt

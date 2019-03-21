@@ -1,0 +1,2 @@
+SyntaxError in line 43 of /home/alessandro/Python/snakemake_excercise/Snakefile:
+Colon expected after keyword input. (Snakefile, line 43)

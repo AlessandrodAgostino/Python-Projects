@@ -1,0 +1,94 @@
+import requests 
+import csv
+import hashlib
+import os
+    
+numbers_0_9 = range(10)
+numbers_10_49 = range (10, 50)
+
+
+def md5(fname):
+    """hash function appropriate for big data"""
+    hash_md5 = hashlib.md5()
+    with open(fname, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+    
+def download(filename):
+    import requests
+
+    url_base = ("https://raw.githubusercontent.com/UniboDIFABiophysics"+
+                "/programmingCourseDIFA/master/snakemake_exercise/")
+    response = requests.get(url_base+filename)
+    
+    # Throw an error for bad status codes
+    response.raise_for_status()
+    
+    with open(filename, 'wb') as handle:
+        handle.write(response.content)
+        
+def check_md5sum(md5_file_name):
+     with open(md5_file_name) as tsvfile:
+            md5_dict = map(dict, csv.DictReader(tsvfile, fieldnames=['File', 'md5sum'], dialect ='excel-tab'))
+            for row in md5_dict:
+                if md5(row['File'])!=row['md5sum']: 
+                    os.remove(row['File'])
+                    print("Removed the file: " + row['File'])
+                    download(row['File'])
+                    print("Download again the file: " + row['File'])
+        
+
+#-----------------------------------------------------------------------#
+
+#Make the check on the md5sum value, if the value differs it download the file again from the repository
+rule sum_transazioni:
+    input:
+        "md5sums.tsv",
+        expand("transazioni_0{number}.tsv", number=numbers_0_9),
+        expand("transazioni_{number}.tsv", number=numbers_10_49)
+        
+    output:
+        out = 'transazioni_sum.tsv'
+    
+    run:
+        check_md5sum("md5sums.tsv")   
+        
+        trans_dict = {}
+             
+        #Open the file "md5sums.tsv"
+        with open("md5sums.tsv") as md5file:
+            reader = csv.reader(md5file, delimiter='\t')
+            for row in reader:
+                #Open the transazioni... file
+                with open(row[0]) as current_trans:
+                    read_trans = csv.reader(current_trans, delimiter='\t')
+                    for (name, amount) in read_trans:
+                        if name not in trans_dict.keys():
+                            trans_dict[name] = int(amount)
+                        else:
+                            trans_dict[name]=trans_dict[name] + int(amount)
+        
+        #write the file with the sum    
+        with open(output.out, 'w') as csv_file:
+            writer = csv.writer(csv_file, delimiter='\t')
+            for key, value in trans_dict.items():
+               writer.writerow([key, value])
+               
+       
+                
+#Download the files of the tipe "transazioni_??.tsv"
+rule download_transazione:
+    output:
+        out = "transazioni_{number}.tsv"
+    run:
+        download(output.out)   
+            
+#Download the md5sum file
+rule download_md5sum_dict:
+    output:
+        out = "md5sums.tsv"
+    run:
+        download(output.out)   
+ 
+        

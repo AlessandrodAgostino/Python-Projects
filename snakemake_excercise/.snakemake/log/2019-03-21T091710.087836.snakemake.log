@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 5 of /home/alessandro/Python/snakemake_excercise/Snakefile:
+Missing input files for rule tutte_le_transizioni:
+transizioni_07.tsv

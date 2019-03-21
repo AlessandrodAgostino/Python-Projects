@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	check_md5sum
+	1
+
+[Thu Mar 21 11:17:10 2019]
+rule check_md5sum:
+    input: md5sums.tsv, transazioni_00.tsv, transazioni_01.tsv, transazioni_02.tsv, transazioni_03.tsv, transazioni_04.tsv, transazioni_05.tsv, transazioni_06.tsv, transazioni_07.tsv, transazioni_08.tsv, transazioni_09.tsv, transazioni_10.tsv, transazioni_11.tsv, transazioni_12.tsv, transazioni_13.tsv, transazioni_14.tsv, transazioni_15.tsv, transazioni_16.tsv, transazioni_17.tsv, transazioni_18.tsv, transazioni_19.tsv, transazioni_20.tsv, transazioni_21.tsv, transazioni_22.tsv, transazioni_23.tsv, transazioni_24.tsv, transazioni_25.tsv, transazioni_26.tsv, transazioni_27.tsv, transazioni_28.tsv, transazioni_29.tsv, transazioni_30.tsv, transazioni_31.tsv, transazioni_32.tsv, transazioni_33.tsv, transazioni_34.tsv, transazioni_35.tsv, transazioni_36.tsv, transazioni_37.tsv, transazioni_38.tsv, transazioni_39.tsv, transazioni_40.tsv, transazioni_41.tsv, transazioni_42.tsv, transazioni_43.tsv, transazioni_44.tsv, transazioni_45.tsv, transazioni_46.tsv, transazioni_47.tsv, transazioni_48.tsv, transazioni_49.tsv
+    jobid: 0
+
+[Thu Mar 21 11:17:10 2019]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/alessandro/Python/snakemake_excercise/.snakemake/log/2019-03-21T111710.019866.snakemake.log

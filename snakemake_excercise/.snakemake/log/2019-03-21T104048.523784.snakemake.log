@@ -1,0 +1,489 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	47	download_transazione
+	48
+
+[Thu Mar 21 10:40:48 2019]
+rule download_transazione:
+    output: transazioni_40.tsv
+    jobid: 41
+    wildcards: number=40
+
+[Thu Mar 21 10:40:49 2019]
+Finished job 41.
+1 of 48 steps (2%) done
+
+[Thu Mar 21 10:40:49 2019]
+rule download_transazione:
+    output: transazioni_22.tsv
+    jobid: 23
+    wildcards: number=22
+
+[Thu Mar 21 10:40:50 2019]
+Finished job 23.
+2 of 48 steps (4%) done
+
+[Thu Mar 21 10:40:50 2019]
+rule download_transazione:
+    output: transazioni_02.tsv
+    jobid: 4
+    wildcards: number=02
+
+[Thu Mar 21 10:40:50 2019]
+Finished job 4.
+3 of 48 steps (6%) done
+
+[Thu Mar 21 10:40:50 2019]
+rule download_transazione:
+    output: transazioni_17.tsv
+    jobid: 18
+    wildcards: number=17
+
+[Thu Mar 21 10:40:51 2019]
+Finished job 18.
+4 of 48 steps (8%) done
+
+[Thu Mar 21 10:40:51 2019]
+rule download_transazione:
+    output: transazioni_49.tsv
+    jobid: 50
+    wildcards: number=49
+
+[Thu Mar 21 10:40:52 2019]
+Finished job 50.
+5 of 48 steps (10%) done
+
+[Thu Mar 21 10:40:52 2019]
+rule download_transazione:
+    output: transazioni_14.tsv
+    jobid: 15
+    wildcards: number=14
+
+[Thu Mar 21 10:40:53 2019]
+Finished job 15.
+6 of 48 steps (12%) done
+
+[Thu Mar 21 10:40:53 2019]
+rule download_transazione:
+    output: transazioni_47.tsv
+    jobid: 48
+    wildcards: number=47
+
+[Thu Mar 21 10:40:53 2019]
+Finished job 48.
+7 of 48 steps (15%) done
+
+[Thu Mar 21 10:40:53 2019]
+rule download_transazione:
+    output: transazioni_31.tsv
+    jobid: 32
+    wildcards: number=31
+
+[Thu Mar 21 10:40:54 2019]
+Finished job 32.
+8 of 48 steps (17%) done
+
+[Thu Mar 21 10:40:54 2019]
+rule download_transazione:
+    output: transazioni_45.tsv
+    jobid: 46
+    wildcards: number=45
+
+[Thu Mar 21 10:40:55 2019]
+Finished job 46.
+9 of 48 steps (19%) done
+
+[Thu Mar 21 10:40:55 2019]
+rule download_transazione:
+    output: transazioni_34.tsv
+    jobid: 35
+    wildcards: number=34
+
+[Thu Mar 21 10:40:56 2019]
+Finished job 35.
+10 of 48 steps (21%) done
+
+[Thu Mar 21 10:40:56 2019]
+rule download_transazione:
+    output: transazioni_23.tsv
+    jobid: 24
+    wildcards: number=23
+
+[Thu Mar 21 10:40:56 2019]
+Finished job 24.
+11 of 48 steps (23%) done
+
+[Thu Mar 21 10:40:56 2019]
+rule download_transazione:
+    output: transazioni_37.tsv
+    jobid: 38
+    wildcards: number=37
+
+[Thu Mar 21 10:40:57 2019]
+Finished job 38.
+12 of 48 steps (25%) done
+
+[Thu Mar 21 10:40:57 2019]
+rule download_transazione:
+    output: transazioni_41.tsv
+    jobid: 42
+    wildcards: number=41
+
+[Thu Mar 21 10:40:58 2019]
+Finished job 42.
+13 of 48 steps (27%) done
+
+[Thu Mar 21 10:40:58 2019]
+rule download_transazione:
+    output: transazioni_08.tsv
+    jobid: 10
+    wildcards: number=08
+
+[Thu Mar 21 10:40:58 2019]
+Finished job 10.
+14 of 48 steps (29%) done
+
+[Thu Mar 21 10:40:58 2019]
+rule download_transazione:
+    output: transazioni_36.tsv
+    jobid: 37
+    wildcards: number=36
+
+[Thu Mar 21 10:40:59 2019]
+Finished job 37.
+15 of 48 steps (31%) done
+
+[Thu Mar 21 10:40:59 2019]
+rule download_transazione:
+    output: transazioni_11.tsv
+    jobid: 12
+    wildcards: number=11
+
+[Thu Mar 21 10:40:59 2019]
+Finished job 12.
+16 of 48 steps (33%) done
+
+[Thu Mar 21 10:40:59 2019]
+rule download_transazione:
+    output: transazioni_18.tsv
+    jobid: 19
+    wildcards: number=18
+
+[Thu Mar 21 10:41:00 2019]
+Finished job 19.
+17 of 48 steps (35%) done
+
+[Thu Mar 21 10:41:00 2019]
+rule download_transazione:
+    output: transazioni_39.tsv
+    jobid: 40
+    wildcards: number=39
+
+[Thu Mar 21 10:41:01 2019]
+Finished job 40.
+18 of 48 steps (38%) done
+
+[Thu Mar 21 10:41:01 2019]
+rule download_transazione:
+    output: transazioni_07.tsv
+    jobid: 9
+    wildcards: number=07
+
+[Thu Mar 21 10:41:02 2019]
+Finished job 9.
+19 of 48 steps (40%) done
+
+[Thu Mar 21 10:41:02 2019]
+rule download_transazione:
+    output: transazioni_16.tsv
+    jobid: 17
+    wildcards: number=16
+
+[Thu Mar 21 10:41:02 2019]
+Finished job 17.
+20 of 48 steps (42%) done
+
+[Thu Mar 21 10:41:02 2019]
+rule download_transazione:
+    output: transazioni_28.tsv
+    jobid: 29
+    wildcards: number=28
+
+[Thu Mar 21 10:41:03 2019]
+Finished job 29.
+21 of 48 steps (44%) done
+
+[Thu Mar 21 10:41:03 2019]
+rule download_transazione:
+    output: transazioni_43.tsv
+    jobid: 44
+    wildcards: number=43
+
+[Thu Mar 21 10:41:03 2019]
+Finished job 44.
+22 of 48 steps (46%) done
+
+[Thu Mar 21 10:41:03 2019]
+rule download_transazione:
+    output: transazioni_29.tsv
+    jobid: 30
+    wildcards: number=29
+
+[Thu Mar 21 10:41:04 2019]
+Finished job 30.
+23 of 48 steps (48%) done
+
+[Thu Mar 21 10:41:04 2019]
+rule download_transazione:
+    output: transazioni_27.tsv
+    jobid: 28
+    wildcards: number=27
+
+[Thu Mar 21 10:41:05 2019]
+Finished job 28.
+24 of 48 steps (50%) done
+
+[Thu Mar 21 10:41:05 2019]
+rule download_transazione:
+    output: transazioni_04.tsv
+    jobid: 6
+    wildcards: number=04
+
+[Thu Mar 21 10:41:06 2019]
+Finished job 6.
+25 of 48 steps (52%) done
+
+[Thu Mar 21 10:41:06 2019]
+rule download_transazione:
+    output: transazioni_13.tsv
+    jobid: 14
+    wildcards: number=13
+
+[Thu Mar 21 10:41:06 2019]
+Finished job 14.
+26 of 48 steps (54%) done
+
+[Thu Mar 21 10:41:06 2019]
+rule download_transazione:
+    output: transazioni_32.tsv
+    jobid: 33
+    wildcards: number=32
+
+[Thu Mar 21 10:41:07 2019]
+Finished job 33.
+27 of 48 steps (56%) done
+
+[Thu Mar 21 10:41:07 2019]
+rule download_transazione:
+    output: transazioni_35.tsv
+    jobid: 36
+    wildcards: number=35
+
+[Thu Mar 21 10:41:08 2019]
+Finished job 36.
+28 of 48 steps (58%) done
+
+[Thu Mar 21 10:41:08 2019]
+rule download_transazione:
+    output: transazioni_48.tsv
+    jobid: 49
+    wildcards: number=48
+
+[Thu Mar 21 10:41:08 2019]
+Finished job 49.
+29 of 48 steps (60%) done
+
+[Thu Mar 21 10:41:08 2019]
+rule download_transazione:
+    output: transazioni_09.tsv
+    jobid: 11
+    wildcards: number=09
+
+[Thu Mar 21 10:41:09 2019]
+Finished job 11.
+30 of 48 steps (62%) done
+
+[Thu Mar 21 10:41:09 2019]
+rule download_transazione:
+    output: transazioni_15.tsv
+    jobid: 16
+    wildcards: number=15
+
+[Thu Mar 21 10:41:10 2019]
+Finished job 16.
+31 of 48 steps (65%) done
+
+[Thu Mar 21 10:41:10 2019]
+rule download_transazione:
+    output: transazioni_46.tsv
+    jobid: 47
+    wildcards: number=46
+
+[Thu Mar 21 10:41:11 2019]
+Finished job 47.
+32 of 48 steps (67%) done
+
+[Thu Mar 21 10:41:11 2019]
+rule download_transazione:
+    output: transazioni_20.tsv
+    jobid: 21
+    wildcards: number=20
+
+[Thu Mar 21 10:41:12 2019]
+Finished job 21.
+33 of 48 steps (69%) done
+
+[Thu Mar 21 10:41:12 2019]
+rule download_transazione:
+    output: transazioni_30.tsv
+    jobid: 31
+    wildcards: number=30
+
+[Thu Mar 21 10:41:12 2019]
+Finished job 31.
+34 of 48 steps (71%) done
+
+[Thu Mar 21 10:41:12 2019]
+rule download_transazione:
+    output: transazioni_19.tsv
+    jobid: 20
+    wildcards: number=19
+
+[Thu Mar 21 10:41:13 2019]
+Finished job 20.
+35 of 48 steps (73%) done
+
+[Thu Mar 21 10:41:13 2019]
+rule download_transazione:
+    output: transazioni_03.tsv
+    jobid: 5
+    wildcards: number=03
+
+[Thu Mar 21 10:41:14 2019]
+Finished job 5.
+36 of 48 steps (75%) done
+
+[Thu Mar 21 10:41:14 2019]
+rule download_transazione:
+    output: transazioni_21.tsv
+    jobid: 22
+    wildcards: number=21
+
+[Thu Mar 21 10:41:14 2019]
+Finished job 22.
+37 of 48 steps (77%) done
+
+[Thu Mar 21 10:41:14 2019]
+rule download_transazione:
+    output: transazioni_38.tsv
+    jobid: 39
+    wildcards: number=38
+
+[Thu Mar 21 10:41:15 2019]
+Finished job 39.
+38 of 48 steps (79%) done
+
+[Thu Mar 21 10:41:15 2019]
+rule download_transazione:
+    output: transazioni_42.tsv
+    jobid: 43
+    wildcards: number=42
+
+[Thu Mar 21 10:41:16 2019]
+Finished job 43.
+39 of 48 steps (81%) done
+
+[Thu Mar 21 10:41:16 2019]
+rule download_transazione:
+    output: transazioni_44.tsv
+    jobid: 45
+    wildcards: number=44
+
+[Thu Mar 21 10:41:16 2019]
+Finished job 45.
+40 of 48 steps (83%) done
+
+[Thu Mar 21 10:41:16 2019]
+rule download_transazione:
+    output: transazioni_05.tsv
+    jobid: 7
+    wildcards: number=05
+
+[Thu Mar 21 10:41:17 2019]
+Finished job 7.
+41 of 48 steps (85%) done
+
+[Thu Mar 21 10:41:17 2019]
+rule download_transazione:
+    output: transazioni_26.tsv
+    jobid: 27
+    wildcards: number=26
+
+[Thu Mar 21 10:41:18 2019]
+Finished job 27.
+42 of 48 steps (88%) done
+
+[Thu Mar 21 10:41:18 2019]
+rule download_transazione:
+    output: transazioni_24.tsv
+    jobid: 25
+    wildcards: number=24
+
+[Thu Mar 21 10:41:18 2019]
+Finished job 25.
+43 of 48 steps (90%) done
+
+[Thu Mar 21 10:41:18 2019]
+rule download_transazione:
+    output: transazioni_12.tsv
+    jobid: 13
+    wildcards: number=12
+
+[Thu Mar 21 10:41:19 2019]
+Finished job 13.
+44 of 48 steps (92%) done
+
+[Thu Mar 21 10:41:19 2019]
+rule download_transazione:
+    output: transazioni_06.tsv
+    jobid: 8
+    wildcards: number=06
+
+[Thu Mar 21 10:41:20 2019]
+Finished job 8.
+45 of 48 steps (94%) done
+
+[Thu Mar 21 10:41:20 2019]
+rule download_transazione:
+    output: transazioni_33.tsv
+    jobid: 34
+    wildcards: number=33
+
+[Thu Mar 21 10:41:20 2019]
+Finished job 34.
+46 of 48 steps (96%) done
+
+[Thu Mar 21 10:41:20 2019]
+rule download_transazione:
+    output: transazioni_25.tsv
+    jobid: 26
+    wildcards: number=25
+
+[Thu Mar 21 10:41:21 2019]
+Finished job 26.
+47 of 48 steps (98%) done
+
+[Thu Mar 21 10:41:21 2019]
+localrule all:
+    input: md5sums.tsv, transazioni_01.tsv, transazioni_00.tsv, transazioni_01.tsv, transazioni_02.tsv, transazioni_03.tsv, transazioni_04.tsv, transazioni_05.tsv, transazioni_06.tsv, transazioni_07.tsv, transazioni_08.tsv, transazioni_09.tsv, transazioni_11.tsv, transazioni_12.tsv, transazioni_13.tsv, transazioni_14.tsv, transazioni_15.tsv, transazioni_16.tsv, transazioni_17.tsv, transazioni_18.tsv, transazioni_19.tsv, transazioni_20.tsv, transazioni_21.tsv, transazioni_22.tsv, transazioni_23.tsv, transazioni_24.tsv, transazioni_25.tsv, transazioni_26.tsv, transazioni_27.tsv, transazioni_28.tsv, transazioni_29.tsv, transazioni_30.tsv, transazioni_31.tsv, transazioni_32.tsv, transazioni_33.tsv, transazioni_34.tsv, transazioni_35.tsv, transazioni_36.tsv, transazioni_37.tsv, transazioni_38.tsv, transazioni_39.tsv, transazioni_40.tsv, transazioni_41.tsv, transazioni_42.tsv, transazioni_43.tsv, transazioni_44.tsv, transazioni_45.tsv, transazioni_46.tsv, transazioni_47.tsv, transazioni_48.tsv, transazioni_49.tsv
+    jobid: 0
+
+[Thu Mar 21 10:41:21 2019]
+Finished job 0.
+48 of 48 steps (100%) done
+Complete log: /home/alessandro/Python/snakemake_excercise/.snakemake/log/2019-03-21T104048.523784.snakemake.log

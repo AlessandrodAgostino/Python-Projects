@@ -1,0 +1,3 @@
+NameError in line 24 of /home/alessandro/Python/snakemake_excercise/Snakefile:
+name 'output' is not defined
+  File "/home/alessandro/Python/snakemake_excercise/Snakefile", line 24, in <module>
