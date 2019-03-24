@@ -2,10 +2,8 @@ import requests
 import csv
 import hashlib
 import os
-    
-numbers_0_9 = range(10)
-numbers_10_49 = range (10, 50)
 
+numbers = ['{:>02d}'.format(i) for i in range(50)]
 
 def md5(fname):
     """hash function appropriate for big data"""
@@ -17,45 +15,35 @@ def md5(fname):
     
 def download(filename):
     import requests
-
     url_base = ("https://raw.githubusercontent.com/UniboDIFABiophysics"+
                 "/programmingCourseDIFA/master/snakemake_exercise/")
-    response = requests.get(url_base+filename)
-    
+    response = requests.get(url_base+filename)    
     # Throw an error for bad status codes
-    response.raise_for_status()
-    
+    response.raise_for_status()    
     with open(filename, 'wb') as handle:
         handle.write(response.content)
         
-def check_md5sum(md5_file_name):
+#Here I could add a "@retry"
+def check_md5sum( file_name, md5sum):
+	if not(md5(file_name)==md5sum):
+		os.remove(file_name)
+		print("Removed the file: " + file_name)
+		download(filerm_name)
+		print("Downloaded again the file: " + file_name)
+        
+def check_md5sum_on_md5sum_file(md5_file_name):
      with open(md5_file_name) as tsvfile:
             md5_dict = map(dict, csv.DictReader(tsvfile, fieldnames=['File', 'md5sum'], dialect ='excel-tab'))
             for row in md5_dict:
-                if md5(row['File'])!=row['md5sum']: 
-                    os.remove(row['File'])
-                    print("Removed the file: " + row['File'])
-                    download(row['File'])
-                    print("Download again the file: " + row['File'])
-        
-
+            	check_md5sum(row['File'], row['md5sum'])
 #-----------------------------------------------------------------------#
-
-#Make the check on the md5sum value, if the value differs it download the file again from the repository
-rule sum_transazioni:
+rule all:
     input:
-        "md5sums.tsv",
-        expand("transazioni_0{number}.tsv", number=numbers_0_9),
-        expand("transazioni_{number}.tsv", number=numbers_10_49)
-        
+    	"md5_ok.txt",
     output:
         out = 'transazioni_sum.tsv'
-    
-    run:
-        check_md5sum("md5sums.tsv")   
-        
-        trans_dict = {}
-             
+    run:                
+        trans_dict = {}             
         #Open the file "md5sums.tsv"
         with open("md5sums.tsv") as md5file:
             reader = csv.reader(md5file, delimiter='\t')
@@ -75,6 +63,17 @@ rule sum_transazioni:
             for key, value in trans_dict.items():
                writer.writerow([key, value])
                
+#Make the check on the md5sum value and write a flag-file
+rule check_md5_values:
+	input:
+		"md5sums.tsv",
+		expand("transazioni_{number}.tsv", number=numbers)
+	output:
+    	"md5_ok.txt"
+   	run:  	
+		check_md5sum_on_md5sum_file("md5sums.tsv")
+		shell("echo ok > md5_ok.txt")
+	          
        
                 
 #Download the files of the tipe "transazioni_??.tsv"
