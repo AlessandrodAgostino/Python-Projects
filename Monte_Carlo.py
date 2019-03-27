@@ -19,3 +19,4 @@ print(np.std(pi_ests))
 #%%
 el_vec = np.array([[1,2],[3,4], [5,6]])
 np.linalg.norm(el_vec, axis=1)
+#%%

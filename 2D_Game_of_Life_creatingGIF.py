@@ -31,7 +31,7 @@ def evolution(matrix):
 #---------------------------------------------------------------#
     
 #Create a random matrix of float in [0,1)
-ran_world = np.random.rand(500,500)
+ran_world = np.random.rand(50,50)
 #Binarize the matrix
 world = np.around(ran_world)
 
