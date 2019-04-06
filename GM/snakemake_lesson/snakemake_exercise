@@ -1,0 +1,20 @@
+#Here I put all the snakemake things
+
+
+import requests
+
+url_base = ("https://raw.githubusercontent.com/UniboDIFABiophysics"+
+            "/programmingCourseDIFA/master/snakemake_exercise/")
+
+rule download_transazioni:
+    output:
+        out = "transizioni_{number}.tsv"
+    run:
+        filename = "transazioni_{number}.tsv"
+        response = requests.get(url_base+filename)        
+        response.raise_for_status()
+        with open(filename, 'wb') as handle:
+            handle.write(response.content)
+    
+    
+    
