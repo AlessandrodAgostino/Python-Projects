@@ -1,4 +1,0 @@
-import numpy as np
-
-def generate_world(dim):
-    return np.zeroes((dim,dim), dtype=int)

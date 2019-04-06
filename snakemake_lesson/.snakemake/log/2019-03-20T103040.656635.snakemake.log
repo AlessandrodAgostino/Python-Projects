@@ -1,3 +1,0 @@
-KeyError in line 2 of /home/alessandro/Python/snakemake_lesson/Snakefile:
-'number'
-  File "/home/alessandro/Python/snakemake_lesson/Snakefile", line 2, in <module>
