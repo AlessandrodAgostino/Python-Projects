@@ -1,5 +1,3 @@
-%%file my_first_app.py
-
 def mysum(a, b):
     return a+b
 
