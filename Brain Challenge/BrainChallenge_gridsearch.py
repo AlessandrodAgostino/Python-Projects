@@ -20,7 +20,7 @@ from sklearn.model_selection import KFold as KF
 from sklearn.model_selection import StratifiedKFold as SKF
 from sklearn.model_selection import LeaveOneOut
 
-from sklearn.ensemble import enable_hist_gradient_boosting
+#from sklearn.ensemble import enable_hist_gradient_boosting
 # from sklearn.experimental import enable_hist_gradient_boosting
 
 from sklearn.preprocessing import StandardScaler, RobustScaler, MinMaxScaler
@@ -34,11 +34,15 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, RationalQuadratic, Matern
 from sklearn.cross_decomposition import PLSRegression
 from sklearn.model_selection import train_test_split as tts
-# token=93fcd80555de9f30f390a685bbbac3dbf4bba956a9ced842
+# token=696cdee56b1bfdbd084b53c061a678bf8dc3b31241e14490
+
+## Remote path
+data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
+results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 
 ## Local path
-data_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Data'
-results_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Results'
+#data_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Data'
+#results_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Results'
 
 # %% ## Train DataFrame Loading ##
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
@@ -88,6 +92,7 @@ grid = GridSearchCV(pipe, n_jobs=16, pre_dispatch=8,  param_grid=param_grid, cv=
 grid.fit(feats, y)
 
 mean_scores = np.array(grid.cv_results_['mean_test_score'])
+mean_scores
 
 best_est=grid.cv_results_['params'][grid.best_index_]
 
@@ -100,8 +105,8 @@ grid.best_score_
 
 
 # %% ### Prediction ###
-
-test_data=pd.read_csv(pj(data_dir, 'Data-eTIV/Train_Test_NOremove14_NOremoveOutliers_YESregressBYeTIVifCorr_20190528/Test_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
+test_data=pd.read_csv(pj(data_dir,
+'Data-eTIV/Train_Test_NOremove14_NOremoveOutliers_YESregressBYeTIVifCorr_20190528/Test_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
 
 test_data.head()
