@@ -47,7 +47,7 @@ results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge
 # %% ## Train DataFrame Loading ##
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
-data_train.head()
+#data_train.head()
 
 feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
 
@@ -105,9 +105,7 @@ grid.best_score_
 
 
 # %% ### Prediction ###
-test_data=pd.read_csv(pj(data_dir,
-'Data-eTIV/Train_Test_NOremove14_NOremoveOutliers_YESregressBYeTIVifCorr_20190528/Test_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
-                        header=0, sep='\t')
+test_data=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'), header=0, sep='\t')
 
 test_data.head()
 
