@@ -44,3 +44,7 @@ len(ridge.coef_)
 len(train_feats)
 
 plt.plot(np.sort(np.abs(ridge.coef_)))
+#%%
+a = np.arange(1,20,0.5)
+a
+a > 4
