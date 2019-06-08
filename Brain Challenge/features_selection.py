@@ -25,7 +25,7 @@ def LoadData(location):
 
         data = pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                                 header=0, sep='\t')
-        target = y=data['age_floor'].values
+        target = data['age_floor'].values
         return (data, target)
 
 @dataclass
@@ -40,8 +40,9 @@ class ExcludeCategorical(BaseEstimator, TransformerMixin):
 
 
 class FilterRidgeCoefficients(BaseEstimator, TransformerMixin):
-    def __init__(self, ridge_coefs):
+    def __init__(self, ridge_coefs, treshold):
         self.ridge_coefs = ridge_coefs
+        self.treshold = treshold
 
         #This array has to be given at the creation of the method
 
