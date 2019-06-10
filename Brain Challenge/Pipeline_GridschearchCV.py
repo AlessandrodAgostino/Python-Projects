@@ -1,5 +1,9 @@
 import numpy as np
 import pandas as pd
+import seaborn as sns
+import pylab as plt
+
+import scipy.stats as st
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import FeatureUnion, Pipeline
 from dataclasses import dataclass
@@ -77,7 +81,7 @@ def main():
     grid = GridSearchCV(pipe_filter_gpr, param_grid=parameter_grid, cv=5)
 
     #Splitting the data:
-    x_train,x_test,y_train,y_test=tts(feats, y, test_size=0.1, shuffle=False)
+    x_train,x_test,y_train,y_test=tts(train_feats, y, test_size=0.1, shuffle=False)
 
     #Scearching for the best estimator:
     grid.fit(x_train,y_train)
@@ -92,6 +96,56 @@ def main():
         the_file.write('\n\nPrediction on the test set is:\n')
         the_file.write(str(grid.score(x_test,y_test)))
         the_file.write('\n')
+
+    #After the writing on file I make the plot:
+    #If I don't want to re-fit the entire grid this was the best method:
+"""
+Result of the run of:
+GridSearchCV(cv=5, error_score='raise-deprecating',
+             estimator=Pipeline(memory=None,
+                                steps=[('filter',
+                                        FilterRidgeCoefficients(ridge_coefs=array([2.46569831e-03, 3.77066050e-03, 5.23964210e-03, 8.11255196e-03,
+       1.38838481e-02, 1.56527228e-02, 1.74150185e-02, 2.12313481e-02,
+       2.44170270e-02, 2.60639867e-02, 2.77294478e-02, 2.98486775e-02,
+       3.40030221e-02, 3.68909430e-02...
+             param_grid={'GPR__kernel': [RBF(length_scale=1),
+                                         DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)],
+                         'filter__treshold': array([2.46569831e-03, 3.36500918e-01, 6.70536137e-01, 1.00457136e+00,
+       1.33860658e+00, 1.67264180e+00, 2.00667701e+00, 2.34071223e+00,
+       2.67474745e+00, 3.00878267e+00])},
+             pre_dispatch='2*n_jobs', refit=True, return_train_score=False,
+             scoring=None, verbose=0)
+
+Best parameters were:
+{'GPR__kernel': DotProduct(sigma_0=1) + WhiteKernel(noise_level=1), 'filter__treshold': 1.0045713564722605}
+
+Best score was
+0.7742552661348888
+
+Prediction on the test set is:
+0.7730276674891959
+"""
+    best_filter= FilterRidgeCoefficients(ridge_coefs, 1.0045713564722605)
+    best_gaussian_process = GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=(DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)))
+    pipe_filter_gpr = Pipeline([('filter', best_filter), ('GPR', best_gaussian_process)])
+    pipe_filter_gpr.fit(x_train,y_train)
+
+
+    train_prediction=np.floor(pipe_filter_gpr.predict(train_feats))
+    train_score=pipe_filter_gpr.score(train_feats,y)
+
+    data_train['predicted_age'] = train_prediction
+
+    f=sns.lmplot('age_floor', 'predicted_age',data=data_train, robust=True,
+                scatter_kws={'alpha':0.2}, hue='gender', height=8, ci=90)
+    plt.gca().set_title(r'Final Model Full Train Result, $R^2=$%.2f'%train_score, size=15)
+    plt.gca().set_ylabel('Predicted Age', size=15)
+    plt.gca().set_xlabel('Age', size=15)
+    f.savefig(pj(results_dir, 'Full_Train_final_Result_gender.png'), bbox_inches='tight')
+
+
+
+
 
 if __name__ == '__main__':
     main()
