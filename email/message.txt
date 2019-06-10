@@ -1,0 +1,11 @@
+Dear ${PERSON_NAME},
+
+This is a test message.
+Have a great weekend!
+
+Yours
+Alessandro
+
+-------------------------------------------------------------------------------
+This is a no-replay e-mail address.
+If you want to write me send an e-mail to: alessandro.dagostino96@gmail.com
