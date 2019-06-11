@@ -31,7 +31,7 @@ class FilterRidgeCoefficients(BaseEstimator, TransformerMixin):
         return self
 
     def transform( self, X, y = None):
-        filter = ridge_coefs > self.treshold
+        filter = self.ridge_coefs > self.treshold
         return X[:,filter]
 
 def main():
