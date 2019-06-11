@@ -47,8 +47,8 @@ def main():
     #Extracting interesting features as a np.array
     feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
     #Shape of data:
-    y.shape
-    feats.shape
+    #y.shape
+    #feats.shape
 
     #Scaling of data according to the MinMaxScaler
     train_feats=MinMaxScaler().fit_transform(feats)
@@ -57,11 +57,11 @@ def main():
     ridge=RidgeCV(alphas=alphas, fit_intercept=True)
     #Finding the best penalization parameter alpha
     ridge.fit(train_feats, y)
-    alpha = ridge.alpha_
-    alpha
+    #alpha = ridge.alpha_
+    #alpha
     #Saving all the coefficients
     ridge_coefs = np.sort(np.abs(ridge.coef_))
-    ridge_coefs.shape
+    #ridge_coefs.shape
     #Score of the best ridge regression:
     ridge.score(train_feats,y)
 
@@ -128,7 +128,6 @@ Best score was
 Prediction on the test set is:
 0.7730276674891959
 '''
-
 if __name__ == '__main__':
     main()
 # %%
