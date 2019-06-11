@@ -1,3 +1,6 @@
+from sklearn.externals import joblib
+import Pipeline_GridschearchCV
+
 best_filter= FilterRidgeCoefficients(ridge_coefs, 1.0045713564722605)
 best_gaussian_process = GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=(DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)))
 pipe_filter_gpr = Pipeline([('filter', best_filter), ('GPR', best_gaussian_process)])
