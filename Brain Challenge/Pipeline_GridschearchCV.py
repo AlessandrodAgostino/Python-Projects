@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import pylab as plt
-
+import statsmodels
 import scipy.stats as st
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import FeatureUnion, Pipeline
@@ -15,6 +15,7 @@ from sklearn.gaussian_process.kernels import RBF, RationalQuadratic, Matern, Dot
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import GridSearchCV
+from sklearn.externals import joblib
 
 #Definition of my custom Tranformer
 class FilterRidgeCoefficients(BaseEstimator, TransformerMixin):
@@ -97,9 +98,11 @@ def main():
         the_file.write(str(grid.score(x_test,y_test)))
         the_file.write('\n')
 
-    #After the writing on file I make the plot:
-    #If I don't want to re-fit the entire grid this was the best method:
-"""
+    filename = pj(results_dir,'best_gpr_in_gridscearch.sav')
+    #Saving the completly the best object after training
+    joblib.dump(grid, filename)
+
+'''
 Result of the run of:
 GridSearchCV(cv=5, error_score='raise-deprecating',
              estimator=Pipeline(memory=None,
@@ -124,28 +127,7 @@ Best score was
 
 Prediction on the test set is:
 0.7730276674891959
-"""
-    best_filter= FilterRidgeCoefficients(ridge_coefs, 1.0045713564722605)
-    best_gaussian_process = GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=(DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)))
-    pipe_filter_gpr = Pipeline([('filter', best_filter), ('GPR', best_gaussian_process)])
-    pipe_filter_gpr.fit(x_train,y_train)
-
-
-    train_prediction=np.floor(pipe_filter_gpr.predict(train_feats))
-    train_score=pipe_filter_gpr.score(train_feats,y)
-
-    data_train['predicted_age'] = train_prediction
-
-    f=sns.lmplot('age_floor', 'predicted_age',data=data_train, robust=True,
-                scatter_kws={'alpha':0.2}, hue='gender', height=8, ci=90)
-    plt.gca().set_title(r'Final Model Full Train Result, $R^2=$%.2f'%train_score, size=15)
-    plt.gca().set_ylabel('Predicted Age', size=15)
-    plt.gca().set_xlabel('Age', size=15)
-    f.savefig(pj(results_dir, 'Full_Train_final_Result_gender.png'), bbox_inches='tight')
-
-
-
-
+'''
 
 if __name__ == '__main__':
     main()
