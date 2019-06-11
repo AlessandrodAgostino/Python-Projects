@@ -98,7 +98,7 @@ def main():
         the_file.write(str(grid.score(x_test,y_test)))
         the_file.write('\n')
 
-    filename = pj(results_dir,'best_gpr_in_gridscearch.sav')
+    # filename = pj(results_dir,'best_gpr_in_gridscearch.sav')
     #Saving the completly the best object after training
     joblib.dump(grid, filename)
 
@@ -131,5 +131,4 @@ Prediction on the test set is:
 
 if __name__ == '__main__':
     main()
-
 # %%
