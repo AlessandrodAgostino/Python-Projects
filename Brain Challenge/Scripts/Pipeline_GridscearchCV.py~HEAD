@@ -16,11 +16,6 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import GridSearchCV
 from sklearn.externals import joblib
-#Sending emails
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from string import Template
 
 #Definition of my custom Tranformer
 class FilterRidgeCoefficients(BaseEstimator, TransformerMixin):
@@ -106,23 +101,6 @@ def main():
     # filename = pj(results_dir,'best_gpr_in_gridscearch.sav')
     #Saving the completly the best object after training
     joblib.dump(grid, filename)
-
-    #Sending e-mail when finished
-    username = 'alessandro.dagostino.notifica@gmail.com'
-    password = 'notific@'
-    server = smtplib.SMTP('smtp.gmail.com',587)
-    server.starttls()
-    server.login(username,password)
-
-    msg = MIMEMultipart()
-    msg['From']=username
-    msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']='Training Finito'
-    message = "Il training e' finito"
-
-    msg.attach(MIMEText(message, 'plain'))
-    server.send_message(msg)
-    del msg
 
 '''
 Result of the run of:
