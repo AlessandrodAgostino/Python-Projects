@@ -1,6 +1,8 @@
+import numpy as np
 from joblib import Memory
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
+
 
 #Theese lines are necessary to create a cache directory, and clean it before use
 location = './.cachedir'
@@ -30,6 +32,7 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         cached_fit = memory.cache(cached_pipe.fit)
         cached_fit(X,y)
         regr_coef = cached_pipe[1].coef_ #required attribute
+        regr_coef = np.sort(np.abs(regr_coef))
         filter = regr_coef > self.treshold
         return X[:,filter]
 
