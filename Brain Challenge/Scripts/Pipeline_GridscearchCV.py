@@ -153,3 +153,8 @@ Prediction on the test set is:
 if __name__ == '__main__':
     main()
 # %%
+
+"""
+Cosa devo salvare per poi fare il grafico?
+Cosa sfrutto per disegnare l'intervallo di confidenza dal gpr??
+"""
