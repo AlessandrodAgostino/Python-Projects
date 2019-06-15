@@ -13,15 +13,20 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     """docstring for FilterRidgeCoefficients
     This custom transform filter those
     features with a weight greater than a certain treshold.
+    The treshold is inteded as a multiplier t such:
+        min_coef = np.min(self.regr_coef)
+        delta = np.max(self.regr_coef) - min_coef
+        filter = self.regr_coef > min_coef + delta*self.treshold_mul
+
     It exploit the cache memory in order to not recompute those fitting that has
     already been done.
     It requires that the passed regressor has an attribute `coef_` in which the
     coefficients are stored.
     """
-    def __init__(self, scaler ,regressor, treshold):
+    def __init__(self, scaler ,regressor, treshold_mul):
         self.scaler = scaler #The way to scale datasets
         self.regressor = regressor #The way to regress data
-        self.treshold = treshold #Where to cut the coefficients
+        self.treshold_mul = treshold_mul #Where to cut the coefficients
         self.regr_coef = 0
 
     def fit( self, X, y = None ):
@@ -29,12 +34,17 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
                                 ('regressor', self.regressor)])
         cached_fit = memory.cache(cached_pipe.fit)
         cached_fit(X,y)
-        self.regr_coef = cached_pipe[1].coef_ #required attribute
+        if hasattr(cached_pipe[1], 'coef_'):
+            self.regr_coef = cached_pipe[1].coef_
+        else:
+            self.regr_coef = np.random.rand(len(X[0,:])) #required attribute
         self.regr_coef = np.sort(np.abs(self.regr_coef))
         return self
 
     def transform( self, X, y = None):
-        filter = self.regr_coef > self.treshold
+        min_coef = np.min(self.regr_coef)
+        delta = np.max(self.regr_coef) - min_coef
+        filter = self.regr_coef > min_coef + delta*self.treshold_mul
         return X[:,filter]
 
 
