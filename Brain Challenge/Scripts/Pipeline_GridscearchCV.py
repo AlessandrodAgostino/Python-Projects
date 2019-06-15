@@ -90,7 +90,7 @@ def main():
 
     pipeline = Pipeline([('Filter', transformer), ('GPR', GPR)])
 
-    tresholds = np.linspace(0,0.25, num=1000)
+    tresholds = np.linspace(0.0,0.25, num=1000)
     parameter_grid = {'Filter__regressor' : regressors,
                       'Filter__treshold' : tresholds,
                       'GPR__kernel' : [RBF(), DotProduct() + WhiteKernel()]}
