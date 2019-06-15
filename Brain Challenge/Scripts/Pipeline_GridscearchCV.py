@@ -24,6 +24,9 @@ from joblib import Memory
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
 
+location = './.cachedir'
+memory = Memory(location=location, verbose=1)
+memory.clear(warn=False)
 
 class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     """docstring for FilterRidgeCoefficients
@@ -65,10 +68,7 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
 
 
 def main():
-    #Definition of my custom Tranformer
-    location = './.cachedir'
-    memory = Memory(location=location, verbose=1)
-    memory.clear(warn=False)
+
 
     #Remote path for Data and Results directories
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
