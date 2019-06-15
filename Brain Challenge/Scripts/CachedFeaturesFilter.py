@@ -39,7 +39,7 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
 
 
 #EXAMPLE OF USE EXPLOYING THE DATA IN THE REMOTE KERNEL
-
+"""
 import numpy as np
 import time
 import pandas as pd
@@ -70,3 +70,4 @@ post_filter_feats = transformer.transform(feats,y)
 end = time.time()
 print('\nThe function took {:.2f} s to compute.'.format(end - start))
 #This should take ~ 0.04s
+"""
