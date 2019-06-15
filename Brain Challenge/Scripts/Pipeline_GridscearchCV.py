@@ -82,7 +82,7 @@ def main():
     scaler = MinMaxScaler()
     alphas=np.arange(0.001, 10, 0.005)
     lasso=LassoCV(alphas=alphas, fit_intercept=True, max_iter=100)
-    ridge=RidgeCV(alphas=alphas, fit_intercept=True, max_iter=100)
+    ridge=RidgeCV(alphas=alphas, fit_intercept=True)
     regressors = [lasso, ridge]
     transformer = CachedFeaturesFilter(scaler, lasso, 1)
 
