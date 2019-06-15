@@ -1,0 +1,24 @@
+Result of the run of:
+GridSearchCV(cv=5, error_score='raise-deprecating',
+             estimator=Pipeline(memory=None,
+                                steps=[('filter',
+                                        FilterRidgeCoefficients(ridge_coefs=array([2.46569831e-03, 3.77066050e-03, 5.23964210e-03, 8.11255196e-03,
+       1.38838481e-02, 1.56527228e-02, 1.74150185e-02, 2.12313481e-02,
+       2.44170270e-02, 2.60639867e-02, 2.77294478e-02, 2.98486775e-02,
+       3.40030221e-02, 3.68909430e-02...
+             param_grid={'GPR__kernel': [RBF(length_scale=1),
+                                         DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)],
+                         'filter__treshold': array([2.46569831e-03, 3.36500918e-01, 6.70536137e-01, 1.00457136e+00,
+       1.33860658e+00, 1.67264180e+00, 2.00667701e+00, 2.34071223e+00,
+       2.67474745e+00, 3.00878267e+00])},
+             pre_dispatch='2*n_jobs', refit=True, return_train_score=False,
+             scoring=None, verbose=0)
+
+Best parameters were:
+{'GPR__kernel': DotProduct(sigma_0=1) + WhiteKernel(noise_level=1), 'filter__treshold': 0.002465698306789499}
+
+Best score was
+0.7523413533800746
+
+Prediction on the test set is:
+0.7587880058997227
