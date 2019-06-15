@@ -63,39 +63,39 @@ def main():
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
     results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 
-    #Loading the data as a pd.DataFrame
     data_train = pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                             header=0, sep='\t')
-    #Extracting target variable as a np.array
     y = data_train['age_floor'].values
-    #Extracting interesting features as a np.array
     feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
+
+    scaler.transform(feats)
 
     scaler = MinMaxScaler()
     alphas=np.arange(0.001, 10, 0.005)
     lasso=LassoCV(alphas=alphas, fit_intercept=False, max_iter=100)
+    tresholds = np.linspace(0,0.1, num=3)
 
     transformer = CachedFeaturesFilter(scaler, lasso, 1)
-    GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
 
-    filter_ridge_coef = FilterRidgeCoefficients(ridge_coefs, 0)
-    #the GPR
-    gaussian_process = GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
-    #the pipeline that merge them
-    pipe_filter_gpr = Pipeline([('filter', filter_ridge_coef), ('GPR', gaussian_process)])
-    #the parameter grid with different tresholds and different kernels to try
-    parameter_grid = {'filter__treshold': tresholds,
-                      'GPR__kernel': [RBF(), DotProduct() + WhiteKernel()]}
-    #Gridscearch of the pipeline on those parameters
-    grid = GridSearchCV(pipe_filter_gpr, param_grid=parameter_grid, cv=5)
+    tr_feats = transformer.(feats,y)
+    GPR.fit(tr_feats,y)
+
+    pipeline.fit(tr_feats,y)
+
+    GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=1, kernel=RBF())
+    pipeline = Pipeline([('Filter', transformer), ('GPR', GPR)])
+    parameter_grid = {'Filter__treshold' : tresholds,
+                      'GPR__kernel' : [RBF()]}
+    grid = GridSearchCV(pipeline, param_grid=parameter_grid, cv=2)
+    x_train,x_test,y_train,y_test=tts(feats, y, test_size=0.1, shuffle=False)
+
+    start = time.time()
+    grid.fit(feats,y)
+    end = time.time()
+    print('\nThe function took {:.2f} s to compute.'.format(end - start))
 
  ############################################################
 
-    start = time.time()
-    post_filter_feats = transformer.transform(feats,y)
-    end = time.time()
-    print('\nThe function took {:.2f} s to compute.'.format(end - start))
-    #This should take ~ 14s
 
     #Scaling of data according to the MinMaxScaler
     train_feats=MinMaxScaler().fit_transform(feats)

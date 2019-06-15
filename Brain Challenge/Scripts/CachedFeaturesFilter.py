@@ -22,22 +22,23 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         self.scaler = scaler #The way to scale datasets
         self.regressor = regressor #The way to regress data
         self.treshold = treshold #Where to cut the coefficients
+        self.regr_coef = 0
 
     def fit( self, X, y = None ):
-        return self
-
-    def transform( self, X, y = None):
         cached_pipe = Pipeline([('scaler', self.scaler),
                                 ('regressor', self.regressor)])
         cached_fit = memory.cache(cached_pipe.fit)
         cached_fit(X,y)
-        regr_coef = cached_pipe[1].coef_ #required attribute
-        regr_coef = np.sort(np.abs(regr_coef))
-        filter = regr_coef > self.treshold
+        self.regr_coef = cached_pipe[1].coef_ #required attribute
+        self.regr_coef = np.sort(np.abs(self.regr_coef))
+        return self
+
+    def transform( self, X, y = None):
+        filter = self.regr_coef > self.treshold
         return X[:,filter]
 
-"""
-EXAMPLE OF USE EXPLOYING THE DATA IN THE REMOTE KERNEL
+
+#EXAMPLE OF USE EXPLOYING THE DATA IN THE REMOTE KERNEL
 
 import numpy as np
 import time
@@ -54,12 +55,12 @@ X=feats
 y = data_train['age_floor'].values
 
 scaler = MinMaxScaler()
-alphas=np.arange(0.001, 10, 0.005)
+alphas=np.arange(0.001, 10.001, 0.005)
 lasso=LassoCV(alphas=alphas, fit_intercept=False, max_iter=100)
 
 transformer = CachedFeaturesFilter(scaler, lasso, 1)
 start = time.time()
-post_filter_feats = transformer.transform(feats,y)
+post_filter_feats = transformer.fit_transform(feats,y)
 end = time.time()
 print('\nThe function took {:.2f} s to compute.'.format(end - start))
 #This should take ~ 14s
@@ -69,4 +70,3 @@ post_filter_feats = transformer.transform(feats,y)
 end = time.time()
 print('\nThe function took {:.2f} s to compute.'.format(end - start))
 #This should take ~ 0.04s
-"""
