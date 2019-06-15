@@ -81,8 +81,8 @@ def main():
 
     scaler = MinMaxScaler()
     alphas=np.arange(0.001, 10, 0.005)
-    lasso=LassoCV(alphas=alphas, fit_intercept=False, max_iter=100)
-    ridge=RidgeCV(alphas=alphas, fit_intercept=True)
+    lasso=LassoCV(alphas=alphas, fit_intercept=True, max_iter=100)
+    ridge=RidgeCV(alphas=alphas, fit_intercept=True, max_iter=100)
     regressors = [lasso, ridge]
     transformer = CachedFeaturesFilter(scaler, lasso, 1)
 
@@ -92,7 +92,7 @@ def main():
 
     tresholds = np.linspace(0,0.25, num=1000)
     parameter_grid = {'Filter__regressor' : regressors,
-                      'Filter__treshold' : tresholds,
+                      'Filter__treshold_mul' : tresholds,
                       'GPR__kernel' : [RBF(), DotProduct() + WhiteKernel()]}
     grid = GridSearchCV(pipeline, param_grid=parameter_grid, cv=2)
 
