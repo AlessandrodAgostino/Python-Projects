@@ -22,8 +22,9 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     already been done.
     It requires that the passed regressor has an attribute `coef_` in which the
     coefficients are stored.
+    The attribute `history` is inteded to be a list.
     """
-    def __init__(self, scaler ,regressor, treshold_mul):
+    def __init__(self, scaler ,regressor, treshold_mul , selection_history = False, history = None):
         self.scaler = scaler #The way to scale datasets
         self.regressor = regressor #The way to regress data
         self.treshold_mul = treshold_mul #Where to cut the coefficients
@@ -45,6 +46,7 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         min_coef = np.min(self.regr_coef)
         delta = np.max(self.regr_coef) - min_coef
         filter = self.regr_coef > min_coef + delta*self.treshold_mul
+        if self.selection_history: history.append(filter*1)
         return X[:,filter]
 
 

@@ -24,7 +24,7 @@ from joblib import Memory
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
 
-location = './.cachedir'
+location = './.cachedir_loc'
 memory = Memory(location=location, verbose=1)
 memory.clear(warn=False)
 
@@ -41,8 +41,9 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     already been done.
     It requires that the passed regressor has an attribute `coef_` in which the
     coefficients are stored.
+    The attribute `history` is inteded to be a list.
     """
-    def __init__(self, scaler ,regressor, treshold_mul):
+    def __init__(self, scaler ,regressor, treshold_mul , selection_history = False, history = None):
         self.scaler = scaler #The way to scale datasets
         self.regressor = regressor #The way to regress data
         self.treshold_mul = treshold_mul #Where to cut the coefficients
@@ -64,11 +65,10 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         min_coef = np.min(self.regr_coef)
         delta = np.max(self.regr_coef) - min_coef
         filter = self.regr_coef > min_coef + delta*self.treshold_mul
+        if self.selection_history: history.append(filter*1)
         return X[:,filter]
 
-
 def main():
-
 
     #Remote path for Data and Results directories
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
@@ -84,7 +84,8 @@ def main():
     lasso=LassoCV(alphas=alphas, fit_intercept=True, max_iter=100)
     ridge=RidgeCV(alphas=alphas, fit_intercept=True)
     regressors = [lasso, ridge]
-    transformer = CachedFeaturesFilter(scaler, lasso, 1)
+    history = []
+    transformer = CachedFeaturesFilter(scaler, lasso, 1, selection_history = True, history = history)
 
     GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
 
@@ -112,7 +113,6 @@ def main():
         the_file.write('\n\nPrediction on the test set is:\n')
         the_file.write(str(grid.score(x_test,y_test)))
         the_file.write('\n')
-
 
     filename = pj(results_dir,'best_par_in_gridscearch.pkl')
     joblib.dump(grid.best_params_,filename, compress=1)
