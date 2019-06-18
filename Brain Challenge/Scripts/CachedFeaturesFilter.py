@@ -7,7 +7,9 @@ import numpy as np
 # memory = Memory(location=location, verbose=1)
 # memory.clear(warn=False) #Command used to clear the memory
 
-
+location = './cachedir'
+memory = Memory(location=location, verbose=1)
+memory.clear(warn=False) #Command used to clear the memory
 
 class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     """
