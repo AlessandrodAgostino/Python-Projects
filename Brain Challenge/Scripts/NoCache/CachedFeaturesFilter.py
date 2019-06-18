@@ -8,6 +8,14 @@ memory.clear(warn=False) #Command used to clear the memory
 
 class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     """
+    The method exploit the cache memory using `joblib` in order to not recompute
+    those `fit` that have already been done. In order to work wel it's required
+    to create a cachememory directory as follows:
+
+        location = './cachedir'
+        memory = Memory(location=location, verbose=1)
+        memory.clear(warn=False) #Command used to clear the memory
+
     This custom transformer takes as parameters a datasets `X `and the targets
     `y` and returns only those features that have a coefficient greater than a
     certain treshold.
@@ -22,8 +30,6 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     In order to do that the attribute `selection_history` should be set to
     True.
 
-    The method exploit the cache memory using `joblib` in order to not recompute
-    those `fit` that have already been done.
 
     #EXAMPLE OF USE:
     from sklearn.datasets import load_boston
@@ -93,11 +99,13 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         #Here I seek the Min and the Max of the coefficients and set the treshold
         min_coef = np.min(self.regr_coef)
         delta = np.max(self.regr_coef) - min_coef
-        filter = self.regr_coef > min_coef + delta*self.treshold_mul
+        filter = self.regr_coef >= min_coef + delta*self.treshold_mul
         #Saving the history of filtering
         if self.selection_history: self.history.append(filter*1)
-        filter = np.abs(X[0,:])>0
         return X[:,filter]
 
     def fit_transform(self, X, y=None, **fit_params):
         return self.transform(X,y)
+
+    def inutile(self):
+        print("niente")
