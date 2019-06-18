@@ -13,7 +13,7 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
     """docstring for FilterRidgeCoefficients
     This custom transform filter those
     features with a weight greater than a certain treshold.
-    The treshold is inteded as a multiplier t such:
+    The treshold is inteded as a multiplier `t` such:
         min_coef = np.min(self.regr_coef)
         delta = np.max(self.regr_coef) - min_coef
         filter = self.regr_coef > min_coef + delta*self.treshold_mul
@@ -29,25 +29,35 @@ class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
         self.regressor = regressor #The way to regress data
         self.treshold_mul = treshold_mul #Where to cut the coefficients
         self.regr_coef = 0
+        self.selection_history = selection_history
+        self.history = history
 
     def fit( self, X, y = None ):
+        #Here I define a local pipeline that will be cached
         cached_pipe = Pipeline([('scaler', self.scaler),
                                 ('regressor', self.regressor)])
+        #Here I cache the fit method of the local pipeline, that will be called below
         cached_fit = memory.cache(cached_pipe.fit)
         cached_fit(X,y)
-        if hasattr(cached_pipe[1], 'coef_'):
-            self.regr_coef = cached_pipe[1].coef_
+        if hasattr(cached_pipe.steps[1], 'coef_'):
+            self.regr_coef = cached_pipe.steps[1].coef_
         else:
             self.regr_coef = np.random.rand(len(X[0,:])) #required attribute
-        self.regr_coef = np.sort(np.abs(self.regr_coef))
+        #Here I save the regression coefficients in absolut value
+        self.regr_coef = np.abs(self.regr_coef)
         return self
 
     def transform( self, X, y = None):
+        #Here I seek the Min and the Max of the coefficients and set the treshold
         min_coef = np.min(self.regr_coef)
         delta = np.max(self.regr_coef) - min_coef
         filter = self.regr_coef > min_coef + delta*self.treshold_mul
-        if self.selection_history: history.append(filter*1)
+        #Saving the history of filtering
+        if self.selection_history: self.history.append(filter*1)
         return X[:,filter]
+
+    def write_on_history(self):
+        self.history.append([5]*6)
 
 
 #EXAMPLE OF USE EXPLOYING THE DATA IN THE REMOTE KERNEL
