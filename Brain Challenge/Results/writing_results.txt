@@ -1,0 +1,24 @@
+Result of the run of:
+GridSearchCV(cv=2, error_score='raise-deprecating',
+       estimator=Pipeline(memory=None,
+     steps=[('Scaler', MinMaxScaler(copy=True, feature_range=(0, 1))), ('Filter', CachedFeaturesFilter(regressor=LassoCV(alphas=array([1.00000e-03, 5.12462e-02, ..., 9.94975e+00, 1.00000e+01]),
+    copy_X=True, cv='warn', eps=0.001, fit_intercept=True, max_iter=1000,
+    n_alphas=100, n_jobs=None, normal...mizer=3,
+             normalize_y=True, optimizer='fmin_l_bfgs_b',
+             random_state=None))]),
+       fit_params=None, iid='warn', n_jobs=None,
+       param_grid={'Scaler': [MinMaxScaler(copy=True, feature_range=(0, 1)), StandardScaler(copy=True, with_mean=True, with_std=True)], 'Filter__regressor': [LassoCV(alphas=array([1.00000e-03, 5.12462e-02, ..., 9.94975e+00, 1.00000e+01]),
+    copy_X=True, cv='warn', eps=0.001, fit_intercept=True, max_iter=...0.25   ]), 'GPR__kernel': [RBF(length_scale=1), DotProduct(sigma_0=1) + WhiteKernel(noise_level=1)]},
+       pre_dispatch='2*n_jobs', refit=True, return_train_score='warn',
+       scoring=None, verbose=0)
+
+Best parameters were:
+{'Filter__regressor': RidgeCV(alphas=array([1.00000e-03, 5.12462e-02, ..., 9.94975e+00, 1.00000e+01]),
+    cv=None, fit_intercept=True, gcv_mode=None, normalize=False,
+    scoring=None, store_cv_values=False), 'Filter__treshold_mul': 0.2297979797979798, 'GPR__kernel': DotProduct(sigma_0=1) + WhiteKernel(noise_level=1), 'Scaler': StandardScaler(copy=True, with_mean=True, with_std=True)}
+
+Best score was
+0.5975889932791646
+
+Prediction on the test set is:
+0.45058758547400335
