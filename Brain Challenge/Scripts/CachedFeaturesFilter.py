@@ -1,83 +1,116 @@
-import numpy as np
 from joblib import Memory
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.pipeline import Pipeline
+import numpy as np
+
+#To import or to recreate in the destination file
+# location = './cachedir'
+# memory = Memory(location=location, verbose=1)
+# memory.clear(warn=False) #Command used to clear the memory
 
 
-#Theese lines are necessary to create a cache directory, and clean it before use
-location = './.cachedir'
-memory = Memory(location=location, verbose=1)
-memory.clear(warn=False)
 
 class CachedFeaturesFilter(BaseEstimator, TransformerMixin):
-    """docstring for FilterRidgeCoefficients
-    This custom transform filter those
-    features with a weight greater than a certain treshold.
-    The treshold is inteded as a multiplier t such:
-        min_coef = np.min(self.regr_coef)
-        delta = np.max(self.regr_coef) - min_coef
-        filter = self.regr_coef > min_coef + delta*self.treshold_mul
-
-    It exploit the cache memory in order to not recompute those fitting that has
-    already been done.
-    It requires that the passed regressor has an attribute `coef_` in which the
-    coefficients are stored.
     """
-    def __init__(self, scaler ,regressor, treshold_mul):
-        self.scaler = scaler #The way to scale datasets
-        self.regressor = regressor #The way to regress data
-        self.treshold_mul = treshold_mul #Where to cut the coefficients
-        self.regr_coef = 0
+    The method exploit the cache memory using `joblib` in order to not recompute
+    those `fit` that have already been done. In order to work wel it's required
+    to create a cachememory directory as follows:
 
-    def fit( self, X, y = None ):
-        cached_pipe = Pipeline([('scaler', self.scaler),
-                                ('regressor', self.regressor)])
-        cached_fit = memory.cache(cached_pipe.fit)
-        cached_fit(X,y)
-        if hasattr(cached_pipe[1], 'coef_'):
-            self.regr_coef = cached_pipe[1].coef_
-        else:
-            self.regr_coef = np.random.rand(len(X[0,:])) #required attribute
-        self.regr_coef = np.sort(np.abs(self.regr_coef))
-        return self
+        location = './cachedir'
+        memory = Memory(location=location, verbose=1)
+        memory.clear(warn=False) #Command used to clear the memory
 
-    def transform( self, X, y = None):
-        min_coef = np.min(self.regr_coef)
-        delta = np.max(self.regr_coef) - min_coef
-        filter = self.regr_coef > min_coef + delta*self.treshold_mul
-        return X[:,filter]
+    This custom transformer takes as parameters a datasets `X `and the targets
+    `y` and returns only those features that have a coefficient greater than a
+    certain treshold.
 
+    The treshold is intended as a multiplier of the gap between the MIN and the
+    MAX of the coefficients array:
 
-#EXAMPLE OF USE EXPLOYING THE DATA IN THE REMOTE KERNEL
-"""
-import numpy as np
-import time
-import pandas as pd
+        effective_tresh = (MAX_COEF - MIN_COEF)*tresh_multiplier + MIN_COEF
+
+    The history of the different filtering that have been done can be stored in
+    a list `history` that's an attribute of the whole class. In order to do that
+    the attribute `selection_history` should be set to `True`.
+
+    #EXAMPLE OF USE:
+from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LassoCV
-from os.path import join as pj
+from sklearn.gaussian_process.kernels import RBF
+from sklearn.gaussian_process import GaussianProcessRegressor
+import time
+from sklearn.pipeline import Pipeline
+import warnings
 
-data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
-data_train = pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
-                        header=0, sep='\t')
-feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
-X=feats
-y = data_train['age_floor'].values
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
 
-scaler = MinMaxScaler()
-alphas=np.arange(0.001, 10.001, 0.005)
-lasso=LassoCV(alphas=alphas, fit_intercept=False, max_iter=100)
+    location = './cachedir'
+    memory = Memory(location=location, verbose=1)
+    memory.clear(warn=False) #Command used to clear the memory
 
-transformer = CachedFeaturesFilter(scaler, lasso, 1)
-start = time.time()
-post_filter_feats = transformer.fit_transform(feats,y)
-end = time.time()
-print('\nThe function took {:.2f} s to compute.'.format(end - start))
-#This should take ~ 14s
+    #Load data and target as np.array
+    X, y = load_boston(return_X_y=True)
 
-start = time.time()
-post_filter_feats = transformer.transform(feats,y)
-end = time.time()
-print('\nThe function took {:.2f} s to compute.'.format(end - start))
-#This should take ~ 0.04s
-"""
+    scaler = MinMaxScaler()
+    alphas = np.linspace(1e-4, 1e2, num = 200)
+    lasso = LassoCV(alphas=alphas, fit_intercept=False, max_iter=1000)
+    transformer = CachedFeaturesFilter(lasso, 0.01, selection_history = True)
+
+    #Let's see the use of the cache:
+    start = time.time()
+    transformer.fit_transform(X,y)
+    end = time.time()
+    print('\nThe function took {:.2f} s to compute.'.format(end - start))
+
+    start = time.time()
+    transformer.fit_transform(X,y)
+    end = time.time()
+    print('\nThe function took {:.2f} s to compute.'.format(end - start))
+
+    start = time.time()
+    transformer.fit_transform(X,y)
+    end = time.time()
+    print('\nThe function took {:.2f} s to compute.'.format(end - start))
+
+
+    #In this tiny df the difference is negligible but, this first run took ~0.15s
+    #From the second run on the time spent is ~0.02s
+
+    #It works well also inside a pipeline
+    GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
+    pipeline = Pipeline([('scaler', scaler), ('filter', transformer),('GPR',GPR)])
+    pipeline.fit(X,y)
+    print("The history of the filtering is:",transformer.history)
+    """
+
+    history = []
+    def __init__(self, regressor, treshold_mul , selection_history = False):
+        self.regressor = regressor #The way to regress data
+        self.treshold_mul = treshold_mul #Where to cut the coefficients
+        self.selection_history = selection_history
+
+    def fit( self, X, y = None ):
+        #Here I cache the fit method of the local pipeline, that will be called below
+        cached_fit = memory.cache(self.regressor.fit)
+        cached_fit(X,y)
+        if hasattr(self.regressor, 'coef_'):
+            regr_coef = self.regressor.coef_
+        else:
+            regr_coef = np.zeros(len(X[0,:]))
+        #Here I save the regression coefficients in absolut value
+        regr_coef = np.abs(regr_coef)
+        #Here I seek the Min and the Max of the coefficients and set the treshold
+        min_coef = np.min(regr_coef)
+        delta = np.max(regr_coef) - min_coef
+        self.filter = regr_coef >= (min_coef + delta*self.treshold_mul)
+        return self
+
+    def transform(self, X, y = None):
+        #Saving the history of filtering
+        if self.selection_history:
+            self.history.append(self.filter*1)
+        return X[:,self.filter]
+
+    def fit_transform(self, X, y=None, **fit_params):
+        return self.fit(X,y).transform(X)
