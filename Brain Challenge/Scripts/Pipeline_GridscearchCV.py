@@ -30,15 +30,16 @@ import warnings
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 
-
-
 def main():
     #Remote path for Data and Results directories
     #
-    # data_train = pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
-    #                         header=0, sep='\t')
-    # y = data_train['age_floor'].values
-    # feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
+    data_train = pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
+                            header=0, sep='\t')
+    #For local use
+    #X,y = load_boston(return_X_y=True)
+
+    y = data_train['age_floor'].values
+    X = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
 
     scaler = MinMaxScaler()
     scalers  = [MinMaxScaler(), StandardScaler()]
@@ -47,7 +48,7 @@ def main():
     ridge=RidgeCV(alphas=alphas, fit_intercept=True)
     regressors = [lasso, ridge]
 
-    GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=3, kernel=RBF())
+    GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
     transformer = CachedFeaturesFilter(lasso, 0.01,True)
 
 
@@ -59,14 +60,17 @@ def main():
 
     tresholds = np.linspace(0,0.25, num=100)
     parameter_grid = {'Scaler' : scalers,
+<<<<<<< HEAD
                       'Filter__regressor' : regressors,
 >>>>>>> 13aee6c0b07582ffe347172b396c2e64884479ec
+=======
+                      'Filter__regressor': regressors,
+>>>>>>> 9b00c7fc44a7cc484d80cb2eaa5ed3ce4b7f7b3c
                       'Filter__treshold_mul' : tresholds,
                       'GPR__kernel' : [RBF(), DotProduct() + WhiteKernel()]}
 
-    grid = GridSearchCV(pipeline, param_grid=parameter_grid, cv=2)
+    grid = GridSearchCV(pipeline, n_jobs=16, pre_dispatch=8, param_grid=parameter_grid, cv=5)
 
-    X,y = load_boston(return_X_y=True)
     x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
 
     with warnings.catch_warnings():
@@ -92,8 +96,8 @@ def main():
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']='Training Finito'
-    message = "Il training e' finito"
+    msg['Subject']='Training Brain Finito'
+    message = "Il training e' su brain finito"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -101,9 +105,9 @@ def main():
 
     #Saving the results
     history_df = pd.DataFrame(transformer.history)
-    history_df.to_csv("/home/alessandro/Python/Brain Challenge/Results/history_df.csv",index = False, header = False)
+    history_df.to_csv("/home/alessandro/Python/Brain Challenge/Results/brain_history_df.csv",index = False, header = False)
 
-    with open(pj('/home/alessandro/Python/Brain Challenge/Results/writing_results.txt'), 'w') as the_file:
+    with open(pj('/home/alessandro/Python/Brain Challenge/Results/brain_writing_results.txt'), 'w') as the_file:
         the_file.write('Result of the run of:\n')
         the_file.write(str(grid))
         the_file.write('\n\nBest parameters were:\n')
@@ -115,10 +119,10 @@ def main():
         the_file.write('\n')
 
     #filename = pj(results_dir,'best_params_in_gridscearch.pkl')
-    filename = '/home/alessandro/Python/Brain Challenge/Results/best_params_in_gridscearch.pkl'
+    filename = '/home/alessandro/Python/Brain Challenge/Results/brain_best_params_in_gridscearch.pkl'
     joblib.dump(grid.best_params_,filename, compress=1)
 
-    filename = '/home/alessandro/Python/Brain Challenge/Results/gridscearch.pkl'
+    filename = '/home/alessandro/Python/Brain Challenge/Results/brain_gridscearch.pkl'
     joblib.dump(grid,filename, compress=1)
 
 if __name__ == '__main__':
