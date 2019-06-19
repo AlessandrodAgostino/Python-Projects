@@ -52,20 +52,12 @@ def main():
     transformer = CachedFeaturesFilter(lasso, 0.01,True)
 
 
-<<<<<<< HEAD
-    tresholds = np.linspace(0.0,0.25, num=1000)
-    parameter_grid = {'Filter__regressor' : regressors,
-=======
     pipeline = Pipeline([('Scaler', scaler),('Filter', transformer), ('GPR', GPR)])
 
     tresholds = np.linspace(0,0.25, num=100)
     parameter_grid = {'Scaler' : scalers,
-<<<<<<< HEAD
                       'Filter__regressor' : regressors,
->>>>>>> 13aee6c0b07582ffe347172b396c2e64884479ec
-=======
                       'Filter__regressor': regressors,
->>>>>>> 9b00c7fc44a7cc484d80cb2eaa5ed3ce4b7f7b3c
                       'Filter__treshold_mul' : tresholds,
                       'GPR__kernel' : [RBF(), DotProduct() + WhiteKernel()]}
 
