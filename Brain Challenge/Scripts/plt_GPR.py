@@ -1,11 +1,3 @@
-# import numpy as np
-#
-# X_ = np.linspace(0, 5, 100)
-# X_.shape
-# X_[:,None].shape
-#
-#
-
 import numpy as np
 
 from matplotlib import pyplot as plt
@@ -26,7 +18,7 @@ kernels = [1.0 * RBF(length_scale=1.0, length_scale_bounds=(1e-1, 10.0)),
            1.0 * Matern(length_scale=1.0, length_scale_bounds=(1e-1, 10.0),
                         nu=1.5)]
 
-for kernel in kernels[:1]:
+for kernel in kernels:
     # Specify Gaussian Process
     gp = GaussianProcessRegressor(kernel=kernel)
 
@@ -47,7 +39,6 @@ for kernel in kernels[:1]:
     # Generate data and fit GP
     rng = np.random.RandomState(4)
     X = rng.uniform(0, 5, 10)[:, np.newaxis]
-    X
     y = np.sin((X[:, 0] - 2.5) ** 2)
     gp.fit(X, y)
 
@@ -70,3 +61,4 @@ for kernel in kernels[:1]:
     plt.tight_layout()
 
 plt.show()
+#%%
