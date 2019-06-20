@@ -197,7 +197,7 @@ def main():
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
     filt0.history = []
-    filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9))]
+    filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
     n_tresh = 10
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
