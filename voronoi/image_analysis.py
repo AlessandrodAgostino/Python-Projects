@@ -9,8 +9,6 @@ filename = 'selection2.png'
 file_write = 'gr_selection2.png'
 
 selection = io.imread(filename)
-
-
 gr_sel.size
 hist, _ =exposure.histogram(gr_sel)
 hist1, _ = np.histogram(gr_sel.ravel())

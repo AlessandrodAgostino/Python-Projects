@@ -32,7 +32,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - InSmall"
+    msg['Subject']="Training - InSmall 2"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -58,6 +58,7 @@ def main():
     elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
     regressors = [lasso, ridge, elnet]
 
+"""
     #-------------------------------------------------------------------------------
     #%%
     send_email("Start fitting al the combinations of scalers and regressors")
@@ -78,25 +79,6 @@ def main():
         times.append(en-st)
 
     send_email("End of fitting" + message)
-    """
-    The fitting of MinMaxScaler + LassoCV(al took 34.63s to compute
-
-    The fitting of MinMaxScaler + RidgeCV(al took 721.03s to compute
-
-    The fitting of MinMaxScaler + ElasticNet took 48.19s to compute
-
-    The fitting of StandardScal + LassoCV(al took 104.95s to compute
-
-    The fitting of StandardScal + RidgeCV(al took 730.67s to compute
-
-    The fitting of StandardScal + ElasticNet took 156.05s to compute
-
-    The fitting of RobustScaler + LassoCV(al took 91.00s to compute
-
-    The fitting of RobustScaler + RidgeCV(al took 739.92s to compute
-
-    The fitting of RobustScaler + ElasticNet took 133.95s to compute
-    """
 
     #-------------------------------------------------------------------------------
     #%%
@@ -106,7 +88,7 @@ def main():
     for pipe in pipes:
         filename = "{!s:.5}_{!s:.5}.joblib".format(pipe.named_steps['scaler'],pipe.named_steps['regressor'])
         dump(pipe,pj(results_dir,filename))
-
+"""
     #-------------------------------------------------------------------------------
     #%%
     send_email("Loading the coefficients in \n" + results_dir)
@@ -184,11 +166,11 @@ def main():
 
     #Saving best_params_ found by the gridscearch
     filename = "brain_best_params_in_grid0.joblib"
-    joblib.dump(grid0.best_params_,pj(results_dir, filename))
+    dump(grid0.best_params_,pj(results_dir, filename))
 
     #Saving all the grid found by the gridscearch
     filename = "brain_grid0.joblib"
-    joblib.dump(grid0,pj(results_dir, filename))
+    dump(grid0,pj(results_dir, filename))
 
     send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
@@ -231,11 +213,11 @@ def main():
 
     #Saving best_params_ found by the gridscearch
     filename = "brain_best_params_in_gridscearch.joblib"
-    joblib.dump(one_kernel_grid.best_params_,pj(results_dir, filename))
+    dump(one_kernel_grid.best_params_,pj(results_dir, filename))
 
     #Saving all the grid found by the gridscearch
     filename = "brain_gridscearch.joblib"
-    joblib.dump(one_kernel_grid,pj(results_dir, filename))
+    dump(one_kernel_grid,pj(results_dir, filename))
 
     send_email("Everything was saved")
 
