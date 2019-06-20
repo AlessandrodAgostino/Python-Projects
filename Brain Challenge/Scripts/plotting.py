@@ -32,7 +32,7 @@ import warnings
 
 #best_params = joblib.load(pj(results_dir,'AstroTOP100_best_est_gs.pkl'))
 best_params = joblib.load("/home/alessandro/Python/Brain Challenge/Results/best_params_in_gridscearch.pkl")
-dumped_grid = joblib.load("/home/alessandro/Python/Brain Challenge/Results/best_params_in_gridscearch.pkl")
+dumped_grid = joblib.load("/home/alessandro/Python/Brain Challenge/Results/gridscearch.pkl")
 
 scaler = MinMaxScaler()
 scalers  = [MinMaxScaler(), StandardScaler()]
@@ -42,6 +42,8 @@ ridge=RidgeCV(alphas=alphas, fit_intercept=True)
 regressors = [lasso, ridge]
 GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=3, kernel=RBF())
 transformer = CachedFeaturesFilter(lasso, 0.01,True)
+
+
 pipeline = Pipeline([('Scaler', scaler),('Filter', transformer), ('GPR', GPR)])
 tresholds = np.linspace(0,0.25, num=100)
 parameter_grid = {'Scaler' : scalers,
@@ -54,6 +56,10 @@ pipeline.set_params(**best_params)
 #To control if it really it's so easy!!
 grid = dumped_grid
 
+grid.best_estimator_
+
 X,y = load_boston(return_X_y=True)
 
-pipeline.predict(X)
+pipeline.fit(X,y)
+pipeline.score(X,y)
+pipeline.named_steps['GPR']
