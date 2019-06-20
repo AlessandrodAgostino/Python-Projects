@@ -58,37 +58,37 @@ def main():
     elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
     regressors = [lasso, ridge, elnet]
 
-"""
-    #-------------------------------------------------------------------------------
-    #%%
-    send_email("Start fitting al the combinations of scalers and regressors")
-    #Fitting all the combinations
-    pipes = []
-    coefs = []
-    times = []
-    message = ""
-    for sca, reg in product(scalers, regressors):
-        pipe = Pipeline([('scaler', sca), ('regressor', reg)])
-        X = x_train
-        st = time.time()
-        pipe.fit(X,y_train)
-        en = time.time()
-        message += '\nThe fitting of {!s:.12} + {!s:.10} took {:.2f}s to compute'.format(pipe.named_steps['scaler'],pipe.named_steps['regressor'], en -st)
-        pipes.append(pipe)
-        coefs.append(pipe.named_steps['regressor'].coef_)
-        times.append(en-st)
 
-    send_email("End of fitting" + message)
+    # #-------------------------------------------------------------------------------
+    # #%%
+    # send_email("Start fitting al the combinations of scalers and regressors")
+    # #Fitting all the combinations
+    # pipes = []
+    # coefs = []
+    # times = []
+    # message = ""
+    # for sca, reg in product(scalers, regressors):
+    #     pipe = Pipeline([('scaler', sca), ('regressor', reg)])
+    #     X = x_train
+    #     st = time.time()
+    #     pipe.fit(X,y_train)
+    #     en = time.time()
+    #     message += '\nThe fitting of {!s:.12} + {!s:.10} took {:.2f}s to compute'.format(pipe.named_steps['scaler'],pipe.named_steps['regressor'], en -st)
+    #     pipes.append(pipe)
+    #     coefs.append(pipe.named_steps['regressor'].coef_)
+    #     times.append(en-st)
+    #
+    # send_email("End of fitting" + message)
+    #
+    # #-------------------------------------------------------------------------------
+    # #%%
+    # send_email("Saving the coefficients in \n" + results_dir)
+    #
+    # #Saving pipes items after fit
+    # for pipe in pipes:
+    #     filename = "{!s:.5}_{!s:.5}.joblib".format(pipe.named_steps['scaler'],pipe.named_steps['regressor'])
+    #     dump(pipe,pj(results_dir,filename))
 
-    #-------------------------------------------------------------------------------
-    #%%
-    send_email("Saving the coefficients in \n" + results_dir)
-
-    #Saving pipes items after fit
-    for pipe in pipes:
-        filename = "{!s:.5}_{!s:.5}.joblib".format(pipe.named_steps['scaler'],pipe.named_steps['regressor'])
-        dump(pipe,pj(results_dir,filename))
-"""
     #-------------------------------------------------------------------------------
     #%%
     send_email("Loading the coefficients in \n" + results_dir)
