@@ -32,7 +32,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - InSmall 2"
+    msg['Subject']="Training - InSmall 3"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -163,10 +163,11 @@ def main():
     #Saving history of filtering
     history0_df = pd.DataFrame(filt0.history)
     history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
-
+    send_email("Saving history0")
     #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_grid0.joblib"
-    dump(grid0.best_params_,pj(results_dir, filename))
+    # filename = "brain_best_params_in_grid0.joblib"
+    # dump(grid0.n_jobs,pj(results_dir, filename))
+    # send_email("Saving grid0.best_params_")
 
     #Saving all the grid found by the gridscearch
     filename = "brain_grid0.joblib"
