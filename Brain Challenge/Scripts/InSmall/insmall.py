@@ -32,7 +32,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - InSmall 3"
+    msg['Subject']="Training - InSmall 4"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -165,15 +165,15 @@ def main():
     history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
     send_email("Saving history0")
     #Saving best_params_ found by the gridscearch
-    # filename = "brain_best_params_in_grid0.joblib"
-    # dump(grid0.n_jobs,pj(results_dir, filename))
-    # send_email("Saving grid0.best_params_")
+    filename = "brain_best_params_in_grid0.joblib"
+    dump(grid0.n_jobs,pj(results_dir, filename))
+    send_email("Saving grid0.best_params_")
 
-    #Saving all the grid found by the gridscearch
-    filename = "brain_grid0.joblib"
-    dump(grid0,pj(results_dir, filename))
-
-    send_email("Everything from the first simulation have been saved")
+    # #Saving all the grid found by the gridscearch
+    # filename = "brain_grid0.joblib"
+    # dump(grid0,pj(results_dir, filename))
+    #
+    # send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
     #Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
 
