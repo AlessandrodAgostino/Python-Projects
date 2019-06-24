@@ -140,35 +140,37 @@ def main():
             self.history.append(filter)
             return X[:,filter]
 
-    #NOW I WILL WORK ONLY WITH THE FIRST COMBINATION
-    filt0 = CoefFilter(feat_50[0], ord_coefs[0])
-    tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
-
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
-
-    filt_GPR_0 = Pipeline([('Filter', filt0), ('GPR', GPR)])
-    par_grid0 = {'Filter__treshold' : tresh0}
-
-    cv=KF(10, shuffle=True)
-    grid0 = GridSearchCV(filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
-
-    #Fitting of grid0
-    st = time.time()
-    grid0.fit(x_train,y_train)
-    en = time.time()
-    print("\nThe fit took {:.2f}s".format(en-st))
-
-    send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
-
-    #Saving history of filtering
-    history0_df = pd.DataFrame(filt0.history)
-    history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
-    send_email("Saving history0")
-    #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_grid0.joblib"
-    dump(grid0.best_params_,pj(results_dir, filename))
-    send_email("Saving grid0.best_params_")
-
+    # #%%
+    # #NOW I WILL WORK ONLY WITH THE FIRST COMBINATION
+    # filt0 = CoefFilter(feat_50[0], ord_coefs[0])
+    # tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
+    #
+    # GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+    #
+    # filt_GPR_0 = Pipeline([('Filter', filt0), ('GPR', GPR)])
+    # par_grid0 = {'Filter__treshold' : tresh0}
+    #
+    # cv=KF(10, shuffle=True)
+    # grid0 = GridSearchCV(filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
+    #
+    # #Fitting of grid0
+    # st = time.time()
+    # grid0.fit(x_train,y_train)
+    # en = time.time()
+    # print("\nThe fit took {:.2f}s".format(en-st))
+    #
+    # send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
+    #
+    # #Saving history of filtering
+    # history0_df = pd.DataFrame(filt0.history)
+    # history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
+    # send_email("Saving history0")
+    # #Saving best_params_ found by the gridscearch
+    # filename = "brain_best_params_in_grid0.joblib"
+    # dump(grid0.best_params_,pj(results_dir, filename))
+    # send_email("Saving grid0.best_params_")
+    # filt0.history = []
+    #
     # #Saving all the grid found by the gridscearch
     # filename = "brain_grid0.joblib"
     # dump(grid0,pj(results_dir, filename))
@@ -179,24 +181,20 @@ def main():
 
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
-    filt0.history = []
+
     filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
     n_tresh = 10
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
     #with different kernels
-    list_par_grid_multi_kernel = [{'Filter': filts[n],
-                                   'Filter__coef':ord_coefs[n],
-                                   'Filter__treshold': treshs[n],
-                                   'GPR__kernel': [RBF(), Matern(), RationalQuadratic()]} for n in range(9)]
+    list_par_grid_multi_kernel = [{'Filter': [filts[n]],'Filter__coef':ord_coefs[n],'Filter__treshold': treshs[n],'GPR__kernel': [RBF(), Matern(), RationalQuadratic()]} for n in range(9)]
+
     #only with one kernel (Matern)
-    list_par_grid_same_kernel = [{'Filter': filts[n],
-                                   'Filter__coef':ord_coefs[n],
-                                   'Filter__treshold': treshs[n]} for n in range(9)]
+    list_par_grid_same_kernel = [{'Filter': [filts[n]],'Filter__coef':ord_coefs[n],'Filter__treshold': treshs[n]} for n in range(9)]
 
     GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
     cv=KF(10, shuffle=True)
-    pipe = Pipeline([('Filter', filts[0]), ('GPR', GPR)])
+    pipe = Pipeline([('Filter', filts[1]), ('GPR', GPR)])
     cv=KF(10, shuffle=True)
 
 
