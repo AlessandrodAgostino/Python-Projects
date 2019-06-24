@@ -64,6 +64,15 @@ image.size
 s = [[1,1,1],
      [1,1,1],
      [1,1,1]]
+
+def binarize(pix):
+    if pix > 0: return 1
+    else: return 0
+v_bin = np.vectorize(binarize)
+
+
+
+
 #%%
 def select_dark(pix):
     if pix <= 60: return 1
@@ -74,7 +83,7 @@ sel_dark = v_select_dark(image)
 
 core, _ = label(sel_dark, structure = s)
 np.unique(core)
-io.imsave('core.png',core*255)
+io.imsave('core.png',v_bin(core)*255)
 #%%
 def select_grey(pix):
     if pix >= 60 and pix <= 220: return 1
@@ -83,7 +92,7 @@ def select_grey(pix):
 v_select_grey = np.vectorize(select_grey)
 sel_grey = v_select_grey(image)
 contour, _ = label(sel_grey, structure = s)
-io.imsave('contour.png',contour*255)
+io.imsave('contour.png',v_bin(contour)*255)
 #%%
 def select_white(pix):
     if pix >= 220: return 1
@@ -92,4 +101,4 @@ def select_white(pix):
 v_select_white = np.vectorize(select_white)
 sel_white = v_select_white(image)
 backg, _ = label(sel_white, structure = s)
-io.imsave('backgroung.png',backg*255)
+io.imsave('backgroung.png',v_bin(backg)*255)

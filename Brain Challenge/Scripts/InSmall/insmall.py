@@ -141,47 +141,47 @@ def main():
             return X[:,filter]
 
     # #%%
-    #NOW I WILL WORK ONLY WITH THE FIRST COMBINATION
-    filt0 = CoefFilter(feat_50[0], ord_coefs[0])
-    tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
-
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
-
-    filt_GPR_0 = Pipeline([('Filter', filt0), ('GPR', GPR)])
-    par_grid0 = {'Filter__treshold' : tresh0}
-
-    cv=KF(10, shuffle=True)
-    grid0 = GridSearchCV(filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
-
-    #Fitting of grid0
-    st = time.time()
-    grid0.fit(x_train,y_train)
-    en = time.time()
-    print("\nThe fit took {:.2f}s".format(en-st))
-
-    send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
-
-    #Saving history of filtering
-    history0_df = pd.DataFrame(filt0.history)
-    history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
-    send_email("Saving history0")
-    #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_grid0.joblib"
-    dump(grid0.best_params_,pj(results_dir, filename))
-    send_email("Saving grid0.best_params_")
-    filt0.history = []
-
+    # #NOW I WILL WORK ONLY WITH THE FIRST COMBINATION
+    # filt0 = CoefFilter(feat_50[0], ord_coefs[0])
+    # tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
+    #
+    # GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+    #
+    # filt_GPR_0 = Pipeline([('Filter', filt0), ('GPR', GPR)])
+    # par_grid0 = {'Filter__treshold' : tresh0}
+    #
+    # cv=KF(10, shuffle=True)
+    # grid0 = GridSearchCV(filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
+    #
+    # #Fitting of grid0
+    # st = time.time()
+    # grid0.fit(x_train,y_train)
+    # en = time.time()
+    # print("\nThe fit took {:.2f}s".format(en-st))
+    #
+    # send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
+    #
+    # #Saving history of filtering
+    # history0_df = pd.DataFrame(filt0.history)
+    # history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
+    # send_email("Saving history0")
+    # #Saving best_params_ found by the gridscearch
+    # filename = "brain_best_params_in_grid0.joblib"
+    # dump(grid0.best_params_,pj(results_dir, filename))
+    # send_email("Saving grid0.best_params_")
+    # filt0.history = []
+    #
     # #Saving all the grid found by the gridscearch
     # filename = "brain_grid0.joblib"
     # dump(grid0,pj(results_dir, filename))
-
-    send_email("Everything from the first simulation have been saved")
+    #
+    #send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
     #Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
 
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
-
+    x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
     filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
     n_tresh = 10
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
@@ -194,9 +194,7 @@ def main():
 
     GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
     cv=KF(10, shuffle=True)
-    pipe = Pipeline([('Filter', filts[1]), ('GPR', GPR)])
-    cv=KF(10, shuffle=True)
-
+    pipe = Pipeline([('Filter', filts[0]), ('GPR', GPR)])
 
     one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_same_kernel, n_jobs=16, pre_dispatch=8,  cv=cv)
     st = time.time()
