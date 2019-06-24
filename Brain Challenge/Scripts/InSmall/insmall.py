@@ -32,7 +32,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - InSmall 4"
+    msg['Subject']="Training - InSmall 5"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -166,7 +166,7 @@ def main():
     send_email("Saving history0")
     #Saving best_params_ found by the gridscearch
     filename = "brain_best_params_in_grid0.joblib"
-    dump(grid0.n_jobs,pj(results_dir, filename))
+    dump(grid0.best_params_,pj(results_dir, filename))
     send_email("Saving grid0.best_params_")
 
     # #Saving all the grid found by the gridscearch
@@ -217,10 +217,10 @@ def main():
     dump(one_kernel_grid.best_params_,pj(results_dir, filename))
 
     #Saving all the grid found by the gridscearch
-    filename = "brain_gridscearch.joblib"
-    dump(one_kernel_grid,pj(results_dir, filename))
-
-    send_email("Everything was saved")
+    # filename = "brain_gridscearch.joblib"
+    # dump(one_kernel_grid,pj(results_dir, filename))
+    #
+    send_email("Everything has been saved")
 
 
 if __name__ == '__main__':
