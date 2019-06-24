@@ -171,9 +171,9 @@ def main():
     send_email("Saving grid0.best_params_")
     filt0.history = []
 
-    #Saving all the grid found by the gridscearch
-    filename = "brain_grid0.joblib"
-    dump(grid0,pj(results_dir, filename))
+    # #Saving all the grid found by the gridscearch
+    # filename = "brain_grid0.joblib"
+    # dump(grid0,pj(results_dir, filename))
 
     send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
