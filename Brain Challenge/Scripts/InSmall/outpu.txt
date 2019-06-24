@@ -1,0 +1,2 @@
+
+The fit took 1653.89s
