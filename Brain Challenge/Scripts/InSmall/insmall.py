@@ -59,14 +59,15 @@ def main():
     regressors = [lasso, ridge, elnet]
 
 
-    # #-------------------------------------------------------------------------------
-    # #%%
+    #-------------------------------------------------------------------------------
+    #%%
     # send_email("Start fitting al the combinations of scalers and regressors")
     # #Fitting all the combinations
     # pipes = []
     # coefs = []
     # times = []
     # message = ""
+    #
     # for sca, reg in product(scalers, regressors):
     #     pipe = Pipeline([('scaler', sca), ('regressor', reg)])
     #     X = x_train
@@ -88,7 +89,7 @@ def main():
     # for pipe in pipes:
     #     filename = "{!s:.5}_{!s:.5}.joblib".format(pipe.named_steps['scaler'],pipe.named_steps['regressor'])
     #     dump(pipe,pj(results_dir,filename))
-
+    #
     #-------------------------------------------------------------------------------
     #%%
     send_email("Loading the coefficients in \n" + results_dir)
@@ -104,27 +105,28 @@ def main():
         coefs.append(list(pipe.named_steps['regressor'].coef_))
 
     #-------------------------------------------------------------------------------
-    #%%
-    #Plotting all the different coefficients
-    fig = plt.figure(figsize=(20, 20))
-    for i,coef in enumerate(coefs):#<--- limitation
-        plt.subplot(3, 3, i+1)
-        coef = np.sort(np.abs(coef))
-        plt.plot(coef[::-1])
-        plt.axvline(x=50, color='r')
-        plt.axhline(y=coef[-50], color='g', label='value = {}'.format(coef[-50]))
-        plt.legend()
-        plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(pipes[i][0],pipes[i][1]),  fontsize = 12)
-        plt.tight_layout()
-    fig.savefig(pj(results_dir,'NineCoefPlot.png'))
-
-    send_email("The nine graphs were plotted in" + pj(results_dir,'NineCoefPlot.png'))
-
+    # #%%
+    # #Plotting all the different coefficients
+    # fig = plt.figure(figsize=(20, 20))
+    # for i,coef in enumerate(coefs):#<--- limitation
+    #     plt.subplot(3, 3, i+1)
+    #     coef = np.sort(np.abs(coef))
+    #     plt.plot(coef[::-1])
+    #     plt.axvline(x=50, color='r')
+    #     plt.axhline(y=coef[-50], color='g', label='value = {}'.format(coef[-50]))
+    #     plt.legend()
+    #     plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(pipes[i][0],pipes[i][1]),  fontsize = 12)
+    #     plt.tight_layout()
+    # fig.savefig(pj(results_dir,'NineCoefPlot.png'))
+    #
+    # send_email("The nine graphs were plotted in" + pj(results_dir,'NineCoefPlot.png'))
+    #
     #-------------------------------------------------------------------------------
     #%%
     send_email("Starting the fit just for the first combination")
     ord_coefs = np.sort(np.abs(np.array(coefs)),axis = 1)
     feat_50 = ord_coefs[:,-50] #Values that correspond to the 50 feature treshold
+
 
     class CoefFilter(BaseEstimator, TransformerMixin):
         history = []
@@ -140,63 +142,64 @@ def main():
             self.history.append(filter)
             return X[:,filter]
 
-    # #%%
+    #%%
     #NOW I WILL WORK ONLY WITH THE FIRST COMBINATION
-    filt0 = CoefFilter(feat_50[0], ord_coefs[0])
-    tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
-
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
-
-    filt_GPR_0 = Pipeline([('Filter', filt0), ('GPR', GPR)])
-    par_grid0 = {'Filter__treshold' : tresh0}
-
-    cv=KF(10, shuffle=True)
-    grid0 = GridSearchCV(filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
-
-    #Fitting of grid0
-    st = time.time()
-    grid0.fit(x_train,y_train)
-    en = time.time()
-    print("\nThe fit took {:.2f}s".format(en-st))
-
-    send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
-
-    #Saving history of filtering
-    history0_df = pd.DataFrame(filt0.history)
-    history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
-    send_email("Saving history0")
-    #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_grid0.joblib"
-    dump(grid0.best_params_,pj(results_dir, filename))
-    send_email("Saving grid0.best_params_")
-    filt0.history = []
-
-    # #Saving all the grid found by the gridscearch
-    # filename = "brain_grid0.joblib"
-    # dump(grid0,pj(results_dir, filename))
-
-    send_email("Everything from the first simulation have been saved")
+    # scal_0 = pipes[0].named_steps['scaler']
+    # filt0 = CoefFilter(feat_50[0], ord_coefs[0])
+    # tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
+    #
+    # GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+    #
+    # scal_filt_GPR_0 = Pipeline([('Scaler', scal_0), ('Filter', filt0), ('GPR', GPR)])
+    # par_grid0 = {'Filter__treshold' : tresh0}
+    #
+    # cv=KF(10, shuffle=True)
+    # grid0 = GridSearchCV(scal_filt_GPR_0, n_jobs=16, pre_dispatch=8,  param_grid=par_grid0, cv=cv)
+    #
+    # #Fitting of grid0
+    # st = time.time()
+    # grid0.fit(x_train,y_train)
+    # en = time.time()
+    # print("\nThe fit took {:.2f}s".format(en-st))
+    #
+    # send_email("End of the fit for the first combination."+"\nIt took {:.2f}s".format(en-st))
+    #
+    # grid0.score(x_test, y_test)
+    # #0.4542457924845634
+    #
+    # #Saving history of filtering
+    # history0_df = pd.DataFrame(filt0.history)
+    # history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
+    # send_email("Saving history0")
+    # #Saving best_params_ found by the gridscearch
+    # filename = "brain_best_params_in_grid0.joblib"
+    # dump(grid0.best_params_,pj(results_dir, filename))
+    # send_email("Saving grid0.best_params_")
+    # filt0.history = []
+    #
+    # send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
     #Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
 
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
-
+    x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
+    scals = [pipes[n].named_steps['scaler'] for n in range(9)]
     filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
     n_tresh = 10
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
     #with different kernels
-    list_par_grid_multi_kernel = [{'Filter': [filts[n]],'Filter__coef':ord_coefs[n],'Filter__treshold': treshs[n],'GPR__kernel': [RBF(), Matern(), RationalQuadratic()]} for n in range(9)]
+    #list_par_grid_multi_kernel = [{'Filter': [filts[n]],'Filter__coef':ord_coefs[n],'Filter__treshold': treshs[n],'GPR__kernel': [RBF(), Matern(), RationalQuadratic()]} for n in range(9)]
 
     #only with one kernel (Matern)
-    list_par_grid_same_kernel = [{'Filter': [filts[n]],'Filter__coef':ord_coefs[n],'Filter__treshold': treshs[n]} for n in range(9)]
+    list_par_grid_same_kernel = [{'Scaler': [scals[n]], 'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'Filter__treshold': treshs[n]} for n in range(9)]
+
+    list_par_grid_same_kernel[1]
 
     GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
     cv=KF(10, shuffle=True)
-    pipe = Pipeline([('Filter', filts[1]), ('GPR', GPR)])
-    cv=KF(10, shuffle=True)
-
+    pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('GPR', GPR)])
 
     one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_same_kernel, n_jobs=16, pre_dispatch=8,  cv=cv)
     st = time.time()
