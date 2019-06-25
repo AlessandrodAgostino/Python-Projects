@@ -80,4 +80,4 @@ end = time.time()
 print('\nThe time for plotting is {:.2f} s.'.format(end - start))
 #255.37 s
 
-fig.savefig('circle_diiferent_alphas.png', bbox_inches='tight',dpi=300)
+fig.savefig('circle_different_alphas.png', bbox_inches='tight',dpi=300)

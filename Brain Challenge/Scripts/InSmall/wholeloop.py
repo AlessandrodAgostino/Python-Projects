@@ -39,7 +39,7 @@ def send_email(message):
     del msg
 
 
-def main():
+
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
     results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results/InSmallResults'
     data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
@@ -51,15 +51,55 @@ def main():
 
     #Defining all the scalers and regressors necessary for the coefficient scearching
     alphas=np.arange(0.001, 10, 0.005)
-    scaler = MinMaxScaler()
+    scaler = StandardScaler()
     lasso = LassoCV(alphas=alphas, max_iter=100000, cv=5)
     ridge = RidgeCV(alphas=alphas, cv=5)
-    regressor = ridge
+    regressor = lasso
 
     x_train_tran = scaler.fit_transform(x_train)
-    regressor.fit(x_train_tran,y_train)
     x_test_tran = scaler.fit_transform(x_test)
+
+
+    regressor.fit(x_train_tran,y_train)
     regressor.score(x_test_tran, y_test)
+#STDSCALER + Lasso = 0.7966666660364279
+
+
+scalers=[RobustScaler(), StandardScaler(), MinMaxScaler()]
+regressors=[lasso,ridge]
+cv=KF(10, shuffle=True)
+pipe = Pipeline([('scale', StandardScaler()),
+                ('regress', lasso)])
+
+param_grid = [{ 'scale': scalers,
+                'regress': regressors}]
+
+grid = GridSearchCV(pipe, n_jobs=16, pre_dispatch=8,  param_grid=param_grid, cv=cv)
+
+grid.fit(x_train_tran,y_train)
+
+mean_scores = np.array(grid.cv_results_['mean_test_score'])
+mean_scores
+
+best_est=grid.cv_results_['params'][grid.best_index_]
+
+best_est
+
+grid.cv_results_
+
+### N.B. score is R^2
+grid.best_score_
+
+
+
+
+
+
+
+
+
+
+
 
 
     coef = regressor.coef_
@@ -96,7 +136,3 @@ def main():
     x_test_tran = scaler.fit_transform(x_test)
     x_test_tran_filt = x_test_tran[:,filt_10]
     GPR_10.score(x_test_tran_filt, y_test)
-
-
-if __name__ == '__main__':
-    main()
