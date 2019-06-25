@@ -121,7 +121,7 @@ alphas=np.arange(0.001, 10, 0.005)
 ridge=RidgeCV(alphas=alphas, fit_intercept=True)
 
 
-
+scores = []
 # %% ### Penalized Model ####
 for i in np.arange(0,10, 0.5):
     x_train,x_test,y_train,y_test=tts(train_feats, y, test_size=0.1, shuffle=True)
@@ -137,7 +137,30 @@ for i in np.arange(0,10, 0.5):
 
     ridge.fit(red_feats, y_train)
 
-    print(ridge.score(x_test[:,coef_f], y_test))
+    scores.append(ridge.score(x_test[:,coef_f], y_test))
+
+# scores =
+# [0.8089342326301123,
+#  0.7828198140050574,
+#  0.7541186492408574,
+#  0.7687615301940977,
+#  0.78178198146853,
+#  0.7701912194888403,
+#  0.7790948786216043,
+#  0.7342218328788691,
+#  0.6925221702304736,
+#  0.69904412147424,
+#  0.6415736880454336,
+#  0.6100726181312746,
+#  0.449151104703542,
+#  0.4949977348401683,
+#  0.48834848190176183,
+#  0.48586151409171763,
+#  0.4230166405133998,
+#  0.38012348670242035,
+#  0.5277338847767399,
+#  0.3717673924046052]
+
 
 # %%
 ### Train model ##

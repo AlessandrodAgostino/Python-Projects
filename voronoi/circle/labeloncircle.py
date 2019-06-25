@@ -84,5 +84,31 @@ np.unique(backg)
 io.imsave('backg.png',v_bin(backg))
 #%%
 
-image = io.imread('circl_different_alphas.png')
+image = io.imread('circle_diiferent_alphas.png')
 image = image[:,:,0:2] #only a slice
+image[:,:,1] = np.zeros(image[:,:,1].shape)
+
+plt.hist(image[:,:,0])
+image[:,:,0].shape
+#%%
+#Selecting lumes
+sel_cores = v_select(image[:,:,0], top = 30)
+cores, _ = label(sel_cores, structure = s)
+image[:,:,1] = image[:,:,1] + cores
+np.unique(cores)
+np.unique(image[:,:,1])
+io.imsave('big_cores.png',v_bin(cores))
+#%%
+#Selecting epitelia
+sel_cont = v_select(image[:,:,0], bot = 31, top = 200)
+cont, _ = label(sel_cont, structure = s)
+image[:,:,1] = image[:,:,1] - cont
+np.unique(cont)
+np.unique(image[:,:,1])
+io.imsave('big_count.png',v_bin(cont))
+#%%
+#Selecting background
+sel_back = v_select(image[:,:,0], bot = 201)
+backg, _ = label(sel_back, structure = s)
+np.unique(backg)
+io.imsave('big_backg.png',v_bin(backg))
