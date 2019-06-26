@@ -185,7 +185,7 @@ def main():
 
     send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
-    Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
+    #Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
 
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
