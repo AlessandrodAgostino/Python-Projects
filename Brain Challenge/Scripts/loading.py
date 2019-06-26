@@ -1,4 +1,4 @@
-#token: 43be9e123b8c6f9841352601a5f8b0fb9c913b2b579d4ca7
+#token: 5df2fc6663e2be780907d081921b223390f0f2b58e541915
 
 import numpy as np
 import pylab as plt
@@ -14,12 +14,10 @@ from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import KFold as KF
-
 from sklearn.datasets import load_boston, load_iris
 from sklearn.base import BaseEstimator, TransformerMixin
-
 from joblib import dump, load
-
+#%%
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
@@ -47,6 +45,7 @@ for sca, reg in product(scalers, regressors):
     pipes.append(pipe)
     coefs.append(list(pipe.named_steps['regressor'].coef_))
 
+
 ord_coefs = np.sort(np.abs(np.array(coefs)),axis = 1)
 feat_50 = ord_coefs[:,-50] #Values that correspond to the 50 feature treshold
 
@@ -63,26 +62,37 @@ class CoefFilter(BaseEstimator, TransformerMixin):
         filter = self.coef >= self.treshold
         self.history.append(filter)
         return X[:,filter]
-
-scaler = MinMaxScaler()
+#%%
+scaler = StandardScaler()
 x_train_tran = scaler.fit_transform(x_train)
 x_test_tran = scaler.fit_transform(x_test)
 
 #Simple GPR with Matern
-GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
-b_tresh = feat_50[0]
-best_filt = CoefFilter( b_tresh, ord_coefs[0])
-x_filtered = best_filt.transform(x_train_tran)
-x_filtered.shape
-GPR.fit(x_filtered, y_train)
+GPR = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=Matern())
+b_tresh = feat_50[4]
+b_tresh
+best_filt = CoefFilter( b_tresh, ord_coefs[4])
 
-xte_filtered = best_filt.transform(x_test_tran)
-y_test_pred = GPR.predict(xte_filtered)
-GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+x_train_tran_filt = best_filt.transform(x_train_tran)
+x_test_tran_filt = best_filt.transform(x_test_tran)
+
+GPR.fit(x_train_tran_filt, y_train)
+
+GPR.score(x_test_tran_filt, y_test)
+
+#%% TRYING TO DO THE PLOT ON THE Y
+y_pred_on_test = GPR.predict(x_test_tran_filt)
+plt.scatter(y_test,y_pred_on_test)
+
+GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=DotProduct() + WhiteKernel())
+GPRy.fit(y_pred_on_test.reshape(-1, 1), y_test.reshape(-1, 1))
+
+y_ = np.linspace(18,78,num=200)
+y_pred , y_std= GPRy.predict(y_, return_std=True)
+y_pred.shape
+(y_pred - y_std).shape
+plt.plot(y_, y_pred, 'k', lw=3, zorder=9)
+plt.fill_between(y_, y_pred - y_std.reshape(-1,1), y_pred + y_std, alpha=0.2, color='k')
 
 
-GPRy.fit(y_test_pred.reshape(-1, 1), y_test.reshape(-1, 1))
-y_ = np.linspace(20,78,num=200)
-y_pred = GPRy.predict(y_.reshape(-1, 1))
-plt.scatter(y_pred, y_)
 #%%
