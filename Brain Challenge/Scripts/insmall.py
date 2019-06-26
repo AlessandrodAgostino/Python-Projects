@@ -170,10 +170,17 @@ def main():
     history0_df = pd.DataFrame(filt0.history)
     history0_df.to_csv(pj(results_dir, "brain_history0_df.csv"),index = False, header = False)
     send_email("Saving history0")
+
     #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_grid0.joblib"
+    filename = "brain_best_params_in_grid0.pkl"
     dump(grid0.best_params_,pj(results_dir, filename))
     send_email("Saving grid0.best_params_")
+
+    #Saving best_params_ found by the gridscearch
+    filename = "brain_best_params_in_grid0.pkl"
+    dump(grid0,pj(results_dir, filename))
+    send_email("Saving grid0")
+
     filt0.history = []
 
     send_email("Everything from the first simulation have been saved")
