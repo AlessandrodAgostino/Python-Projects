@@ -147,7 +147,7 @@ def main():
     filt0 = CoefFilter(feat_50[0], ord_coefs[0])
     tresh0 = np.linspace(feat_50[0], ord_coefs[0,-1], num=5)
 
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+    GPR = GaussianProcessRegressor(n_restarts_optimizer=50,normalize_y=True, kernel=Matern())
 
     scal_filt_GPR_0 = Pipeline([('Scaler', scal_0), ('Filter', filt0), ('GPR', GPR)])
     par_grid0 = {'Filter__treshold' : tresh0}
@@ -185,7 +185,7 @@ def main():
 
     send_email("Everything from the first simulation have been saved")
     #-------------------------------------------------------------------------------
-    Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
+    #Theese are the lists that allow to scearch on alle the 9 different method of tresholdind
 
     send_email("Starting the fit on all the nine combinations with only the Matern kernel")
 
@@ -203,7 +203,7 @@ def main():
 
     list_par_grid_same_kernel[1]
 
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
+    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=Matern())
     cv=KF(10, shuffle=True)
     pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('GPR', GPR)])
 
