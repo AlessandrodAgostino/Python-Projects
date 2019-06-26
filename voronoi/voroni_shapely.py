@@ -1,13 +1,28 @@
 import numpy as np
 import time
-
 import matplotlib.pyplot as plt
 from shapely.ops import polygonize,unary_union
 from shapely.geometry import LineString, MultiPolygon, MultiPoint, Point, Polygon
 from scipy.spatial import Voronoi
 from SALib.sample import saltelli
-#scipy.ndimage.labelidentity
 
+def color(r,circles):
+    """Return the color of the region `r` depending on whether it intersects the
+    boundary, the interior or not intersects any circle in `circles`"""
+    for circle in circles:
+        if r.intersects(circle.boundary): return "r"
+        elif r.intersects(circle): return "y"
+    return "k"
+
+def alpha(r,circles):
+    """Return the shade of the region `r` depending on whether it intersects the
+    boundary, the interior or not intersects any circle in `circles`"""
+    for circle in circles:
+        if r.intersects(circle.boundary): return 0.9
+        elif r.intersects(circle): return 0.5
+    return 0
+
+#%% PREPARING ALL THE  VORONOI ~ 20 s
 #Low discrepancy sampling of the plane:
 problem = {'num_vars': 2,
            'names': ['x', 'y'],
@@ -17,13 +32,13 @@ start = time.time()
 low_points = saltelli.sample(problem, 5000)
 end = time.time()
 print('\nThe time for sampling is {:.2f} s.'.format(end - start))
-#0.12s
+#0.23s
 
 start = time.time()
 vor = Voronoi(low_points)
 end = time.time()
 print('\nThe time for computing the Voronoi tassellation is {:.2f} s.'.format(end - start))
-#0.40s
+#0.85s
 
 start = time.time()
 #CUTTING the global Voronoi tassellation to avoid divergences
@@ -33,12 +48,15 @@ tassel = MultiPolygon([poly.intersection(convex_hull) for poly in polygonize(lin
 tassel = MultiPolygon([p for p in tassel] + [p for p in convex_hull.difference(unary_union(tassel))])
 end = time.time()
 print('\nThe time for clipping the tassellation is {:.2f} s.'.format(end - start))
-#8.95 s
+#14.52 s
 
+
+#%% CREATING THE CIRCLES AND PLOTTING THE VORONOI TASSELLATION WITH INTERECTIONS ~ 300 s
 #Dictionary with the identity of all the circles in the image
 circles_id = [{'r' : 10, 'c' : (40,30)},
               {'r' : 5, 'c' : (70,90)},
-              {'r' : 15, 'c' : (20,60)}]
+              {'r' : 15, 'c' : (20,60)},
+              {'r' : 13, 'c' : (70,30)}]
 
 #List of the corrispondent polygons
 circles = []
@@ -49,22 +67,8 @@ for c_id in circles_id:
     circle_point = np.stack((x,y)).T
     circles.append(Polygon(circle_point))
 
-#Return the color of the region depending on whether it intersects the boundary, the interior or not intersects the circle
-def color(r,circles):
-    for circle in circles:
-        if r.intersects(circle.boundary): return "r"
-        elif r.intersects(circle): return "y"
-    return "k"
-
-def alpha(r,circles):
-    for circle in circles:
-        if r.intersects(circle.boundary): return 0.9
-        elif r.intersects(circle): return 0.5
-    return 0
-
 start = time.time()
 fig = plt.figure()
-
 times = []
 # for c in circles:
     # plt.gca().plot(*c.exterior.xy)

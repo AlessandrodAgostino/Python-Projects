@@ -63,8 +63,8 @@ class CoefFilter(BaseEstimator, TransformerMixin):
         return X[:,filter]
 
 scaler = MinMaxScaler()
-x_train = scaler.fit_transform(x_train)
-
+x_train_tran = scaler.fit_transform(x_train)
+x_test_tran = scaler.fit_transform(x_test)
 
 #Simple GPR with Matern
 GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
@@ -73,20 +73,17 @@ b_tresh = b_tresh['Filter__treshold']
 b_tresh
 
 best_filt = CoefFilter( b_tresh, ord_coefs[0])
-xtr_t = best_filt.transform(x_train)
-xtr_t.shape
-GPR.fit(xtr_t, y_train)
-xte_t = best_filt.transform(x_test)
-y_test_pred = GPR.predict(xte_t)
+x_filtered = best_filt.transform(x_train_tran)
+x_filtered.shape
+GPR.fit(x_filtered, y_train)
 
+xte_filtered = best_filt.transform(x_test_tran)
+y_test_pred = GPR.predict(xte_filtered)
 GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
 
 
 GPRy.fit(y_test_pred.reshape(-1, 1), y_test.reshape(-1, 1))
 y_ = np.linspace(20,78,num=200)
 y_pred = GPRy.predict(y_.reshape(-1, 1))
-plt.hist(y_pred)
 plt.scatter(y_pred, y_)
-
-np.min(y_test)
-np.max(y_test)
+#%%
