@@ -1,3 +1,5 @@
+#token: 43be9e123b8c6f9841352601a5f8b0fb9c913b2b579d4ca7
+
 import numpy as np
 import pylab as plt
 import pandas as pd
@@ -19,7 +21,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from joblib import dump, load
 
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
-results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results/InSmallResults'
+results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
 feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
@@ -68,10 +70,7 @@ x_test_tran = scaler.fit_transform(x_test)
 
 #Simple GPR with Matern
 GPR = GaussianProcessRegressor(n_restarts_optimizer=50, kernel=Matern())
-b_tresh = load(pj(results_dir, "brain_best_params_in_grid0.joblib"))
-b_tresh = b_tresh['Filter__treshold']
-b_tresh
-
+b_tresh = feat_50[0]
 best_filt = CoefFilter( b_tresh, ord_coefs[0])
 x_filtered = best_filt.transform(x_train_tran)
 x_filtered.shape
