@@ -1,8 +1,9 @@
-#token: 5df2fc6663e2be780907d081921b223390f0f2b58e541915
-
+#token: 0616ecf58957cbf3ca90e3420ac57435ff109442b581b92d
 import numpy as np
 import pylab as plt
 import pandas as pd
+import sys
+import os
 from itertools import product
 import time
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, RobustScaler
@@ -17,6 +18,10 @@ from sklearn.model_selection import KFold as KF
 from sklearn.datasets import load_boston, load_iris
 from sklearn.base import BaseEstimator, TransformerMixin
 from joblib import dump, load
+
+sys.path.append(os.path.relpath('./'))
+from CoefFilter import CoefFilter
+
 #%%
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
@@ -33,6 +38,9 @@ lasso = LassoCV(alphas=alphas, max_iter=100000, cv=5)
 ridge = RidgeCV(alphas=alphas, cv=5)
 elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
 regressors = [lasso, ridge, elnet]
+#%%
+filename = "brain_grid0.pkl"
+loaded_grid = load(pj(results_dir, filename))
 
 #%%
 #Loading from joblib files pipes item already fit and their coefficients separately
@@ -83,16 +91,16 @@ GPR.score(x_test_tran_filt, y_test)
 #%% TRYING TO DO THE PLOT ON THE Y
 y_pred_on_test = GPR.predict(x_test_tran_filt)
 plt.scatter(y_test,y_pred_on_test)
-
-GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=DotProduct() + WhiteKernel())
-GPRy.fit(y_pred_on_test.reshape(-1, 1), y_test.reshape(-1, 1))
-
-y_ = np.linspace(18,78,num=200)
-y_pred , y_std= GPRy.predict(y_, return_std=True)
-y_pred.shape
-(y_pred - y_std).shape
-plt.plot(y_, y_pred, 'k', lw=3, zorder=9)
-plt.fill_between(y_, y_pred - y_std.reshape(-1,1), y_pred + y_std, alpha=0.2, color='k')
-
-
 #%%
+GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True,
+                                kernel=Matern())
+GPRy.fit(y_pred_on_test.reshape(-1, 1), y_test)
+
+y_ = np.linspace(18,78,num=200)[:, None]
+y_pred , y_std= GPRy.predict(y_, return_std=True)
+
+plt.scatter(y_test, y_pred_on_test)
+plt.plot(y_, y_pred, 'k', lw=3, zorder=9)
+plt.fill_between(y_[:, 0], y_pred - y_std,
+                 y_pred + y_std,
+                 alpha=0.5, color='k')
