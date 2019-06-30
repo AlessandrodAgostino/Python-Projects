@@ -53,7 +53,6 @@ ridge = RidgeCV(alphas=alphas, cv=5)
 elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
 regressors = [lasso, ridge, elnet]
 
-
 combinations_labels = [] #titles for the subplots in the facetgrid
 pipes = []
 coefs = []
@@ -65,8 +64,7 @@ for sca, reg in product(scalers, regressors):
     coefs.append(list(pipe.named_steps['regressor'].coef_))
     label = "{} & {}".format(sca.__class__.__name__, reg.__class__.__name__)
     combinations_labels.append(label)
-
-
+    
 #%%
 #Loading from file of the results from the grid scearching
 filename = "brain_gridscearch.pkl"
@@ -89,29 +87,14 @@ result_df.insert(7,"score_features_ratio", result_df['mean_test_score']/result_d
 result_df.head()
 
 #%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'mean_test_score',
-       s=50, )
+fg = sns.FacetGrid(data=result_df, col='nice_name', hue='nice_name', height=4, aspect=0.9)
+fg.map(plt.scatter, 'n_filtered_features','mean_test_score',s=50)
 fg.fig.tight_layout()
 plt.show()
 plt.savefig('Score_vs_#features.png')
 #%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'score_features_ratio',
-       s=50, )
-
+fg = sns.FacetGrid(data=result_df, col='nice_name', hue='nice_name', height=4, aspect=0.9)
+fg.map(plt.scatter, 'n_filtered_features','score_features_ratio',s=50)
 fg.set(ylim=(0, 0.02))
 fg.fig.tight_layout()
 plt.show()
