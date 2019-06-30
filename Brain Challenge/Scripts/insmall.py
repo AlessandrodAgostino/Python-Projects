@@ -120,20 +120,20 @@ def main():
 
     # #-------------------------------------------------------------------------------
     # # #%%
-    # # #Plotting all the different coefficients
-    # fig = plt.figure(figsize=(20, 20))
-    # for i,coef in enumerate(coefs):#<--- limitation
-    #     plt.subplot(3, 3, i+1)
-    #     coef = np.sort(np.abs(coef))
-    #     plt.plot(coef[::-1])
-    #     plt.axvline(x=50, color='r')
-    #     plt.axhline(y=coef[-50], color='g', label='value = {}'.format(coef[-50]))
-    #     plt.legend()
-    #     plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(pipes[i][0],pipes[i][1]),  fontsize = 12)
-    #     plt.tight_layout()
-    # fig.savefig(pj(results_dir,'NineCoefPlot.png'))
-    #
-    # send_email("The nine graphs were plotted in" + pj(results_dir,'NineCoefPlot.png'))
+    # #Plotting all the different coefficients
+    fig = plt.figure(figsize=(20, 20))
+    for i,coef in enumerate(coefs):#<--- limitation
+        plt.subplot(3, 3, i+1)
+        coef = np.sort(np.abs(coef))
+        plt.plot(coef[::-1])
+        plt.axvline(x=50, color='r')
+        plt.axhline(y=coef[-50], color='g', label='value = {}'.format(coef[-50]))
+        plt.legend()
+        plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(pipes[i][0],pipes[i][1]),  fontsize = 12)
+        plt.tight_layout()
+    fig.savefig(pj(results_dir,'NineCoefPlot.png'))
+
+    send_email("The nine graphs were plotted in" + pj(results_dir,'NineCoefPlot.png'))
     #
     #-------------------------------------------------------------------------------
     #%%
