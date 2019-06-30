@@ -46,7 +46,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - InSmall 5"
+    msg['Subject']="Training - After Carlo"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
