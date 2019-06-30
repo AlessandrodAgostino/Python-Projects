@@ -66,53 +66,39 @@ for sca, reg in product(scalers, regressors):
     label = "{} & {}".format(sca.__class__.__name__, reg.__class__.__name__)
     combinations_labels.append(label)
 
-
 #%%
 #Loading from file of the results from the grid scearching
 filename = "brain_gridscearch.pkl"
 loaded_grid = load(pj(results_dir, filename))
-result_df = pd.DataFrame(loaded_grid.cv_results_)
 
-#Function that extract the number of coefs >= a certain treshold
-def n_feat(coefs, tresh):
-    return np.sum((coefs >= tresh)*1)
-# which contains the number of filtered features
-result_df.insert(6,"n_filtered_features", np.vectorize(n_feat)(result_df['param_Filter__coef'],
-                    result_df['param_Filter__treshold']))
 
-filters = result_df['param_Filter'].unique()
-
-#Insert a new column with the nice name of the combination of scaler and regressor
-result_df.insert(5,"nice_name", result_df['param_Filter'].map(dict(zip(filters, combinations_labels))))
-#Insert a new column with the ratio between the score and the number of features
-result_df.insert(7,"score_features_ratio", result_df['mean_test_score']/result_df['n_filtered_features'])
-result_df.head()
 
 #%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'mean_test_score',
-       s=50, )
-fg.fig.tight_layout()
-plt.show()
-plt.savefig('Score_vs_#features.png')
-#%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'score_features_ratio',
-       s=50, )
+#This has been the best run among them all:
+max_score = np.max(result_df['mean_test_score'])
+result_df[result_df['mean_test_score'] == max_score]['nice_name']
 
-fg.set(ylim=(0, 0.02))
-fg.fig.tight_layout()
-plt.show()
-plt.savefig('score_features_ratio.png')
+best_pipe = loaded_grid.best_estimator_
+best_pipe.score(x_test,y_test)
+
+#%% TRYING TO DO THE PLOT ON THE Y
+y_pred_on_test = best_pipe.predict(x_test)
+plt.scatter(y_test,y_pred_on_test)
+#%%
+kernel = 1.0 * RBF(length_scale=100.0, length_scale_bounds=(1e-2, 1e3)) \
+    + WhiteKernel(noise_level=1, noise_level_bounds=(1e-10, 1e+1))
+gp = GaussianProcessRegressor(kernel=kernel,
+                              alpha=0.0).fit(X, y)
+
+GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=Matern())
+
+GPRy.fit(y_pred_on_test.reshape(-1, 1), y_test)
+
+y_ = np.linspace(18,78,num=200)[:, None]
+y_pred , y_std= GPRy.predict(y_, return_std=True)
+
+plt.scatter(y_test, y_pred_on_test)
+plt.plot(y_, y_pred, 'k', lw=3, zorder=9)
+plt.fill_between(y_[:, 0], y_pred - y_std,
+                 y_pred + y_std,
+                 alpha=0.5, color='k')

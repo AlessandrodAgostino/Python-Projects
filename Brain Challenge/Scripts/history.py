@@ -1,4 +1,4 @@
-#token: 409812b6032c99a44403e4db39834192ce7dd38ff17a907c
+#token: 7b412556f7f0a9788899b30401a18f63efd0931159448f5f
 import numpy as np
 import pylab as plt
 import pandas as pd
@@ -35,8 +35,6 @@ class CoefFilter(BaseEstimator, TransformerMixin):
         self.history.append(list(filter))
         return X[:,filter]
 
-#%%
-#Loading data and defining everything necessary for loading the data from pickle
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
@@ -53,7 +51,6 @@ ridge = RidgeCV(alphas=alphas, cv=5)
 elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
 regressors = [lasso, ridge, elnet]
 
-
 combinations_labels = [] #titles for the subplots in the facetgrid
 pipes = []
 coefs = []
@@ -66,53 +63,10 @@ for sca, reg in product(scalers, regressors):
     label = "{} & {}".format(sca.__class__.__name__, reg.__class__.__name__)
     combinations_labels.append(label)
 
+np_coefs = np.array(coefs)
+mean_coef = np.mean(np_coefs, axis =0)
+mean_coef.shape
 
-#%%
-#Loading from file of the results from the grid scearching
-filename = "brain_gridscearch.pkl"
-loaded_grid = load(pj(results_dir, filename))
-result_df = pd.DataFrame(loaded_grid.cv_results_)
-
-#Function that extract the number of coefs >= a certain treshold
-def n_feat(coefs, tresh):
-    return np.sum((coefs >= tresh)*1)
-# which contains the number of filtered features
-result_df.insert(6,"n_filtered_features", np.vectorize(n_feat)(result_df['param_Filter__coef'],
-                    result_df['param_Filter__treshold']))
-
-filters = result_df['param_Filter'].unique()
-
-#Insert a new column with the nice name of the combination of scaler and regressor
-result_df.insert(5,"nice_name", result_df['param_Filter'].map(dict(zip(filters, combinations_labels))))
-#Insert a new column with the ratio between the score and the number of features
-result_df.insert(7,"score_features_ratio", result_df['mean_test_score']/result_df['n_filtered_features'])
-result_df.head()
-
-#%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'mean_test_score',
-       s=50, )
-fg.fig.tight_layout()
-plt.show()
-plt.savefig('Score_vs_#features.png')
-#%%
-fg = sns.FacetGrid(data=result_df,
-                       col='nice_name',
-                       hue='nice_name',
-                       height=4,
-                       aspect=0.9)
-fg.map(plt.scatter,
-       'n_filtered_features',
-       'score_features_ratio',
-       s=50, )
-
-fg.set(ylim=(0, 0.02))
-fg.fig.tight_layout()
-plt.show()
-plt.savefig('score_features_ratio.png')
+min = np.sort(np.abs(mean_coef))[-50]
+mean_coef> min
+mean_coef[mean_coef> min]
