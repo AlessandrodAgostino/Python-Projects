@@ -60,16 +60,17 @@ for sca, reg in product(scalers, regressors):
     coefs.append(list(pipe.named_steps['regressor'].coef_))
 #%%
 #Loading from file of the results from the grid scearching
-filename = "brain_gridscearch.pkl"
+filename = "brain_multi_kernel__gridscearch.pkl"
 loaded_grid = load(pj(results_dir, filename))
 
 #%%
 best_pipe = loaded_grid.best_estimator_
 
-
+best_pipe
 x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
 best_pipe.fit(x_train,y_train)
 best_pipe.score(x_test,y_test)
+#0.6941130449484956
 
 #%%
 fig = plt.figure()
@@ -80,19 +81,23 @@ plt.gca().set_xlabel("y_test", size=15)
 fig.savefig(pj(results_dir, 'After_train_without_fit.png'), bbox_inches='tight')
 
 #%% TRYING TO DO THE PLOT ON THE Y
+#Theese are the ages predicted over x_test
+y_pred_on_test = best_pipe.predict(x_test)
 
-kernel = 1.0 * RBF(length_scale=1.0, length_scale_bounds=(1e-2, 1e3)) + WhiteKernel(noise_level=1e-5, noise_level_bounds=(1e-10, 1e+1))
+#First try with this kernel
+kernel = RBF(length_scale=1.0, length_scale_bounds=(1e-2, 1e3)) + WhiteKernel(noise_level=1e-5, noise_level_bounds=(1e-10, 1e+1))
 gp = GaussianProcessRegressor(kernel=kernel,normalize_y=True,alpha=0.0)
 gp.fit(y_pred_on_test.reshape(-1, 1), y_test)
 
+#Second try with this other kernel
 GPRy = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=Matern())
 GPRy.fit(y_pred_on_test.reshape(-1, 1), y_test)
 
+#Points where to predict and plot the GPR fit
 y_ = np.linspace(18,78,num=200)[:, None]
 y_pred , y_std= gp.predict(y_, return_std=True)
 
 fig = plt.figure()
-y_pred_on_test = best_pipe.predict(x_test)
 plt.scatter(y_test,y_pred_on_test)
 plt.gca().set_ylabel("y predicted on x_test", size=15)
 plt.gca().set_xlabel("y_test", size=15)

@@ -11,6 +11,7 @@ from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
+from sklearn.svm import SVR
 
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import KFold as KF
@@ -46,7 +47,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - Multi Kernel Grid"
+    msg['Subject']="Training - SVR Grid"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -62,7 +63,6 @@ def main():
     feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
     y = data_train['age_floor'].values
     X = feats #n_features = 954 n_samples = 2364
-    x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
 
     #Defining all the scalers and regressors necessary for the coefficient scearching
     alphas=np.arange(0.001, 10, 0.005)
@@ -96,13 +96,15 @@ def main():
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
     #with different kernels but always on 50 features
-    list_par_grid_multi_kernel = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'GPR__kernel': [RBF(), Matern(), RationalQuadratic(),DotProduct() + WhiteKernel()]} for n in range(9)]
+    list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid']} for n in range(9)]
 
-    GPR = GaussianProcessRegressor(n_restarts_optimizer=50, normalize_y=True, kernel=Matern())
+
+    SVR=SVR(kernel='linear', C=3)
     cv=KF(10, shuffle=True)
-    pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('GPR', GPR)])
 
-    one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_multi_kernel, n_jobs=16, pre_dispatch=8,  cv=cv)
+    pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('SVR', SVR)])
+
+    one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_SVR, n_jobs=16, pre_dispatch=8,  cv=cv)
     st = time.time()
     one_kernel_grid.fit(x_train,y_train)
     en = time.time()
@@ -111,11 +113,11 @@ def main():
     send_email("End of the fit."+"\nIt took {:.2f}s".format(en-st))
 
     #Saving best_params_ found by the gridscearch
-    filename = "brain_best_params_in_multi_kernel_gridscearch.pkl"
+    filename = "brain_best_params_in_SVR_gridscearch.pkl"
     dump(one_kernel_grid.best_params_,pj(results_dir, filename))
 
     #Saving all the grid found by the gridscearch
-    filename = "brain_multi_kernel__gridscearch.pkl"
+    filename = "brain_SVR_gridscearch.pkl"
     dump(one_kernel_grid,pj(results_dir, filename))
     #
     send_email("Everything has been saved")
