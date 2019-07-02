@@ -26,28 +26,20 @@ def alpha(r,circles):
 #Low discrepancy sampling of the plane:
 problem = {'num_vars': 2,
            'names': ['x', 'y'],
-           'bounds': [[0, 100],[0, 100],]}
+           'bounds': [[0, 100],[0, 100]]}
 
-start = time.time()
-low_points = saltelli.sample(problem, 5000)
-end = time.time()
-print('\nThe time for sampling is {:.2f} s.'.format(end - start))
+low_points = saltelli.sample(problem, 2000)
 #0.23s
 
-start = time.time()
 vor = Voronoi(low_points)
-end = time.time()
-print('\nThe time for computing the Voronoi tassellation is {:.2f} s.'.format(end - start))
 #0.85s
 
-start = time.time()
 #CUTTING the global Voronoi tassellation to avoid divergences
+#TO DO: it works but I don't know what it really does
 lines = [LineString(vor.vertices[line]) for line in vor.ridge_vertices if -1 not in line ]
 convex_hull = MultiPoint([Point(i) for i in low_points]).convex_hull.buffer(2)
 tassel = MultiPolygon([poly.intersection(convex_hull) for poly in polygonize(lines)])
 tassel = MultiPolygon([p for p in tassel] + [p for p in convex_hull.difference(unary_union(tassel))])
-end = time.time()
-print('\nThe time for clipping the tassellation is {:.2f} s.'.format(end - start))
 #14.52 s
 
 
@@ -56,32 +48,53 @@ print('\nThe time for clipping the tassellation is {:.2f} s.'.format(end - start
 circles_id = [{'r' : 10, 'c' : (40,30)},
               {'r' : 5, 'c' : (70,90)},
               {'r' : 15, 'c' : (20,60)},
-              {'r' : 13, 'c' : (70,30)}]
+              {'r' : 13, 'c' : (70,30)},
+              {'r' : 20, 'c' : (0,0)}]
 
 #List of the corrispondent polygons
 circles = []
+circles_b = []
+
 thetas = np.linspace(0,2*np.pi,15)
 for c_id in circles_id:
     x = np.cos(thetas)*c_id['r'] + c_id['c'][0]
     y = np.sin(thetas)*c_id['r'] + c_id['c'][1]
     circle_point = np.stack((x,y)).T
-    circles.append(Polygon(circle_point))
+    xe = np.cos(thetas)*(c_id['r']+0.7)+ c_id['c'][0]
+    ye = np.sin(thetas)*(c_id['r']+0.7)+ c_id['c'][1]
+    x = np.append(x,xe, axis = 0)
+    y = np.append(y,ye, axis = 0)
+    bound_point = np.stack((x,y)).T
+    circles.append((Polygon(circle_point)))
+    circles_b.append((Polygon(bound_point)))
+
+
 
 start = time.time()
 fig = plt.figure()
-times = []
 # for c in circles:
     # plt.gca().plot(*c.exterior.xy)
-for r in tassel:
-    t1 = time.time()
-    plt.gca().fill(*zip(*np.array(list(zip(r.boundary.coords.xy[0][:-1], r.boundary.coords.xy[1][:-1])))),
-                   'r', alpha= alpha(r,circles))
-    t2 = time.time()
-    times.append(t2-t1)
+#plt.scatter(low_points[:,0], low_points[:,1],s=0.005, c="m", marker = "8")
+for r in tassel[0:1000]:
+    bound =  r.boundary.coords.xy
+    for circle, circle_b in zip(circles, circles_b):
+        if r.intersects(circle_b):
+            alpha=0.7
+            plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'r', alpha= alpha, edgecolor='k', lw = 0.05)
+            nucleus = (np.sum(bound[0])/len(bound[0]),np.sum(bound[1])/len(bound[1]))
+            plt.gca().scatter(*nucleus,s=1, c="k", marker = ".", linewidth=0)
+
+        elif r.intersects(circle):
+            alpha=0.4
+            plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'r', alpha= alpha, edgecolor='k', lw = 0.05)
+            nucleus = (np.sum(bound[0])/len(bound[0]),np.sum(bound[1])/len(bound[1]))
+            plt.gca().scatter(*nucleus,s=1, c="k", marker = ".", linewidth=0)
+
+        else: plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'g', alpha= 0.5, edgecolor='k', lw = 0.05)
 
 plt.axis('off')
 end = time.time()
 print('\nThe time for plotting is {:.2f} s.'.format(end - start))
 #255.37 s
 
-fig.savefig('circle_different_alphas.png', bbox_inches='tight',dpi=300)
+fig.savefig('circle_different_alphas_nuclei.png', bbox_inches='tight',dpi=1000)

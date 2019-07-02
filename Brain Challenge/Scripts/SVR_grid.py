@@ -54,6 +54,8 @@ def send_email(message):
     del msg
 
 def main():
+
+    try:
     send_email("Start of the running")
     #Defining all the data
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
@@ -121,6 +123,9 @@ def main():
     dump(one_kernel_grid,pj(results_dir, filename))
     #
     send_email("Everything has been saved")
+
+    except ValueError:
+        send_email("Something went wrong! Exception Raised!")
 
 
 if __name__ == '__main__':
