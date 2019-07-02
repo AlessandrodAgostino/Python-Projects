@@ -101,10 +101,10 @@ def main():
         list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid']} for n in range(9)]
 
 
-        SVR=SVR(kernel='linear', C=3)
+        SVR1 =SVR(kernel='linear', C=3)
         cv=KF(10, shuffle=True)
 
-        pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('SVR', SVR)])
+        pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('SVR', SVR1)])
 
         one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_SVR, n_jobs=16, pre_dispatch=8,  cv=cv)
         st = time.time()
