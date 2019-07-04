@@ -69,7 +69,7 @@ filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
 n_tresh = 10
 treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
-list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],'SVR__C': [0.1, 0.5, 1, 5, 10],'SVR__degree': [1, 2, 3, 4, 5, 6],'SVR__gamma': [0.001, 0.01, 0.1, 1, 'auto']} for n in range(9)]
+list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ['rbf'],'SVR__C': list(np.linspace(5, 40, num=10)),'SVR__gamma': [1,3,5,7,10, 'auto']} for n in range(3)]
 
 
 SVR1 =SVR(kernel='linear', C=3)
@@ -83,16 +83,7 @@ one_kernel_grid.fit(x_train,y_train)
 en = time.time()
 print("\nThe fit took {:.2f}s".format(en-st))
 
-filename = "brain_best_params_in_SVR_gridscearch.pkl"
-dump(one_kernel_grid.best_params_,pj(results_dir, filename))
-
-#Saving all the grid found by the gridscearch
-filename = "brain_SVR_gridscearch.pkl"
-dump(one_kernel_grid,pj(results_dir, filename))
-#
-send_email("Everything has been saved")
-
-filename = "brain_SVR_gridscearch.pkl"
+filename = "brain_SVR_gridscearch_fine_tuning.pkl"
 loaded_grid = load(pj(results_dir, filename))
 
 #%%
