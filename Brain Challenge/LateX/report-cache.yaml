@@ -1,0 +1,1154 @@
+version: 0.12.2
+filePath: report.tex
+options:
+  $BIBINPUTS:
+    - $ROOTDIR
+    - $ROOTDIR/$OUTDIR
+    - ''
+  $TEXINPUTS:
+    - $ROOTDIR
+    - $ROOTDIR/$OUTDIR
+    - ''
+  bibtexEngine: bibtex
+  cleanPatterns:
+    - '**/*.aux'
+    - '**/*.aux.bak'
+    - '**/*.bbl'
+    - '**/*.bcf'
+    - '**/*.blg'
+    - '**/*.dvi'
+    - '**/*.fdb_latexmk'
+    - '**/*.fls'
+    - '**/*.idx'
+    - '**/*.idx.bak'
+    - '**/*.ilg'
+    - '**/*.ind'
+    - '**/*.lof'
+    - '**/*.log'
+    - '**/*.lol'
+    - '**/*.lot'
+    - '**/*.nav'
+    - '**/*.out'
+    - '**/*.pdf'
+    - '**/*.ps'
+    - '**/*.snm'
+    - '**/*.synctex.gz'
+    - '**/*.toc'
+    - '/**/_minted-${JOB}'
+    - '/${OUTDIR}/sage-plots-for-${JOB}.tex'
+    - /missfont.log
+    - /texput.log
+    - /texput.aux
+  dviToPdfEngine: xdvipdfmx
+  engine: pdflatex
+  epstopdfBoundingBox: default
+  epstopdfOutputPath: $DIR_0/$NAME_0.pdf
+  indexAutomaticRanges: true
+  indexEngine: makeindex
+  indexOrdering: word
+  indexSorting: default
+  knitrConcordance: true
+  knitrOutputPath: $JOB.tex
+  lhs2texStyle: poly
+  literateAgdaEngine: agda
+  literateHaskellEngine: lhs2TeX
+  loadCache: true
+  loadUserOptions: true
+  outputFormat: pdf
+  phaseCycles: 20
+  pweaveCacheDirectory: pweave-cache-for-$JOB
+  pweaveFigureDirectory: pweave-figures-for-$JOB
+  pweaveKernel: python3
+  pweaveOutputFormat: tex
+  pweaveOutputPath: $JOB.tex
+  saveCache: true
+  severity: info
+  validateCache: true
+  synctex: true
+  copyTargetsToRoot: true
+  outputDirectory: ''
+  intermediatePostScript: false
+files:
+  dicy-instance.yaml-ParsedYAML:
+    timeStamp: 2019-07-04T12:07:24.774Z
+    jobNames: []
+    value:
+      severity: info
+    type: ParsedYAML
+  dicy.yaml-ParsedYAML:
+    jobNames: []
+    type: ParsedYAML
+  report.yaml-ParsedYAML:
+    jobNames: []
+    type: ParsedYAML
+  report.tex-ParsedLaTeXMagic:
+    timeStamp: 2019-07-04T10:21:31.354Z
+    jobNames: []
+    value: {}
+    type: ParsedLaTeXMagic
+  /home/alessandro/.config/dicy/config.yaml-ParsedYAML:
+    timeStamp: 2019-07-04T10:21:31.352Z
+    jobNames: []
+    value:
+      synctex: true
+      engine: pdflatex
+      severity: warning
+      copyTargetsToRoot: true
+      outputDirectory: ''
+      outputFormat: pdf
+      cleanPatterns:
+        - '**/*.aux'
+        - '**/*.aux.bak'
+        - '**/*.bbl'
+        - '**/*.bcf'
+        - '**/*.blg'
+        - '**/*.dvi'
+        - '**/*.fdb_latexmk'
+        - '**/*.fls'
+        - '**/*.idx'
+        - '**/*.idx.bak'
+        - '**/*.ilg'
+        - '**/*.ind'
+        - '**/*.lof'
+        - '**/*.log'
+        - '**/*.lol'
+        - '**/*.lot'
+        - '**/*.nav'
+        - '**/*.out'
+        - '**/*.pdf'
+        - '**/*.ps'
+        - '**/*.snm'
+        - '**/*.synctex.gz'
+        - '**/*.toc'
+        - '/**/_minted-${JOB}'
+        - '/${OUTDIR}/sage-plots-for-${JOB}.tex'
+        - /missfont.log
+        - /texput.log
+        - /texput.aux
+      intermediatePostScript: false
+    type: ParsedYAML
+  report.tex:
+    timeStamp: 2019-07-04T13:57:00.753Z
+    jobNames: []
+    hash: n8tRW3Neq5+/V1XGm9suYUlbyP7xE5p5aotYPAMfE1U=
+    type: LaTeX
+    subType: article
+  /home/alessandro/.config/dicy/config.yaml:
+    timeStamp: 2019-07-04T12:07:24.780Z
+    jobNames: []
+    type: YAML
+  x.y-Nil:
+    jobNames: []
+    type: Nil
+  report.fls-ParsedFileListing:
+    timeStamp: 2019-07-04T13:47:25.622Z
+    jobNames: []
+    value:
+      messages: []
+      inputs:
+        - /etc/texmf/web2c/texmf.cnf
+        - /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+        - >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+        - >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+        - >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+        - /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+        - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+        - /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+        - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+        - /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+        - /usr/share/texmf/web2c/texmf.cnf
+        - /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+        - /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+        - NineCoefPlot.png
+        - report.aux
+        - report.tex
+      outputs:
+        - report.aux
+        - report.log
+        - report.pdf
+      calls: []
+    type: ParsedFileListing
+  report.log-ParsedLaTeXLog:
+    timeStamp: 2019-07-04T13:47:25.642Z
+    jobNames: []
+    value:
+      messages:
+        - name: pdfTeX
+          severity: info
+          text: 'graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+          log:
+            file: report.log
+            range:
+              start: 27
+              end: 27
+        - name: pdfTeX
+          severity: info
+          text: keyval 2014/10/28 v1.15 key=value parser (DPC)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+          log:
+            file: report.log
+            range:
+              start: 29
+              end: 29
+        - name: pdfTeX
+          severity: info
+          text: 'graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+          log:
+            file: report.log
+            range:
+              start: 32
+              end: 32
+        - name: pdfTeX
+          severity: info
+          text: trig 2016/01/03 v1.10 sin cos tan (DPC)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+          log:
+            file: report.log
+            range:
+              start: 34
+              end: 34
+        - severity: info
+          name: pdfTeX
+          category: Package graphics
+          text: 'Driver file: pdftex.def'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+            range:
+              start: 99
+              end: 99
+          log:
+            file: report.log
+            range:
+              start: 38
+              end: 38
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OML/cmm/m/it ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 47
+              end: 48
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for T1/cmr/m/n ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 49
+              end: 50
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OT1/cmr/m/n ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 51
+              end: 52
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OMS/cmsy/m/n ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 53
+              end: 54
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OMX/cmex/m/n ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 55
+              end: 56
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for U/cmr/m/n ... okay
+          source:
+            file: report.tex
+            range:
+              start: 3
+              end: 3
+          log:
+            file: report.log
+            range:
+              start: 57
+              end: 58
+        - name: pdfTeX
+          severity: info
+          text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+          log:
+            file: report.log
+            range:
+              start: 73
+              end: 73
+        - name: pdfTeX
+          severity: info
+          text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+          log:
+            file: report.log
+            range:
+              start: 75
+              end: 75
+        - name: pdfTeX
+          severity: info
+          text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+          log:
+            file: report.log
+            range:
+              start: 77
+              end: 77
+        - name: pdfTeX
+          severity: info
+          text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+          source:
+            file: >-
+              /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+          log:
+            file: report.log
+            range:
+              start: 79
+              end: 79
+        - name: pdfTeX
+          severity: info
+          text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 81
+              end: 81
+        - name: pdfTeX
+          severity: info
+          text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+          log:
+            file: report.log
+            range:
+              start: 83
+              end: 83
+        - name: pdfTeX
+          severity: info
+          text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+          log:
+            file: report.log
+            range:
+              start: 85
+              end: 85
+        - name: pdfTeX
+          severity: info
+          text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 87
+              end: 87
+        - name: pdfTeX
+          severity: info
+          text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+          log:
+            file: report.log
+            range:
+              start: 89
+              end: 89
+        - severity: info
+          name: pdfTeX
+          category: Package ifluatex
+          text: LuaTeX not detected.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+          log:
+            file: report.log
+            range:
+              start: 90
+              end: 90
+        - severity: info
+          name: pdfTeX
+          category: Package etexcmds
+          text: >-
+            Could not find \expanded. That can mean that you are not using
+            pdfTeX 1.50 or that some package has redefined \expanded. In the
+            latter case, load this package earlier.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 92
+              end: 95
+        - name: pdfTeX
+          severity: info
+          text: >-
+            pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX
+            (HO)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 97
+              end: 98
+        - name: pdfTeX
+          severity: info
+          text: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+          log:
+            file: report.log
+            range:
+              start: 100
+              end: 100
+        - severity: info
+          name: pdfTeX
+          category: Package pdftexcmds
+          text: LuaTeX not detected.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 102
+              end: 102
+        - severity: info
+          name: pdfTeX
+          category: Package pdftexcmds
+          text: \pdf@primitive is available.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 103
+              end: 103
+        - severity: info
+          name: pdfTeX
+          category: Package pdftexcmds
+          text: \pdf@ifprimitive is available.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 104
+              end: 104
+        - severity: info
+          name: pdfTeX
+          category: Package pdftexcmds
+          text: \pdfdraftmode found.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 105
+              end: 105
+        - severity: info
+          name: pdfTeX
+          category: Package epstopdf-base
+          text: Redefining graphics rule for `.eps'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+            range:
+              start: 438
+              end: 438
+          log:
+            file: report.log
+            range:
+              start: 107
+              end: 108
+        - severity: info
+          name: pdfTeX
+          category: Package grfext
+          text: >-
+            Graphics extension search list:
+            [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+            \AppendGraphicsExtensions.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+            range:
+              start: 456
+              end: 456
+          log:
+            file: report.log
+            range:
+              start: 109
+              end: 112
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: External font `cmex10' loaded for size <12>.
+          source:
+            file: report.tex
+            range:
+              start: 17
+              end: 17
+          log:
+            file: report.log
+            range:
+              start: 117
+              end: 118
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: External font `cmex10' loaded for size <8>.
+          source:
+            file: report.tex
+            range:
+              start: 17
+              end: 17
+          log:
+            file: report.log
+            range:
+              start: 119
+              end: 120
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: External font `cmex10' loaded for size <6>.
+          source:
+            file: report.tex
+            range:
+              start: 17
+              end: 17
+          log:
+            file: report.log
+            range:
+              start: 121
+              end: 122
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: 'NineCoefPlot.png used Requested size: 390.0pt x 389.99857pt.'
+          source:
+            file: report.tex
+            range:
+              start: 24
+              end: 24
+          log:
+            file: report.log
+            range:
+              start: 136
+              end: 137
+      inputs: []
+      outputs:
+        - report.pdf
+      calls: []
+    type: ParsedLaTeXLog
+  report.aux:
+    timeStamp: 2019-07-04T13:57:02.061Z
+    jobNames: []
+    hash: v4ZOop5Oz76hxpCnYJnuhsZpUubOiEX8KiVc5saLjjI=
+    type: LaTeXAuxilary
+  report.fls:
+    timeStamp: 2019-07-04T13:57:02.069Z
+    jobNames: []
+    hash: x9junlnN+AjxiOetjSy/ZAJFKQlKiVExhorgYCVF43A=
+    type: FileListing
+  report.log:
+    timeStamp: 2019-07-04T13:57:02.085Z
+    jobNames: []
+    hash: R3xaKSeV/BO2p4lfEe2bhaNl4LytUEO6uO9hEibZEUo=
+    type: LaTeXLog
+    subType: pdfTeX
+  report.synctex.gz:
+    timeStamp: 2019-07-04T13:57:02.085Z
+    jobNames: []
+    hash: unLF+LcLPVUAphXfwBax96ie/HfSNejOfLC7Sa6lsCI=
+    type: SyncTeX
+  report.pdf:
+    timeStamp: 2019-07-04T13:57:02.085Z
+    jobNames: []
+    hash: OjaRvCNcVJcMNeAo02ZCC5Pu5mlVTHlXbFYcIRM+ENM=
+    type: PortableDocumentFormat
+  report.aux-ParsedLaTeXAuxilary:
+    timeStamp: 2019-07-04T13:46:28.278Z
+    jobNames: []
+    value:
+      commands:
+        - relax
+        - '@writefile'
+        - newlabel
+    type: ParsedLaTeXAuxilary
+  /etc/texmf/web2c/texmf.cnf:
+    timeStamp: 2017-10-21T16:42:28.972Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map:
+    timeStamp: 2017-11-27T23:19:31.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/base/article.cls:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+    type: LaTeXClass
+  /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/tree-dvips/lingmacros.sty:
+    timeStamp: 2016-11-25T18:34:01.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/tree-dvips/tree-dvips.sty:
+    timeStamp: 2016-11-25T18:34:01.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/web2c/texmf.cnf:
+    timeStamp: 2018-03-05T00:41:47.000Z
+    jobNames: []
+  /usr/share/texmf/web2c/texmf.cnf:
+    timeStamp: 2018-03-05T00:41:47.000Z
+    jobNames: []
+  /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map:
+    timeStamp: 2018-07-30T09:03:34.240Z
+    jobNames: []
+  /var/lib/texmf/web2c/pdftex/pdflatex.fmt:
+    timeStamp: 2018-10-13T07:45:51.418Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii:
+    timeStamp: 2016-11-25T18:33:26.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty:
+    timeStamp: 2017-03-26T21:48:50.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty:
+    timeStamp: 2016-11-25T18:33:35.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty:
+    timeStamp: 2018-01-26T22:43:53.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def:
+    timeStamp: 2018-01-09T22:36:08.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty:
+    timeStamp: 2017-06-25T21:52:12.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty:
+    timeStamp: 2017-06-25T21:52:12.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg:
+    timeStamp: 2016-11-25T18:33:53.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty:
+    timeStamp: 2016-11-25T18:33:56.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty:
+    timeStamp: 2016-11-25T18:33:56.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty:
+    timeStamp: 2016-11-25T18:33:56.000Z
+    jobNames: []
+    type: LaTeXStyle
+  NineCoefPlot.png:
+    timeStamp: 2019-07-04T13:47:11.484Z
+    jobNames: []
+    hash: LEvyJn3oSS9Yr8xKj704d11zrkJeyBIOx1rFMT9Idgc=
+rules:
+  - name: ApplyOptions
+    command: load
+    phase: initialize
+    parameters: []
+    inputs:
+      - file: dicy.yaml-ParsedYAML
+        type: default
+      - file: report.yaml-ParsedYAML
+        type: default
+      - file: report.tex-ParsedLaTeXMagic
+        type: default
+      - file: dicy-instance.yaml-ParsedYAML
+        type: default
+      - file: /home/alessandro/.config/dicy/config.yaml-ParsedYAML
+        type: default
+    outputs: []
+  - name: LoadAndValidateCache
+    command: load
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: Migrate
+    command: load
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ApplyOptions
+    command: load
+    phase: execute
+    parameters: []
+    inputs:
+      - file: dicy.yaml-ParsedYAML
+        type: default
+      - file: report.yaml-ParsedYAML
+        type: default
+      - file: report.tex-ParsedLaTeXMagic
+        type: default
+      - file: dicy-instance.yaml-ParsedYAML
+        type: default
+      - file: /home/alessandro/.config/dicy/config.yaml-ParsedYAML
+        type: default
+    outputs: []
+  - name: ParseOptionsFile
+    command: load
+    phase: execute
+    parameters: []
+    inputs:
+      - file: /home/alessandro/.config/dicy/config.yaml
+        type: default
+    outputs:
+      - file: /home/alessandro/.config/dicy/config.yaml-ParsedYAML
+        type: default
+  - name: ParseLaTeXMagic
+    command: load
+    phase: execute
+    parameters:
+      - report.tex
+    inputs:
+      - file: report.tex
+        type: default
+    outputs:
+      - file: report.tex-ParsedLaTeXMagic
+        type: default
+  - name: AssignJobNames
+    command: load
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: FindLogFiles
+    command: build
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: LaTeX
+    command: build
+    phase: execute
+    parameters:
+      - report.tex
+    inputs:
+      - file: report.tex
+        type: default
+      - file: report.fls-ParsedFileListing
+        type: default
+      - file: report.log-ParsedLaTeXLog
+        type: default
+      - file: report.aux
+        type: default
+      - file: /etc/texmf/web2c/texmf.cnf
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/tree-dvips/lingmacros.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/tree-dvips/tree-dvips.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+        type: default
+      - file: /usr/share/texmf/web2c/texmf.cnf
+        type: default
+      - file: /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+        type: default
+      - file: /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+        type: default
+      - file: NineCoefPlot.png
+        type: default
+    outputs:
+      - file: report.aux
+        type: default
+      - file: report.fls
+        type: default
+      - file: report.log
+        type: default
+      - file: report.synctex.gz
+        type: target
+      - file: report.pdf
+        type: target
+  - name: ParseLaTeXAuxilary
+    command: build
+    phase: execute
+    parameters:
+      - report.aux
+    inputs:
+      - file: report.aux
+        type: default
+    outputs:
+      - file: report.aux-ParsedLaTeXAuxilary
+        type: default
+  - name: ParseFileListing
+    command: build
+    phase: execute
+    parameters:
+      - report.fls
+    inputs:
+      - file: report.fls
+        type: default
+    outputs:
+      - file: report.fls-ParsedFileListing
+        type: default
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - report.log
+    inputs:
+      - file: report.log
+        type: default
+    outputs:
+      - file: report.log-ParsedLaTeXLog
+        type: default
+  - name: LogProducedTargets
+    command: build
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: CheckForMissingBuildRule
+    command: build
+    phase: finalize
+    parameters:
+      - report.tex
+    inputs:
+      - file: report.tex
+        type: default
+    outputs: []
+  - name: FindLogFiles
+    command: log
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - report.log-ParsedLaTeXLog
+    inputs:
+      - file: report.log-ParsedLaTeXLog
+        type: default
+    outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - report.log
+    inputs:
+      - file: report.log
+        type: default
+    outputs:
+      - file: report.log-ParsedLaTeXLog
+        type: default
+  - name: SaveCache
+    command: save
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
