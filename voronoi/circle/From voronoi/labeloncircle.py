@@ -20,7 +20,7 @@ v_select = np.vectorize(select)
 
 #%%
 ####BIG IMAGE
-image = io.imread('circle_different_alphas0.png')
+image = io.imread('7995_regions_bound_nuclei.png')
 image.shape
 image = image[:,:,1:3]
 image[:,:,1] = np.zeros(image[:,:,1].shape)
