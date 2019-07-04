@@ -128,9 +128,9 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   report.tex:
-    timeStamp: 2019-07-04T13:57:00.753Z
+    timeStamp: 2019-07-04T14:20:42.069Z
     jobNames: []
-    hash: n8tRW3Neq5+/V1XGm9suYUlbyP7xE5p5aotYPAMfE1U=
+    hash: zNqZyCyH63pK7L6wMEbSGQBmdgXAsv3uMnv5pSrPEmY=
     type: LaTeX
     subType: article
   /home/alessandro/.config/dicy/config.yaml:
@@ -141,7 +141,7 @@ files:
     jobNames: []
     type: Nil
   report.fls-ParsedFileListing:
-    timeStamp: 2019-07-04T13:47:25.622Z
+    timeStamp: 2019-07-04T14:06:10.163Z
     jobNames: []
     value:
       messages: []
@@ -176,7 +176,7 @@ files:
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-        - /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+        - /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
         - /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
@@ -202,7 +202,7 @@ files:
       calls: []
     type: ParsedFileListing
   report.log-ParsedLaTeXLog:
-    timeStamp: 2019-07-04T13:47:25.642Z
+    timeStamp: 2019-07-04T14:20:43.648Z
     jobNames: []
     value:
       messages:
@@ -214,8 +214,8 @@ files:
           log:
             file: report.log
             range:
-              start: 27
-              end: 27
+              start: 28
+              end: 28
         - name: pdfTeX
           severity: info
           text: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -224,8 +224,8 @@ files:
           log:
             file: report.log
             range:
-              start: 29
-              end: 29
+              start: 30
+              end: 30
         - name: pdfTeX
           severity: info
           text: 'graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)'
@@ -234,8 +234,8 @@ files:
           log:
             file: report.log
             range:
-              start: 32
-              end: 32
+              start: 33
+              end: 33
         - name: pdfTeX
           severity: info
           text: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -244,8 +244,8 @@ files:
           log:
             file: report.log
             range:
-              start: 34
-              end: 34
+              start: 35
+              end: 35
         - severity: info
           name: pdfTeX
           category: Package graphics
@@ -258,8 +258,8 @@ files:
           log:
             file: report.log
             range:
-              start: 38
-              end: 38
+              start: 39
+              end: 39
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -267,13 +267,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 47
-              end: 48
+              start: 48
+              end: 49
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -281,13 +281,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 49
-              end: 50
+              start: 50
+              end: 51
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -295,13 +295,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 51
-              end: 52
+              start: 52
+              end: 53
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -309,13 +309,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 53
-              end: 54
+              start: 54
+              end: 55
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -323,13 +323,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 55
-              end: 56
+              start: 56
+              end: 57
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -337,13 +337,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 3
-              end: 3
+              start: 5
+              end: 5
           log:
             file: report.log
             range:
-              start: 57
-              end: 58
+              start: 58
+              end: 59
         - name: pdfTeX
           severity: info
           text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -352,8 +352,8 @@ files:
           log:
             file: report.log
             range:
-              start: 73
-              end: 73
+              start: 74
+              end: 74
         - name: pdfTeX
           severity: info
           text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -362,8 +362,8 @@ files:
           log:
             file: report.log
             range:
-              start: 75
-              end: 75
+              start: 76
+              end: 76
         - name: pdfTeX
           severity: info
           text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
@@ -372,8 +372,8 @@ files:
           log:
             file: report.log
             range:
-              start: 77
-              end: 77
+              start: 78
+              end: 78
         - name: pdfTeX
           severity: info
           text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
@@ -383,8 +383,8 @@ files:
           log:
             file: report.log
             range:
-              start: 79
-              end: 79
+              start: 80
+              end: 80
         - name: pdfTeX
           severity: info
           text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
@@ -393,8 +393,8 @@ files:
           log:
             file: report.log
             range:
-              start: 81
-              end: 81
+              start: 82
+              end: 82
         - name: pdfTeX
           severity: info
           text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
@@ -403,8 +403,8 @@ files:
           log:
             file: report.log
             range:
-              start: 83
-              end: 83
+              start: 84
+              end: 84
         - name: pdfTeX
           severity: info
           text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
@@ -413,8 +413,8 @@ files:
           log:
             file: report.log
             range:
-              start: 85
-              end: 85
+              start: 86
+              end: 86
         - name: pdfTeX
           severity: info
           text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
@@ -423,8 +423,8 @@ files:
           log:
             file: report.log
             range:
-              start: 87
-              end: 87
+              start: 88
+              end: 88
         - name: pdfTeX
           severity: info
           text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
@@ -433,8 +433,8 @@ files:
           log:
             file: report.log
             range:
-              start: 89
-              end: 89
+              start: 90
+              end: 90
         - severity: info
           name: pdfTeX
           category: Package ifluatex
@@ -444,8 +444,8 @@ files:
           log:
             file: report.log
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
         - severity: info
           name: pdfTeX
           category: Package etexcmds
@@ -458,8 +458,8 @@ files:
           log:
             file: report.log
             range:
-              start: 92
-              end: 95
+              start: 93
+              end: 96
         - name: pdfTeX
           severity: info
           text: >-
@@ -470,8 +470,8 @@ files:
           log:
             file: report.log
             range:
-              start: 97
-              end: 98
+              start: 98
+              end: 99
         - name: pdfTeX
           severity: info
           text: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
@@ -480,23 +480,12 @@ files:
           log:
             file: report.log
             range:
-              start: 100
-              end: 100
+              start: 101
+              end: 101
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
           text: LuaTeX not detected.
-          source:
-            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-          log:
-            file: report.log
-            range:
-              start: 102
-              end: 102
-        - severity: info
-          name: pdfTeX
-          category: Package pdftexcmds
-          text: \pdf@primitive is available.
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
@@ -507,7 +496,7 @@ files:
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
-          text: \pdf@ifprimitive is available.
+          text: \pdf@primitive is available.
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
@@ -518,7 +507,7 @@ files:
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
-          text: \pdfdraftmode found.
+          text: \pdf@ifprimitive is available.
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
@@ -526,6 +515,17 @@ files:
             range:
               start: 105
               end: 105
+        - severity: info
+          name: pdfTeX
+          category: Package pdftexcmds
+          text: \pdfdraftmode found.
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+          log:
+            file: report.log
+            range:
+              start: 106
+              end: 106
         - severity: info
           name: pdfTeX
           category: Package epstopdf-base
@@ -538,8 +538,8 @@ files:
           log:
             file: report.log
             range:
-              start: 107
-              end: 108
+              start: 108
+              end: 109
         - severity: info
           name: pdfTeX
           category: Package grfext
@@ -555,8 +555,8 @@ files:
           log:
             file: report.log
             range:
-              start: 109
-              end: 112
+              start: 110
+              end: 113
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -564,13 +564,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 17
-              end: 17
+              start: 18
+              end: 18
           log:
             file: report.log
             range:
-              start: 117
-              end: 118
+              start: 118
+              end: 119
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -578,13 +578,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 17
-              end: 17
+              start: 18
+              end: 18
           log:
             file: report.log
             range:
-              start: 119
-              end: 120
+              start: 120
+              end: 121
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -592,57 +592,68 @@ files:
           source:
             file: report.tex
             range:
-              start: 17
-              end: 17
+              start: 18
+              end: 18
           log:
             file: report.log
             range:
-              start: 121
-              end: 122
+              start: 122
+              end: 123
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
-          text: 'NineCoefPlot.png used Requested size: 390.0pt x 389.99857pt.'
+          text: 'NineCoefPlot.png used Requested size: 314.99863pt x 314.9895pt.'
           source:
             file: report.tex
             range:
-              start: 24
-              end: 24
+              start: 26
+              end: 26
+          log:
+            file: report.log
+            range:
+              start: 133
+              end: 134
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: '`!h'' float specifier changed to `!ht''.'
+          source:
+            file: report.tex
           log:
             file: report.log
             range:
               start: 136
-              end: 137
+              end: 136
       inputs: []
       outputs:
         - report.pdf
       calls: []
     type: ParsedLaTeXLog
   report.aux:
-    timeStamp: 2019-07-04T13:57:02.061Z
+    timeStamp: 2019-07-04T14:20:43.561Z
     jobNames: []
-    hash: v4ZOop5Oz76hxpCnYJnuhsZpUubOiEX8KiVc5saLjjI=
+    hash: suWvpFi1YcGvirSCY3HuSUKxLG3vF57lL+GmKYLxlJE=
     type: LaTeXAuxilary
   report.fls:
-    timeStamp: 2019-07-04T13:57:02.069Z
+    timeStamp: 2019-07-04T14:20:43.573Z
     jobNames: []
-    hash: x9junlnN+AjxiOetjSy/ZAJFKQlKiVExhorgYCVF43A=
+    hash: Gvy9GWEj3ArQY914x1UboOTQkYe0/iEm7mjk262tjNM=
     type: FileListing
   report.log:
-    timeStamp: 2019-07-04T13:57:02.085Z
+    timeStamp: 2019-07-04T14:20:43.593Z
     jobNames: []
-    hash: R3xaKSeV/BO2p4lfEe2bhaNl4LytUEO6uO9hEibZEUo=
+    hash: xEAXmGTrFxYBfCiOZF9bTy1UdqqbpdvhjV7r1hgC0Do=
     type: LaTeXLog
     subType: pdfTeX
   report.synctex.gz:
-    timeStamp: 2019-07-04T13:57:02.085Z
+    timeStamp: 2019-07-04T14:20:43.593Z
     jobNames: []
-    hash: unLF+LcLPVUAphXfwBax96ie/HfSNejOfLC7Sa6lsCI=
+    hash: QTUTwG/KI8BVZ7AKlLD9BapufTzvaKll2dU/n15D2rE=
     type: SyncTeX
   report.pdf:
-    timeStamp: 2019-07-04T13:57:02.085Z
+    timeStamp: 2019-07-04T14:20:43.593Z
     jobNames: []
-    hash: OjaRvCNcVJcMNeAo02ZCC5Pu5mlVTHlXbFYcIRM+ENM=
+    hash: 32yXiIt9h9wOMJjTeCUNZ/X1K+ncd+FA/gXAv4zhf7U=
     type: PortableDocumentFormat
   report.aux-ParsedLaTeXAuxilary:
     timeStamp: 2019-07-04T13:46:28.278Z
@@ -843,9 +854,13 @@ files:
     jobNames: []
     type: LaTeXStyle
   NineCoefPlot.png:
-    timeStamp: 2019-07-04T13:47:11.484Z
+    timeStamp: 2019-07-04T14:04:32.484Z
     jobNames: []
-    hash: LEvyJn3oSS9Yr8xKj704d11zrkJeyBIOx1rFMT9Idgc=
+    hash: HG9a2PPSygjJgg6VQ/ItiHcTFancB2rlTWub/xNPJ0o=
+  /usr/share/texlive/texmf-dist/tex/latex/base/report.cls:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+    type: LaTeXClass
 rules:
   - name: ApplyOptions
     command: load
@@ -1060,6 +1075,8 @@ rules:
       - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
         type: default
       - file: NineCoefPlot.png
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
         type: default
     outputs:
       - file: report.aux

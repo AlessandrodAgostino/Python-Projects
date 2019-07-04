@@ -5,8 +5,8 @@ INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT /home/alessandro/Python/Brain Challenge/LateX/report.tex
 OUTPUT report.log
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
@@ -65,11 +65,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
+INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
 OUTPUT report.pdf
+INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
-INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
-INPUT /home/alessandro/Python/Brain Challenge/LateX/NineCoefPlot.png
 INPUT /home/alessandro/Python/Brain Challenge/LateX/report.aux
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb

@@ -57,6 +57,8 @@ def main():
     #Defining all the data
     data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
     results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
+    latex_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/LateX'
+
     data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                             header=0, sep='\t')
     feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
@@ -127,9 +129,9 @@ def main():
     for i,coef in enumerate(coefs):#<--- limitation
         plt.subplot(3, 3, i+1)
         coef = np.sort(np.abs(coef))
-        plt.plot(coef[::-1])
+        plt.plot(coef[::-1], )
         plt.axvline(x=50, color='r')
-        plt.axhline(y=coef[-50], color='g', label='50 feat threshold = {}'.format(coef[-50]))
+        plt.axhline(y=coef[-50], color='g', label='50 feat threshold = {:.3}'.format(coef[-50]))
         plt.legend(fontsize=12)
         plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(str(pipes[i][0]).split("(")[0],str(pipes[i][1]).split("CV")[0]),  fontsize = 15)
         plt.tight_layout()
