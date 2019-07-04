@@ -1,11 +1,12 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,a4paper]{report}
 \usepackage{graphicx}
+\textwidth=450pt
+\oddsidemargin=0pt
 \begin{document}
 
 \title{Title}
 
 \section*{Brain Challenge}
-
 This project aim to analyze the relationship between a bunch of features computed on several NRM images of the brain of different patients and the age of those patients. The final purpose of this analysis is to attempt to detect those images' features that are better able to predict the patient's age and try to extract the biological meaning from this information.
 
 The raw images database had already been pre-processed when it was sent to me. Therefore my work started with a dataframe with about 1000 features collected on almost 2000 samples (\texttt{n\_features} = 954 and \texttt{n\_samples} = 2631?).
@@ -18,12 +19,14 @@ More precisely, I used three different method to standardize the data: the \text
 
 Those scaling methods were combined with three penalized regression methods: the \texttt{LassoCV}, the \texttt{RidgeCV}, and the \texttt{ElasticNetCV}.All these three supervised methods are linear in the coefficients, and what you obtain after such a regression is the array of values that express the linear combination of features that better predict the age of the samples. Every one of these methods find the best hyper-parameters for the regression and perform automatically a cross validation on their results.  The Lasso regression exerts a penalization on the L1-norm of the coefficients vector, the ridge regression instead is based on the L2-norm of the vector, while the elastic net method performs a sort of mixture of the two methods.
 
-The total number of combinations among these elements is nine. So I processed the data with each one of them and obtained nine arrays of coefficients. Then I was able to sort the absolute values of those coefficients in order to find the most important ones for every combination. The idea was to select a certain number of the most influential features and use them to perform further analysis.
+The total number of combinations among these elements is nine. So I processed the data with each one of them and obtained nine arrays of coefficients. Then I was able to sort the absolute values of those coefficients in order to find the most important ones for every combination. The idea was to select a certain number of the most influential features and use them to perform further analysis. All the charts are shown in Figure \ref{fig:NineCoefPlot}.
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{NineCoefPlot.png}
+\begin{figure}[h!]
+  \begin{center}
+  \includegraphics[width=0.7\linewidth]{NineCoefPlot.png}
   \caption{The nine plots that shows the general trend for each one of the scaler + regression combinations. It can be seen that they behave quite the same way. The threshold value does not change at all varying the scaler method, but it depends clearly on the regression method. The vertical red line identify the 50 highest ranked features, while the green horizontal line highlight the threshold value necessary to filter only those features.}
-  \label{fig:boat1}
+  \label{fig:NineCoefPlot}
+  \end{center}
 \end{figure}
 
 
