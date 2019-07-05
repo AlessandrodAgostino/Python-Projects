@@ -1,4 +1,4 @@
-#token: 409812b6032c99a44403e4db39834192ce7dd38ff17a907c
+#token: 1592799f0b2955e91afebc01c2aa8c4966cb8151b07712c81592799f0b2955e91afebc01c2aa8c4966cb8151b07712c8
 import numpy as np
 import pylab as plt
 import pandas as pd
@@ -64,7 +64,7 @@ for sca, reg in product(scalers, regressors):
     coefs.append(list(pipe.named_steps['regressor'].coef_))
     label = "{} & {}".format(sca.__class__.__name__, reg.__class__.__name__)
     combinations_labels.append(label)
-    
+
 #%%
 #Loading from file of the results from the grid scearching
 filename = "brain_gridscearch.pkl"
@@ -87,6 +87,13 @@ result_df.insert(7,"score_features_ratio", result_df['mean_test_score']/result_d
 result_df.head()
 
 #%%
+
+
+sns.scatterplot('n_filtered_features','mean_test_score',data=result_df,s=50, alpha=0.7,hue='nice_name', legend = False)
+
+
+
+
 fg = sns.FacetGrid(data=result_df, col='nice_name', hue='nice_name', height=4, aspect=0.9)
 fg.map(plt.scatter, 'n_filtered_features','mean_test_score',s=50)
 fg.fig.tight_layout()

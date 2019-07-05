@@ -70,7 +70,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-07-04T12:07:24.774Z
+    timeStamp: 2019-07-05T08:49:37.158Z
     jobNames: []
     value:
       severity: info
@@ -128,20 +128,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   report.tex:
-    timeStamp: 2019-07-04T14:20:42.069Z
+    timeStamp: 2019-07-05T11:02:23.770Z
     jobNames: []
-    hash: zNqZyCyH63pK7L6wMEbSGQBmdgXAsv3uMnv5pSrPEmY=
+    hash: hfnZjYwiowBBN/zwbl1Rsd9mCEsCcpFPcjcTToXtYcE=
     type: LaTeX
-    subType: article
+    subType: report
   /home/alessandro/.config/dicy/config.yaml:
-    timeStamp: 2019-07-04T12:07:24.780Z
+    timeStamp: 2019-07-05T08:49:37.166Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   report.fls-ParsedFileListing:
-    timeStamp: 2019-07-04T14:06:10.163Z
+    timeStamp: 2019-07-05T09:30:18.743Z
     jobNames: []
     value:
       messages: []
@@ -149,24 +149,25 @@ files:
         - /etc/texmf/web2c/texmf.cnf
         - /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         - >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
         - >-
-          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-        - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
         - >-
-          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
         - /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
@@ -177,7 +178,8 @@ files:
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
         - /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
         - /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-        - /usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+        - /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+        - /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
@@ -202,7 +204,7 @@ files:
       calls: []
     type: ParsedFileListing
   report.log-ParsedLaTeXLog:
-    timeStamp: 2019-07-04T14:20:43.648Z
+    timeStamp: 2019-07-05T11:02:25.148Z
     jobNames: []
     value:
       messages:
@@ -260,6 +262,16 @@ files:
             range:
               start: 39
               end: 39
+        - name: pdfTeX
+          severity: info
+          text: float 2001/11/08 v1.3d Float enhancements (AL)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+          log:
+            file: report.log
+            range:
+              start: 46
+              end: 46
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -267,13 +279,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 48
-              end: 49
+              start: 55
+              end: 56
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -281,13 +293,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 50
-              end: 51
+              start: 57
+              end: 58
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -295,13 +307,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 52
-              end: 53
+              start: 59
+              end: 60
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -309,13 +321,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 54
-              end: 55
+              start: 61
+              end: 62
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -323,13 +335,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 56
-              end: 57
+              start: 63
+              end: 64
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -337,13 +349,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 5
-              end: 5
+              start: 6
+              end: 6
           log:
             file: report.log
             range:
-              start: 58
-              end: 59
+              start: 65
+              end: 66
         - name: pdfTeX
           severity: info
           text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -352,8 +364,8 @@ files:
           log:
             file: report.log
             range:
-              start: 74
-              end: 74
+              start: 81
+              end: 81
         - name: pdfTeX
           severity: info
           text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -362,8 +374,8 @@ files:
           log:
             file: report.log
             range:
-              start: 76
-              end: 76
+              start: 83
+              end: 83
         - name: pdfTeX
           severity: info
           text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
@@ -372,8 +384,8 @@ files:
           log:
             file: report.log
             range:
-              start: 78
-              end: 78
+              start: 85
+              end: 85
         - name: pdfTeX
           severity: info
           text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
@@ -383,8 +395,8 @@ files:
           log:
             file: report.log
             range:
-              start: 80
-              end: 80
+              start: 87
+              end: 87
         - name: pdfTeX
           severity: info
           text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
@@ -393,8 +405,8 @@ files:
           log:
             file: report.log
             range:
-              start: 82
-              end: 82
+              start: 89
+              end: 89
         - name: pdfTeX
           severity: info
           text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
@@ -403,8 +415,8 @@ files:
           log:
             file: report.log
             range:
-              start: 84
-              end: 84
+              start: 91
+              end: 91
         - name: pdfTeX
           severity: info
           text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
@@ -413,8 +425,8 @@ files:
           log:
             file: report.log
             range:
-              start: 86
-              end: 86
+              start: 93
+              end: 93
         - name: pdfTeX
           severity: info
           text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
@@ -423,8 +435,8 @@ files:
           log:
             file: report.log
             range:
-              start: 88
-              end: 88
+              start: 95
+              end: 95
         - name: pdfTeX
           severity: info
           text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
@@ -433,8 +445,8 @@ files:
           log:
             file: report.log
             range:
-              start: 90
-              end: 90
+              start: 97
+              end: 97
         - severity: info
           name: pdfTeX
           category: Package ifluatex
@@ -444,8 +456,8 @@ files:
           log:
             file: report.log
             range:
-              start: 91
-              end: 91
+              start: 98
+              end: 98
         - severity: info
           name: pdfTeX
           category: Package etexcmds
@@ -458,8 +470,8 @@ files:
           log:
             file: report.log
             range:
-              start: 93
-              end: 96
+              start: 100
+              end: 103
         - name: pdfTeX
           severity: info
           text: >-
@@ -470,8 +482,8 @@ files:
           log:
             file: report.log
             range:
-              start: 98
-              end: 99
+              start: 105
+              end: 106
         - name: pdfTeX
           severity: info
           text: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
@@ -480,8 +492,8 @@ files:
           log:
             file: report.log
             range:
-              start: 101
-              end: 101
+              start: 108
+              end: 108
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -491,8 +503,8 @@ files:
           log:
             file: report.log
             range:
-              start: 103
-              end: 103
+              start: 110
+              end: 110
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -502,8 +514,8 @@ files:
           log:
             file: report.log
             range:
-              start: 104
-              end: 104
+              start: 111
+              end: 111
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -513,8 +525,8 @@ files:
           log:
             file: report.log
             range:
-              start: 105
-              end: 105
+              start: 112
+              end: 112
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -524,8 +536,8 @@ files:
           log:
             file: report.log
             range:
-              start: 106
-              end: 106
+              start: 113
+              end: 113
         - severity: info
           name: pdfTeX
           category: Package epstopdf-base
@@ -538,8 +550,8 @@ files:
           log:
             file: report.log
             range:
-              start: 108
-              end: 109
+              start: 115
+              end: 116
         - severity: info
           name: pdfTeX
           category: Package grfext
@@ -555,22 +567,22 @@ files:
           log:
             file: report.log
             range:
-              start: 110
-              end: 113
+              start: 117
+              end: 120
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: External font `cmex10' loaded for size <12>.
+          text: External font `cmex10' loaded for size <10.95>.
           source:
             file: report.tex
             range:
-              start: 18
-              end: 18
+              start: 11
+              end: 11
           log:
             file: report.log
             range:
-              start: 118
-              end: 119
+              start: 125
+              end: 126
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -578,13 +590,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 18
-              end: 18
+              start: 11
+              end: 11
           log:
             file: report.log
             range:
-              start: 120
-              end: 121
+              start: 127
+              end: 128
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -592,13 +604,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 18
-              end: 18
+              start: 11
+              end: 11
           log:
             file: report.log
             range:
-              start: 122
-              end: 123
+              start: 129
+              end: 130
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -606,54 +618,43 @@ files:
           source:
             file: report.tex
             range:
-              start: 26
-              end: 26
+              start: 30
+              end: 30
           log:
             file: report.log
             range:
-              start: 133
-              end: 134
-        - severity: warning
-          name: pdfTeX
-          category: LaTeX
-          text: '`!h'' float specifier changed to `!ht''.'
-          source:
-            file: report.tex
-          log:
-            file: report.log
-            range:
-              start: 136
-              end: 136
+              start: 143
+              end: 144
       inputs: []
       outputs:
         - report.pdf
       calls: []
     type: ParsedLaTeXLog
   report.aux:
-    timeStamp: 2019-07-04T14:20:43.561Z
+    timeStamp: 2019-07-05T11:02:25.078Z
     jobNames: []
-    hash: suWvpFi1YcGvirSCY3HuSUKxLG3vF57lL+GmKYLxlJE=
+    hash: zY5XhMdiRVVk88UDSQBlvkT3AdzbExaRN2heZMXvqwY=
     type: LaTeXAuxilary
   report.fls:
-    timeStamp: 2019-07-04T14:20:43.573Z
+    timeStamp: 2019-07-05T11:02:25.082Z
     jobNames: []
-    hash: Gvy9GWEj3ArQY914x1UboOTQkYe0/iEm7mjk262tjNM=
+    hash: m4W2jiiC3Yydg0lyOx8N2jz135s0+ySY2XC/lxbnMV0=
     type: FileListing
   report.log:
-    timeStamp: 2019-07-04T14:20:43.593Z
+    timeStamp: 2019-07-05T11:02:25.102Z
     jobNames: []
-    hash: xEAXmGTrFxYBfCiOZF9bTy1UdqqbpdvhjV7r1hgC0Do=
+    hash: sCpaRtDKyQRIiBeEvb6NCqG6pMm0CjnSwCGNondMx48=
     type: LaTeXLog
     subType: pdfTeX
   report.synctex.gz:
-    timeStamp: 2019-07-04T14:20:43.593Z
+    timeStamp: 2019-07-05T11:02:25.102Z
     jobNames: []
-    hash: QTUTwG/KI8BVZ7AKlLD9BapufTzvaKll2dU/n15D2rE=
+    hash: KMS6RmEZ3dNz4Yln0iJM+pocOvwBvf+OTt9NPpD0kTk=
     type: SyncTeX
   report.pdf:
-    timeStamp: 2019-07-04T14:20:43.593Z
+    timeStamp: 2019-07-05T11:02:25.102Z
     jobNames: []
-    hash: 32yXiIt9h9wOMJjTeCUNZ/X1K+ncd+FA/gXAv4zhf7U=
+    hash: Rk5TXJVp5snfFj3qa7+BUY+HcZsgEuP4N+UkMH/9nu8=
     type: PortableDocumentFormat
   report.aux-ParsedLaTeXAuxilary:
     timeStamp: 2019-07-04T13:46:28.278Z
@@ -861,6 +862,25 @@ files:
     timeStamp: 2016-11-25T18:33:41.000Z
     jobNames: []
     type: LaTeXClass
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/float/float.sty:
+    timeStamp: 2016-11-25T18:33:48.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
 rules:
   - name: ApplyOptions
     command: load
@@ -1077,6 +1097,20 @@ rules:
       - file: NineCoefPlot.png
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
         type: default
     outputs:
       - file: report.aux

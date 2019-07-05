@@ -102,7 +102,8 @@ grid.cv_results_
 
 ### N.B score is R^2
 grid.best_score_
-
+#0.7922241057540788
+# STDSCAL + LASSO
 
 # %% ### Prediction ###
 test_data=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'), header=0, sep='\t')
