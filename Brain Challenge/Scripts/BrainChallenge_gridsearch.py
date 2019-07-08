@@ -37,12 +37,12 @@ from sklearn.model_selection import train_test_split as tts
 # token=696cdee56b1bfdbd084b53c061a678bf8dc3b31241e14490
 
 ## Remote path
-data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
-results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
+# data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
+# results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
 
 ## Local path
-#data_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Data'
-#results_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Results'
+data_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Data'
+results_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Results'
 
 # %% ## Train DataFrame Loading ##
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),

@@ -70,7 +70,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-07-05T08:49:37.158Z
+    timeStamp: 2019-07-08T07:46:26.669Z
     jobNames: []
     value:
       severity: info
@@ -128,20 +128,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   report.tex:
-    timeStamp: 2019-07-05T11:02:23.770Z
+    timeStamp: 2019-07-08T08:47:30.157Z
     jobNames: []
-    hash: hfnZjYwiowBBN/zwbl1Rsd9mCEsCcpFPcjcTToXtYcE=
+    hash: 2vnFg7zmlMOsIzlTcQq1bJCv/QDrdOdBjkBJXXO3oIQ=
     type: LaTeX
     subType: report
   /home/alessandro/.config/dicy/config.yaml:
-    timeStamp: 2019-07-05T08:49:37.166Z
+    timeStamp: 2019-07-08T07:46:26.672Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   report.fls-ParsedFileListing:
-    timeStamp: 2019-07-05T09:30:18.743Z
+    timeStamp: 2019-07-08T08:45:41.331Z
     jobNames: []
     value:
       messages: []
@@ -180,8 +180,10 @@ files:
         - /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
         - /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
         - /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
         - /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
@@ -190,11 +192,15 @@ files:
         - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
         - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
         - /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
         - /usr/share/texlive/texmf-dist/web2c/texmf.cnf
         - /usr/share/texmf/web2c/texmf.cnf
         - /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
         - /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+        - After_train_SVR.png
         - NineCoefPlot.png
+        - Score_Features_Ratio.png
         - report.aux
         - report.tex
       outputs:
@@ -204,7 +210,7 @@ files:
       calls: []
     type: ParsedFileListing
   report.log-ParsedLaTeXLog:
-    timeStamp: 2019-07-05T11:02:25.148Z
+    timeStamp: 2019-07-08T08:47:32.160Z
     jobNames: []
     value:
       messages:
@@ -272,6 +278,166 @@ files:
             range:
               start: 46
               end: 46
+        - name: pdfTeX
+          severity: info
+          text: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+          log:
+            file: report.log
+            range:
+              start: 53
+              end: 53
+        - name: pdfTeX
+          severity: info
+          text: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+          log:
+            file: report.log
+            range:
+              start: 101
+              end: 101
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: 'Driver file: pdftex.def'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 225
+              end: 225
+          log:
+            file: report.log
+            range:
+              start: 105
+              end: 105
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `cmy' substituted by `cmy0'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1348
+              end: 1348
+          log:
+            file: report.log
+            range:
+              start: 106
+              end: 106
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `hsb' substituted by `rgb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1352
+              end: 1352
+          log:
+            file: report.log
+            range:
+              start: 107
+              end: 107
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `RGB' extended
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1364
+              end: 1364
+          log:
+            file: report.log
+            range:
+              start: 108
+              end: 108
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `HTML' substituted by `rgb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1366
+              end: 1366
+          log:
+            file: report.log
+            range:
+              start: 109
+              end: 109
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `Hsb' substituted by `hsb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1367
+              end: 1367
+          log:
+            file: report.log
+            range:
+              start: 110
+              end: 110
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `tHsb' substituted by `hsb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1368
+              end: 1368
+          log:
+            file: report.log
+            range:
+              start: 111
+              end: 111
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `HSB' substituted by `hsb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1369
+              end: 1369
+          log:
+            file: report.log
+            range:
+              start: 112
+              end: 112
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `Gray' substituted by `gray'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1370
+              end: 1370
+          log:
+            file: report.log
+            range:
+              start: 113
+              end: 113
+        - severity: info
+          name: pdfTeX
+          category: Package xcolor
+          text: Model `wave' substituted by `hsb'
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+            range:
+              start: 1371
+              end: 1371
+          log:
+            file: report.log
+            range:
+              start: 114
+              end: 114
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -279,13 +445,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 55
-              end: 56
+              start: 120
+              end: 121
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -293,13 +459,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 57
-              end: 58
+              start: 122
+              end: 123
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -307,13 +473,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 59
-              end: 60
+              start: 124
+              end: 125
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -321,13 +487,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 61
-              end: 62
+              start: 126
+              end: 127
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -335,13 +501,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 63
-              end: 64
+              start: 128
+              end: 129
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -349,13 +515,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 6
-              end: 6
+              start: 9
+              end: 9
           log:
             file: report.log
             range:
-              start: 65
-              end: 66
+              start: 130
+              end: 131
         - name: pdfTeX
           severity: info
           text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -364,8 +530,8 @@ files:
           log:
             file: report.log
             range:
-              start: 81
-              end: 81
+              start: 146
+              end: 146
         - name: pdfTeX
           severity: info
           text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -374,8 +540,8 @@ files:
           log:
             file: report.log
             range:
-              start: 83
-              end: 83
+              start: 148
+              end: 148
         - name: pdfTeX
           severity: info
           text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
@@ -384,8 +550,8 @@ files:
           log:
             file: report.log
             range:
-              start: 85
-              end: 85
+              start: 150
+              end: 150
         - name: pdfTeX
           severity: info
           text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
@@ -395,8 +561,8 @@ files:
           log:
             file: report.log
             range:
-              start: 87
-              end: 87
+              start: 152
+              end: 152
         - name: pdfTeX
           severity: info
           text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
@@ -405,8 +571,8 @@ files:
           log:
             file: report.log
             range:
-              start: 89
-              end: 89
+              start: 154
+              end: 154
         - name: pdfTeX
           severity: info
           text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
@@ -415,8 +581,8 @@ files:
           log:
             file: report.log
             range:
-              start: 91
-              end: 91
+              start: 156
+              end: 156
         - name: pdfTeX
           severity: info
           text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
@@ -425,8 +591,8 @@ files:
           log:
             file: report.log
             range:
-              start: 93
-              end: 93
+              start: 158
+              end: 158
         - name: pdfTeX
           severity: info
           text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
@@ -435,8 +601,8 @@ files:
           log:
             file: report.log
             range:
-              start: 95
-              end: 95
+              start: 160
+              end: 160
         - name: pdfTeX
           severity: info
           text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
@@ -445,8 +611,8 @@ files:
           log:
             file: report.log
             range:
-              start: 97
-              end: 97
+              start: 162
+              end: 162
         - severity: info
           name: pdfTeX
           category: Package ifluatex
@@ -456,8 +622,8 @@ files:
           log:
             file: report.log
             range:
-              start: 98
-              end: 98
+              start: 163
+              end: 163
         - severity: info
           name: pdfTeX
           category: Package etexcmds
@@ -470,8 +636,8 @@ files:
           log:
             file: report.log
             range:
-              start: 100
-              end: 103
+              start: 165
+              end: 168
         - name: pdfTeX
           severity: info
           text: >-
@@ -482,8 +648,8 @@ files:
           log:
             file: report.log
             range:
-              start: 105
-              end: 106
+              start: 170
+              end: 171
         - name: pdfTeX
           severity: info
           text: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
@@ -492,8 +658,8 @@ files:
           log:
             file: report.log
             range:
-              start: 108
-              end: 108
+              start: 173
+              end: 173
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -503,8 +669,8 @@ files:
           log:
             file: report.log
             range:
-              start: 110
-              end: 110
+              start: 175
+              end: 175
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -514,8 +680,8 @@ files:
           log:
             file: report.log
             range:
-              start: 111
-              end: 111
+              start: 176
+              end: 176
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -525,8 +691,8 @@ files:
           log:
             file: report.log
             range:
-              start: 112
-              end: 112
+              start: 177
+              end: 177
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -536,8 +702,8 @@ files:
           log:
             file: report.log
             range:
-              start: 113
-              end: 113
+              start: 178
+              end: 178
         - severity: info
           name: pdfTeX
           category: Package epstopdf-base
@@ -550,8 +716,8 @@ files:
           log:
             file: report.log
             range:
-              start: 115
-              end: 116
+              start: 180
+              end: 181
         - severity: info
           name: pdfTeX
           category: Package grfext
@@ -567,8 +733,8 @@ files:
           log:
             file: report.log
             range:
-              start: 117
-              end: 120
+              start: 182
+              end: 185
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -576,13 +742,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 11
-              end: 11
+              start: 19
+              end: 19
           log:
             file: report.log
             range:
-              start: 125
-              end: 126
+              start: 190
+              end: 191
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -590,13 +756,13 @@ files:
           source:
             file: report.tex
             range:
-              start: 11
-              end: 11
+              start: 19
+              end: 19
           log:
             file: report.log
             range:
-              start: 127
-              end: 128
+              start: 192
+              end: 193
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -604,64 +770,93 @@ files:
           source:
             file: report.tex
             range:
-              start: 11
-              end: 11
+              start: 19
+              end: 19
           log:
             file: report.log
             range:
-              start: 129
-              end: 130
+              start: 194
+              end: 195
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
-          text: 'NineCoefPlot.png used Requested size: 314.99863pt x 314.9895pt.'
+          text: 'NineCoefPlot.png used Requested size: 404.99725pt x 404.99596pt.'
           source:
             file: report.tex
             range:
-              start: 30
-              end: 30
+              start: 44
+              end: 44
           log:
             file: report.log
             range:
-              start: 143
-              end: 144
+              start: 207
+              end: 208
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: >-
+            Score_Features_Ratio.png used Requested size: 314.99863pt x
+            210.00769pt.
+          source:
+            file: report.tex
+            range:
+              start: 91
+              end: 91
+          log:
+            file: report.log
+            range:
+              start: 213
+              end: 214
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: 'After_train_SVR.png used Requested size: 225.0pt x 165.30222pt.'
+          source:
+            file: report.tex
+            range:
+              start: 114
+              end: 114
+          log:
+            file: report.log
+            range:
+              start: 219
+              end: 220
       inputs: []
       outputs:
         - report.pdf
       calls: []
     type: ParsedLaTeXLog
   report.aux:
-    timeStamp: 2019-07-05T11:02:25.078Z
+    timeStamp: 2019-07-08T08:47:32.013Z
     jobNames: []
-    hash: zY5XhMdiRVVk88UDSQBlvkT3AdzbExaRN2heZMXvqwY=
+    hash: QQlxAe+Ue1+hW1eTO0wO8Dj2aAGDRFSX3kDuL2iW70Y=
     type: LaTeXAuxilary
   report.fls:
-    timeStamp: 2019-07-05T11:02:25.082Z
+    timeStamp: 2019-07-08T08:47:32.025Z
     jobNames: []
-    hash: m4W2jiiC3Yydg0lyOx8N2jz135s0+ySY2XC/lxbnMV0=
+    hash: p2BThwMV2rqBChhuBAJQoZtdWAj21BzyIzrXPSxhkZ8=
     type: FileListing
   report.log:
-    timeStamp: 2019-07-05T11:02:25.102Z
+    timeStamp: 2019-07-08T08:47:32.049Z
     jobNames: []
-    hash: sCpaRtDKyQRIiBeEvb6NCqG6pMm0CjnSwCGNondMx48=
+    hash: V+5kWUKMpt9QuACTe0JpTK5T1FPqt7zKzhlBs9N7YZk=
     type: LaTeXLog
     subType: pdfTeX
-  report.synctex.gz:
-    timeStamp: 2019-07-05T11:02:25.102Z
-    jobNames: []
-    hash: KMS6RmEZ3dNz4Yln0iJM+pocOvwBvf+OTt9NPpD0kTk=
-    type: SyncTeX
   report.pdf:
-    timeStamp: 2019-07-05T11:02:25.102Z
+    timeStamp: 2019-07-08T08:47:32.049Z
     jobNames: []
-    hash: Rk5TXJVp5snfFj3qa7+BUY+HcZsgEuP4N+UkMH/9nu8=
+    hash: 1CO7QptIp43CHwVd/7RHBbK2XM433ochBDN5WzRcaEc=
     type: PortableDocumentFormat
   report.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-07-04T13:46:28.278Z
+    timeStamp: 2019-07-08T08:45:26.101Z
     jobNames: []
     value:
       commands:
         - relax
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - newlabel
         - '@writefile'
         - newlabel
     type: ParsedLaTeXAuxilary
@@ -881,6 +1076,33 @@ files:
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty:
+    timeStamp: 2017-04-15T22:59:15.000Z
+    jobNames: []
+    type: LaTeXStyle
+  report.synctex.gz:
+    timeStamp: 2019-07-08T08:47:32.049Z
+    jobNames: []
+    hash: o1zLRmhGlWUBSJkR+8hD96BB7rn1QITFYYHqxyai52w=
+    type: SyncTeX
+  /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty:
+    timeStamp: 2016-11-25T18:34:03.000Z
+    jobNames: []
+    type: LaTeXStyle
+  After_train_SVR.png:
+    timeStamp: 2019-07-05T13:35:32.445Z
+    jobNames: []
+    hash: MHqY60fTYSUivpZkbrgqTHSPHW3UF2kWub1CRDmZOss=
+  Score_Features_Ratio.png:
+    timeStamp: 2019-07-05T14:27:24.047Z
+    jobNames: []
+    hash: in9+YGBi+fu+HpuSyMoyHcTyzJwY1pW/CWZ5ZAAdPRM=
 rules:
   - name: ApplyOptions
     command: load
@@ -1112,6 +1334,18 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
         type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+        type: default
+      - file: After_train_SVR.png
+        type: default
+      - file: Score_Features_Ratio.png
+        type: default
     outputs:
       - file: report.aux
         type: default
@@ -1119,9 +1353,9 @@ rules:
         type: default
       - file: report.log
         type: default
-      - file: report.synctex.gz
-        type: target
       - file: report.pdf
+        type: target
+      - file: report.synctex.gz
         type: target
   - name: ParseLaTeXAuxilary
     command: build

@@ -1,4 +1,3 @@
-#token: 1592799f0b2955e91afebc01c2aa8c4966cb8151b07712c81592799f0b2955e91afebc01c2aa8c4966cb8151b07712c8
 import numpy as np
 import pylab as plt
 import pandas as pd
@@ -39,6 +38,9 @@ class CoefFilter(BaseEstimator, TransformerMixin):
 #Loading data and defining everything necessary for loading the data from pickle
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
+results_dir = '/home/alessandro/Python/Brain Challenge/Results'
+data_dir='/home/alessandro/Python/Brain Challenge/Data'
+
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
 feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
@@ -88,10 +90,12 @@ result_df.head()
 
 #%%
 
-
-sns.scatterplot('n_filtered_features','mean_test_score',data=result_df,s=50, alpha=0.7,hue='nice_name', legend = False)
-
-
+fg = plt.figure()
+sns.scatterplot('n_filtered_features','mean_test_score',data=result_df,s=60, alpha=0.3)
+plt.title('Score n Features Ratio', size = 15)
+plt.xlabel('n of Features ')
+plt.ylabel('Mean test score')
+fg.savefig(pj(results_dir,'Score_Features_Ratio.png'))
 
 
 fg = sns.FacetGrid(data=result_df, col='nice_name', hue='nice_name', height=4, aspect=0.9)
