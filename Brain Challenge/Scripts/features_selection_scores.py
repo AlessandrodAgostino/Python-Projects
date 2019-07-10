@@ -39,14 +39,17 @@ top25_scores = np.zeros(*coefs[0].shape)
 top10_scores = np.zeros(*coefs[0].shape)
 
 for i in range(9):
-    top50_scores += (coefs[i] > ord_coef[i,-50])*1
-    top25_scores += (coefs[i] > ord_coef[i,-25])*1
-    top10_scores += (coefs[i] > ord_coef[i,-10])*1
-
+    top50_scores += (np.abs(coefs[i]) >= ord_coef[i,-50])*1
+    top25_scores += (np.abs(coefs[i]) >= ord_coef[i,-25])*1
+    top10_scores += (np.abs(coefs[i]) >= ord_coef[i,-10])*1
 #%%
 #Writing the dataframe with the scores of different top  ranks
 scores_df = pd.DataFrame([top50_scores,top25_scores,top10_scores],
                          columns = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].columns)
+
 scores_df.set_index(pd.Index(["top50_scores","top25_scores","top10_scores"]))
 scores_df = scores_df.T
-scores_df
+scores_df.columns = ['top50_scores', 'top25_scores', 'top10_scores']
+sort_score_df = scores_df.sort_values(by=['top10_scores'], ascending= False)
+sort_score_df = sort_score_df.query("top50_scores > 0")
+sort_score_df.to_csv(pj(results_dir,'Sorted_scores.csv'))
