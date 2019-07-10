@@ -47,7 +47,9 @@ results_dir='/home/alessandro/Dropbox/UniBo/Brain Challenge/Results'
 # %% ## Train DataFrame Loading ##
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
-#data_train.head()
+
+
+data_train.head()
 
 feats= data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
 
@@ -183,7 +185,7 @@ train_score
 
 data_train['predicted_age'] = train_prediction
 
-f=sns.lmplot('age_floor', 'predicted_age',data=data_train, robust=True,
+f=sns.lmplot('age_floor', 'age_floor',data=data_train, robust=True,
             scatter_kws={'alpha':0.2}, hue='gender', height=8, ci=90)
 plt.gca().set_title(r'Final Model Full Train Result, $R^2=$%.2f'%train_score, size=15)
 plt.gca().set_ylabel('Predicted Age', size=15)

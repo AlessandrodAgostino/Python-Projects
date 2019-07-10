@@ -47,7 +47,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - SVR fine tuning"
+    msg['Subject']="Training - SVR fine tuning ~ 2"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -126,21 +126,20 @@ def main():
         #%%
         best_pipe = loaded_grid.best_estimator_
 
-        best_pipe
         x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
         best_pipe.fit(x_train,y_train)
-        best_pipe.score(x_test,y_test)
-        #0.7245557808714778
+        # best_pipe.score(x_test,y_test)
+        # #0.7245557808714778
 
 
         #%%
         fig = plt.figure()
         y_pred_on_test = best_pipe.predict(x_test)
         plt.scatter(y_test,y_pred_on_test)
-        plt.gca().set_title("Prdictor's score: {:.2f}".format(best_pipe.score(x_test,y_test)),
+        plt.gca().set_title("Predictor's score: {:.3f}".format(best_pipe.score(x_test,y_test)),
                             size = 17)
-        plt.gca().set_ylabel("y predicted on x_test", size=15)
-        plt.gca().set_xlabel("y_test", size=15)
+        plt.gca().set_ylabel("Predicted age", size=15)
+        plt.gca().set_xlabel("Age", size=15)
         fig.savefig(pj(results_dir, 'After_train_SVR_fine_tuning.png'), bbox_inches='tight')
 
 
