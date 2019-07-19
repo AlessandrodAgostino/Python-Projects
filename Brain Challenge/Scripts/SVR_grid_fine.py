@@ -1,3 +1,5 @@
+#e4a41d06c4a91341d0bbdf51dbdfc1e66d30d42918e74b5f
+
 import numpy as np
 import pylab as plt
 import pandas as pd
@@ -47,7 +49,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - SVR fine tuning ~ 2"
+    msg['Subject']="Training - SVR fine tuning ~ 3"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -98,8 +100,19 @@ def main():
         treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
         #with different kernels but always on 50 features
-        list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],'SVR__C': list(np.linspace(5,10, num=10)),'SVR__degree': [1, 2, 3, 4, 5, 6],'SVR__gamma': list(np.linspace(0.5,5, num=10))} for n in range(3)]
+        list_par_grid_SVR = [{'Scaler': [scals[n]],'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],'SVR__C': list(np.linspace(5,10, num=5)),'SVR__degree': [1, 2, 3, 4, 5, 6],'SVR__gamma': list(np.linspace(0.5,5, num=5))} for n in range(3)]
 
+        """
+        This comment it's just for clarity, Atom goes wrong when going on multiple line with this command
+        list_par_grid_SVR = [{'Scaler': [scals[n]],
+                              'Filter': [filts[n]],
+                              'Filter__coef':[ord_coefs[n]],
+                              'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],
+                              'SVR__C': list(np.linspace(5,10, num=5)),
+                              'SVR__degree': [1, 2, 3, 4, 5, 6],
+                              'SVR__gamma': list(np.linspace(0.5,5, num=5))}
+                              for n in range(3)]
+        """
 
         SVR1 =SVR(kernel='linear', C=3)
         cv=KF(10, shuffle=True)
