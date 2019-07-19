@@ -14,29 +14,21 @@ from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVR
-
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.model_selection import KFold as KF
 from joblib import dump, load
 from os.path import join as pj
+
 #Sending emails
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-class CoefFilter(BaseEstimator, TransformerMixin):
-    history = []
-    def __init__(self, treshold, coef):
-        self.treshold = treshold
-        self.coef = coef
-
-    def fit(self, X, y = None):
-        return self
-
-    def transform(self, X, y = None):
-        filter = self.coef >= self.treshold
-        self.history.append(list(filter))
-        return X[:,filter]
+"""
+This is a function that send you e-mail from an address on which you got access.
+According to the web it's not a safe way of log in to your account so I created a new
+one just for this purpose.
+"""
 
 #Function to send e-mail to monitoring the state of the fit
 def send_email(message):
@@ -54,6 +46,22 @@ def send_email(message):
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
     del msg
+
+
+class CoefFilter(BaseEstimator, TransformerMixin):
+    history = []
+    def __init__(self, treshold, coef):
+        self.treshold = treshold
+        self.coef = coef
+
+    def fit(self, X, y = None):
+        return self
+
+    def transform(self, X, y = None):
+        filter = self.coef >= self.treshold
+        self.history.append(list(filter))
+        return X[:,filter]
+
 
 def main():
 
