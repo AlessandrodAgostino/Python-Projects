@@ -42,7 +42,6 @@ tassel = MultiPolygon([poly.intersection(convex_hull) for poly in polygonize(lin
 tassel = MultiPolygon([p for p in tassel] + [p for p in convex_hull.difference(unary_union(tassel))])
 #14.52 s
 
-
 #%% CREATING THE CIRCLES AND PLOTTING THE VORONOI TASSELLATION WITH INTERECTIONS ~ 300 s
 #Dictionary with the identity of all the circles in the image
 circles_id = [{'r' : 10, 'c' : (40,30)},
@@ -68,45 +67,23 @@ for c_id in circles_id:
     circles.append((Polygon(circle_point)))
     circles_b.append((Polygon(bound_point)))
 
-
-# for c in circles:
-    # plt.gca().plot(*c.exterior.xy)
-#plt.scatter(low_points[:,0], low_points[:,1],s=0.005, c="m", marker = "8")
-# for r in tassel[0:1000]:
-#     bound =  r.boundary.coords.xy
-#     for circle, circle_b in zip(circles, circles_b):
-#         if r.intersects(circle_b):
-#             alpha=0.7
-#             plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'r', alpha= alpha, edgecolor='k', lw = 0.05)
-#             nucleus = (np.sum(bound[0])/len(bound[0]),np.sum(bound[1])/len(bound[1]))
-#             plt.gca().scatter(*nucleus,s=1, c="k", marker = ".", linewidth=0)
-#
-#         elif r.intersects(circle):
-#             alpha=0.4
-#             plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'r', alpha= alpha, edgecolor='k', lw = 0.05)
-#             nucleus = (np.sum(bound[0])/len(bound[0]),np.sum(bound[1])/len(bound[1]))
-#             plt.gca().scatter(*nucleus,s=1, c="k", marker = ".", linewidth=0)
-#
-#         else: plt.gca().fill(r.boundary.coords.xy[0], r.boundary.coords.xy[1],'g', alpha= 0.5, edgecolor='k', lw = 0.05)
-#
-
-start = time.time()
 fig = plt.figure()
 
+start = time.time()
 for r in tassel:
     bound = r.boundary.coords.xy
-    if any(r.intersects(circle_b) for circle_b in circles_b):
-        plt.gca().fill(bound[0], bound[1],
-                      'r', alpha= 0.7, edgecolor='k', lw = 0.05)
-    elif any(r.intersects(circle) for circle in circles):
-        plt.gca().fill(bound[0], bound[1],
-                      'r', alpha= 0.4, edgecolor='k', lw = 0.05)
 
-    else: plt.gca().fill(bound[0], bound[1],
-                        'w', alpha= 0.7, edgecolor='k', lw = 0.05)
+
+    if any(r.intersects(circle_b) for circle_b in circles_b):
+        plt.gca().fill(bound[0], bound[1], fc=(1,0,0,0.7), ec=(0,0,0,1), lw = 0.1)
+    elif any(r.intersects(circle) for circle in circles):
+        plt.gca().fill(bound[0], bound[1], fc=(1,0,0,0.4), ec=(0,0,0,1), lw = 0.1)
+    else:
+        plt.gca().fill(bound[0], bound[1], fc=(1,1,1,0), ec=(0,0,0,1), lw = 0.1)
 
     nucleus = (np.sum(bound[0])/len(bound[0]),np.sum(bound[1])/len(bound[1]))
     plt.gca().scatter(*nucleus,s=2, c="k", marker = ".", linewidth = 0)
+
 
 plt.axis('off')
 end = time.time()

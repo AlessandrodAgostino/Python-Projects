@@ -47,7 +47,7 @@ def send_email(message):
     msg = MIMEMultipart()
     msg['From']=username
     msg['To']= 'alessandro.dagostino96@gmail.com'
-    msg['Subject']="Training - SVR Grid ~ 2"
+    msg['Subject']="Training - Redoing SVR"
 
     msg.attach(MIMEText(message, 'plain'))
     server.send_message(msg)
@@ -94,64 +94,57 @@ def main():
         x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
         scals = [pipes[n].named_steps['scaler'] for n in range(9)]
         filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
-        n_tresh = 10
         treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
         #with different kernels but always on 50 features
-        list_par_grid_SVR = [{'Scaler': [scals[n]],\
-                              'Filter': [filts[n]],\
-                              'Filter__coef':[ord_coefs[n]],\
-                              'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],\
-                              'SVR__C': [0.1, 0.5, 1, 5, 10],\
-                              'SVR__degree': [1, 2, 3, 4, 5, 6],\
-                              'SVR__gamma': [0.001, 0.01, 0.1, 1, 'auto']} for n in range(9)]
+        list_par_grid_SVR = [{'Filter': [filts[n]],'Filter__coef':[ord_coefs[n]],'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],'SVR__C': [5, 6.25, 7.5, 8.75, 10],'SVR__degree': [1, 2, 3, 4, 5, 6],'SVR__gamma': [0.1, 0.5,1,2.5,3]} for n in range(3)]
 
+
+        scaled_x_train = scals[0].fit_transform(x_train)
 
         SVR1 =SVR(kernel='linear', C=3)
         cv=KF(10, shuffle=True)
 
-        pipe = Pipeline([('Scaler', scals[0]), ('Filter', filts[0]), ('SVR', SVR1)])
+        pipe = Pipeline([('Filter', filts[0]), ('SVR', SVR1)])
 
         one_kernel_grid = GridSearchCV(pipe, param_grid = list_par_grid_SVR, n_jobs=16, pre_dispatch=8,  cv=cv)
         st = time.time()
-        one_kernel_grid.fit(x_train,y_train)
+        one_kernel_grid.fit(scaled_x_train,y_train)
         en = time.time()
         print("\nThe fit took {:.2f}s".format(en-st))
 
         send_email("End of the fit."+"\nIt took {:.2f}s".format(en-st))
 
-        #Saving best_params_ found by the gridscearch
-        filename = "brain_best_params_in_SVR_gridscearch.pkl"
-        dump(one_kernel_grid.best_params_,pj(results_dir, filename))
-
         #Saving all the grid found by the gridscearch
-        filename = "brain_SVR_gridscearch.pkl"
+        filename = "brain_SVR_gridscearch_redo.pkl"
         dump(one_kernel_grid,pj(results_dir, filename))
         #
         send_email("Everything has been saved")
 
-        filename = "brain_SVR_gridscearch.pkl"
+        filename = "brain_SVR_gridscearch_redo.pkl"
         loaded_grid = load(pj(results_dir, filename))
 
         #%%
         best_pipe = loaded_grid.best_estimator_
 
-        best_pipe
-        x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
-        best_pipe.fit(x_train,y_train)
-        best_pipe.score(x_test,y_test)
+        scaled_x_test = scals[0].fit_transform(x_test)
+
+        print("The best pipe was: ", best_pipe)
+
+        best_pipe.fit(scaled_x_train,y_train)
+        best_pipe.score(scaled_x_test,y_test)
         #0.7245557808714778
 
 
         #%%
         fig = plt.figure()
-        y_pred_on_test = best_pipe.predict(x_test)
+        y_pred_on_test = best_pipe.predict(scaled_x_test)
         plt.scatter(y_test,y_pred_on_test)
-        plt.gca().set_title("Prdictor's score: {:.2f}".format(best_pipe.score(x_test,y_test)),
+        plt.gca().set_title("Predictor's score: {:.2f}".format(best_pipe.score(x_test,y_test)),
                             size = 17)
         plt.gca().set_ylabel("y predicted on x_test", size=15)
         plt.gca().set_xlabel("y_test", size=15)
-        fig.savefig(pj(results_dir, 'After_train_SVR.png'), bbox_inches='tight')
+        fig.savefig(pj(results_dir, 'After_train_SVR_redo.png'), bbox_inches='tight')
 
 
     except ValueError:
