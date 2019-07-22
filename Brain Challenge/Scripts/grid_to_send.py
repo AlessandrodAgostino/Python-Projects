@@ -21,6 +21,13 @@ from os.path import join as pj
 
 
 class CoefFilter(BaseEstimator, TransformerMixin):
+    """
+    This is the customed Filter, it's a new class inheriting from two class of SKlearn.
+    It simply select the columns tht received a coefficient greater than a certain value in the regression.
+    The set of coefficients and the threshold have to be given as parameters during the initialization.
+    """
+
+
     history = []
     def __init__(self, treshold, coef):
         self.treshold = treshold
