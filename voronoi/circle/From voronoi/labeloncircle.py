@@ -20,19 +20,21 @@ v_select = np.vectorize(select)
 
 #%%
 ####BIG IMAGE
-image = io.imread('7995_regions_bound_nuclei.png')
+image = io.imread('circle_different_alphas_nuclei_2.png')
 image.shape
 image = image[:,:,1:3]
 image[:,:,1] = np.zeros(image[:,:,1].shape)
+io.imsave('grey.png', image[:,:,0])
 
+#%%
 #Selecting lumes
 sel_epits = v_select(image[:,:,0], top = 30)
-sel_epits = morphology.binary_dilation(sel_epits)
+#sel_epits = morphology.binary_dilation(sel_epits)
 epits, n_epits = label(sel_epits, structure = s)
 #Saving labels
 image[:,:,1] = image[:,:,1] + epits
 io.imsave('big_epits.png', img_as_uint((epits>0).astype(float)))
-
+#%%
 #Selecting epitelia
 sel_lumes = v_select(image[:,:,0], bot = 31, top = 200)
 lumes, n_lumes = label(sel_lumes, structure = s)
