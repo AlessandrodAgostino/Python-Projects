@@ -126,7 +126,7 @@ def main():
 
 
     fig = plt.figure(figsize=(20, 20))
-    for i,coef in enumerate(coefs):#<--- limitation
+    for i,coef in enumerate(coefs):
         plt.subplot(3, 3, i+1)
         coef = np.sort(np.abs(coef))
         plt.plot(coef[::-1], )
