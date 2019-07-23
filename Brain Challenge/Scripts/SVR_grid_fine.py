@@ -33,7 +33,7 @@ one just for this purpose.
 #Function to send e-mail to monitoring the state of the fit
 def send_email(message):
     username = 'alessandro.dagostino.notifica@gmail.com'
-    password = 'notific@'
+    password = 'nico<3'
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
     server.login(username,password)

@@ -12,17 +12,19 @@
 
 \section*{Introduction}
 The project I developed follows the call to the Brain Challenge. An initiative of \dots \dots.
-An entire set of MRI images of the brain of different people is provided along with other personal data like age, gender and site of collection of the images. The images were previously processed through an algorithm of features extraction that collected a series of about 1000 properties of each one of the 2000 patients. A database was made of all this information.
+An entire set of MRI images of the brains of different people is provided along with other personal data like age, gender and site of collection of the images. The images were previously processed through an algorithm of features extraction that collected a series of about 1000 properties of each one of the 2000 patients. A database was made of all this information.
 
 My contribution to this work is a statistical analysis of the relationship between the features of the images and the age of the people under survey. The method I devised is based on a significant reduction in the dimensionality of the features space and a following regression in order to detect a predictive model for the age of the people starting from those images. A possible added value to this work is the possibility to infer a biological interpretation of the most influential features for the age prediction purpose.
 
-In particular I managed the dimensionality reduction exploiting the ridge penalized regression model on the standardized dataset and extracted the 50 most influential features. I further conducted a single vector regression on that reduced space to make a prediction of the age of the samples that resulted in a good predictor with a $R^{2}$ score about 0.7?. In order to show the quality of the fitting I made use of a gaussian process regressor that provide also a good representation of the confidence interval of the model.
+In particular I managed the dimensionality reduction exploiting the ridge penalized regression model on the standardized dataset and extracted the 50 most influential features. I further conducted a single vector regression on that reduced space to make a prediction of the age of the samples that resulted in a good predictor with a $R^{2}$ score about 0.7?. In order to show the quality of the fitting I made use of a gaussian process regressor that provide a good representation of the confidence interval of the model.
 
 
 \section*{Brain Challenge}
 Don't now anything about the challenge, waiting for further information.
 
 My work started with a dataframe with about 1000 features collected on almost 2000 samples  (\texttt{n\_features} = 959 and \texttt{n\_samples} = 2364). Five columns of the dataset provide personal information as age, gender, site of medical analysis and the subject ID. The other 954 quantities contain the values of all the computed features as float number.
+
+[Here I should add a couple of graphs of abundance of ages in respect to gender and in respect to site of analysis]
 
 
 % This project aim to analyze the relationship between a bunch of features computed on several NRM images of the brain of different patients and the age of those patients. The final purpose of this analysis is to attempt to detect those images' features that are better able to predict the patient's age and try to extract the biological meaning from this information. Some simple regression methods performed well on the entire dataset and received a $R^{2} = 0.792$, but the aim is to find a restricted set of features with a not so lower score. I've found that a restricted set of 50 features was able to predict the age of the sample with a $R^{2}$ equal to 0.73 [This result should be verified in the last run]. This is a good result considering that the dimensionality has been reduced about 200 times.
