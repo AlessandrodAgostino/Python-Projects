@@ -70,7 +70,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-07-08T07:46:26.669Z
+    timeStamp: 2019-07-22T08:07:30.557Z
     jobNames: []
     value:
       severity: info
@@ -128,13 +128,13 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   report.tex:
-    timeStamp: 2019-07-08T10:02:18.845Z
+    timeStamp: 2019-07-22T08:13:15.001Z
     jobNames: []
-    hash: kGi5Pj0naYR06L0G+2rBY8/yVN9WKHcL4GBaIDk1EyY=
+    hash: OhprSaIymSY2kPMdRGXs0DbK5eo6TODi1RgwyW4OHCw=
     type: LaTeX
     subType: report
   /home/alessandro/.config/dicy/config.yaml:
-    timeStamp: 2019-07-08T07:46:26.672Z
+    timeStamp: 2019-07-22T08:07:30.565Z
     jobNames: []
     type: YAML
   x.y-Nil:
@@ -210,7 +210,7 @@ files:
       calls: []
     type: ParsedFileListing
   report.log-ParsedLaTeXLog:
-    timeStamp: 2019-07-08T10:02:20.868Z
+    timeStamp: 2019-07-22T08:13:16.748Z
     jobNames: []
     value:
       messages:
@@ -784,8 +784,8 @@ files:
           source:
             file: report.tex
             range:
-              start: 46
-              end: 46
+              start: 49
+              end: 49
           log:
             file: report.log
             range:
@@ -800,8 +800,8 @@ files:
           source:
             file: report.tex
             range:
-              start: 93
-              end: 93
+              start: 96
+              end: 96
           log:
             file: report.log
             range:
@@ -814,8 +814,8 @@ files:
           source:
             file: report.tex
             range:
-              start: 116
-              end: 116
+              start: 119
+              end: 119
           log:
             file: report.log
             range:
@@ -827,25 +827,25 @@ files:
       calls: []
     type: ParsedLaTeXLog
   report.aux:
-    timeStamp: 2019-07-08T10:02:20.677Z
+    timeStamp: 2019-07-22T08:13:16.625Z
     jobNames: []
     hash: QQlxAe+Ue1+hW1eTO0wO8Dj2aAGDRFSX3kDuL2iW70Y=
     type: LaTeXAuxilary
   report.fls:
-    timeStamp: 2019-07-08T10:02:20.685Z
+    timeStamp: 2019-07-22T08:13:16.641Z
     jobNames: []
     hash: l3ejx3npTIoIW1Kw1JZL9XsBgmYvBactqyquKQZPmtI=
     type: FileListing
   report.log:
-    timeStamp: 2019-07-08T10:02:20.709Z
+    timeStamp: 2019-07-22T08:13:16.665Z
     jobNames: []
-    hash: IErL9fyTi7xxYzurehTpcHjRISgkq69Vc5Jpx9yPTTo=
+    hash: +WnCUI/J/nEUQNBcegtjDYNTB4jz16065opOeZ0qz30=
     type: LaTeXLog
     subType: pdfTeX
   report.pdf:
-    timeStamp: 2019-07-08T10:02:20.705Z
+    timeStamp: 2019-07-22T08:13:16.665Z
     jobNames: []
-    hash: xykXXndxv0x26G+NPD/vPvXw5gvT3/bDK8pv2EtDMcA=
+    hash: hSYFn3QE3akkEnYaV05v6AB2RImF53ao8ZYO9ZFZDKg=
     type: PortableDocumentFormat
   report.aux-ParsedLaTeXAuxilary:
     timeStamp: 2019-07-08T08:45:26.101Z
@@ -1081,9 +1081,9 @@ files:
     jobNames: []
     type: LaTeXStyle
   report.synctex.gz:
-    timeStamp: 2019-07-08T10:02:20.709Z
+    timeStamp: 2019-07-22T08:13:16.665Z
     jobNames: []
-    hash: sefGPRlCkEHeCcSYRn/j33iPVnVqUx4Ht9LWjPcr4j8=
+    hash: 6g2RY6R9ww6X7VPkq7HVkVlr88+OC2TPRxQrIzIiwtM=
     type: SyncTeX
   /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg:
     timeStamp: 2016-11-25T18:33:50.000Z
