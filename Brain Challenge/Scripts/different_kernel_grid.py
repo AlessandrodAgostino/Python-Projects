@@ -91,7 +91,7 @@ def main():
 
     x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=True)
     scals = [pipes[n].named_steps['scaler'] for n in range(9)]
-    filts = [CoefFilter(feat_50[n], ord_coefs[n]) for n in range(9)]
+    filts = [CoefFilter(feat_50[n], np.abs(coefs[n])) for n in range(9)]
     n_tresh = 10
     treshs = [np.linspace(feat_50[n], ord_coefs[n,-1], num=n_tresh) for n in range(9)]
 
