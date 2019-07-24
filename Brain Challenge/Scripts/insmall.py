@@ -1,4 +1,4 @@
-import numpy as np
+1import numpy as np
 import pylab as plt
 import pandas as pd
 from itertools import product

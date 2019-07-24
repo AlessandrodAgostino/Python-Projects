@@ -72,12 +72,10 @@ fig = plt.figure()
 start = time.time()
 for r in tassel:
     bound = r.boundary.coords.xy
-
-
     if any(r.intersects(circle_b) for circle_b in circles_b):
-        plt.gca().fill(bound[0], bound[1], fc=(1,0,0,0.7), ec=(0,0,0,1), lw = 0.1)
+        plt.gca().fill(bound[0], bound[1], fc=(0,0,0,0.7), ec=(0,0,0,1), lw = 0.1)
     elif any(r.intersects(circle) for circle in circles):
-        plt.gca().fill(bound[0], bound[1], fc=(1,0,0,0.4), ec=(0,0,0,1), lw = 0.1)
+        plt.gca().fill(bound[0], bound[1], fc=(0,0,0,0.4), ec=(0,0,0,1), lw = 0.1)
     else:
         plt.gca().fill(bound[0], bound[1], fc=(1,1,1,0), ec=(0,0,0,1), lw = 0.1)
 

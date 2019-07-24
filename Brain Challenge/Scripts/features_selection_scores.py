@@ -26,7 +26,7 @@ coefs = []
 for sca, reg in product(scalers, regressors):
     pipe = Pipeline([('scaler', sca), ('regressor', reg)])
     filename = "{!s:.5}_{!s:.5}.joblib".format(pipe.named_steps['scaler'],pipe.named_steps['regressor'])
-    pipe = load(pj(results_dir,filename))
+    pipe = load(pj(results_dir,'joblib',filename))
     coefs.append(list(pipe.named_steps['regressor'].coef_))
 #------------------------------------------------------------------------------
 #%%
