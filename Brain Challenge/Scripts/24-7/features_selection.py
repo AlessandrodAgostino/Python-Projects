@@ -17,6 +17,8 @@ from sklearn.pipeline import Pipeline
 #%%
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
+scripts_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Scripts'
+
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                         header=0, sep='\t')
 feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
@@ -65,6 +67,7 @@ for i,coef in enumerate(coefs):
     plt.legend(fontsize=12)
     plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(str(pipes[i][0]).split("(")[0],str(pipes[i][1]).split("CV")[0]),  fontsize = 15)
     plt.tight_layout()
+plt.savefig(pj(scripts_dir,'24-7','NineCoefPlot.png'), bbox_inches='tight')
 
 #%%
 #Writing the dataframe with the scores of different top  ranks
