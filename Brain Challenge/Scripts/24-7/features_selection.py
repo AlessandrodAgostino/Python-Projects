@@ -78,3 +78,6 @@ scores_df.columns = ['top50_scores', 'top25_scores', 'top10_scores']
 sort_score_df = scores_df.sort_values(by=['top10_scores'], ascending= False)
 sort_score_df = sort_score_df.query("top50_scores > 0")
 sort_score_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Scripts/24-7/Sorted_scores.csv'))
+
+sort_score_df = scores_df.sort_values(by=['top10_scores'], ascending= False)
+sort_score_df

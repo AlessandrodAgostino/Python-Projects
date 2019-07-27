@@ -57,10 +57,10 @@ cv=KF(10, shuffle=True)
 scaler = StandardScaler()
 
 pipeline = Pipeline([('scaler', scaler),('SVR', SVR1)])
-list_par_grid_SVR = {'SVR__kernel': ["linear", 'poly', 'rbf', 'sigmoid'],\
-                     'SVR__C': [5, 6.25, 7.5, 8.75, 10],\
-                     'SVR__degree': [1, 2, 3, 4, 5, 6],\
-                     'SVR__gamma': [0.1, 0.5,1,2.5,3]}
+list_par_grid_SVR = {'SVR__kernel': ["linear", 'poly', 'rbf'],\
+                     'SVR__C': [5, 7.5, 10],\
+                     'SVR__degree': [1, 3, 5],\
+                     'SVR__gamma': [0.1, 1, 3]}
 
 grid_SVR = GridSearchCV(pipeline,
                          param_grid = list_par_grid_SVR,

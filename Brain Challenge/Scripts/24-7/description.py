@@ -14,6 +14,9 @@ scripts_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge
 
 data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScaled_combat_SVA.txt'),
                        header=0, sep='\t')
+
+data_train.head()
+
 id_features = data_train.loc[:,[i for i in data_train.columns if 'age' in i or 'gender' in i or 'site' in i]]
 
 #%%
