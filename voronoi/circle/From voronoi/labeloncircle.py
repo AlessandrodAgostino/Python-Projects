@@ -6,7 +6,8 @@ from shapely.ops import polygonize,unary_union
 from shapely.geometry import LineString, MultiPolygon, MultiPoint, Point, Polygon
 from scipy.spatial import Voronoi
 from SALib.sample import saltelli
-from skimage import io, morphology, img_as_uint, img_as_ubyte, filters
+from skimage import io, morphology, img_as_uint, img_as_ubyte, filters, color
+from skimage import util
 
 #structure elements for recognizing features
 s = [[1,1,1],
@@ -21,13 +22,21 @@ v_select = np.vectorize(select)
 #%%
 ####BIG IMAGE
 image = io.imread('bw_nuclei_bound.png')
-np.unique(image)
 image.shape
-image[:,:,1] = np.zeros(image[:,:,1].shape)
-image[:,:,2] = np.zeros(image[:,:,2].shape)
-image[:,:,3] = np.zeros(image[:,:,3].shape)
+temp = np.zeros((image.shape[0], image.shape[1], 5))
+temp.shape
+temp[:,:,0] = image[:,:,0]
+image = temp
+"""
+0: image
+1: nuclei
+2: cells
+3: lumes
+4: boundaries
+"""
 
-#%% Finding all the selections
+
+#%% -------- Finding all the selections ---------
 # val = list(np.linspace(0,255,num=10))
 # for min, max in zip(val, val[1:]):
 #     sel_image = v_select(image[:,:,0], bot=min, top=max)
@@ -47,115 +56,63 @@ np.unique(nuclei)
 io.imsave('nuclei.png'.format(min, max),img_as_ubyte((nuclei>0).astype(float)))
 
 nuclei_lab, n_nuclei = label(nuclei, structure = s)
-n_nuclei
+print(n_nuclei)
 image[:,:,1] = image[:,:,1] + nuclei_lab
 #%%
 #Finding all the cells (3% error)
 cells = io.imread('selections/0_28.33_selection.png')
 cells = cells - nuclei
 cells = morphology.binary_dilation(cells)
-cells = morphology.binary_dilation(cells)
-cells = morphology.binary_dilation(cells)
-cells = morphology.binary_dilation(cells)
-cells = morphology.binary_dilation(cells)
-
-cells = morphology.binary_erosion(cells)
-cells = morphology.binary_erosion(cells)
-cells = morphology.binary_erosion(cells)
-cells = np.invert(cells)
+cells = np.invert(cells)*255
+np.unique(cells)
 
 io.imsave('cells.png',img_as_ubyte((cells>0).astype(float)))
 cells_lab, n_cells = label(cells, structure = s)
-n_cells
+print(n_cells)
 image[:,:,2] = image[:,:,2] + cells_lab
+
 #%%
 #Selecting lumes
 lumes = io.imread('selections/142_170.00_selection.png')
-lumes = morphology.binary_erosion(lumes)
-lumes = morphology.binary_erosion(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_dilation(lumes)
-lumes = morphology.binary_erosion(lumes)
-lumes = morphology.binary_erosion(lumes)
-lumes = morphology.binary_erosion(lumes)
-lumes = morphology.binary_erosion(lumes)
-lumes = lumes*255
+l = 20
+selem = np.resize(np.array([1]*l**2), (l, l))
+lumes = filters.median(lumes, selem=selem, out=None, mask=None, shift_x=False, shift_y=False, mode='nearest', cval=0.0, behavior='ndimage')
 io.imsave('lumes.png',img_as_ubyte((lumes>0).astype(float)))
 
 lumes_lab, n_lumes = label(lumes, structure = s)
-n_lumes
+print(n_lumes)
 image[:,:,3] = image[:,:,3] + lumes_lab
 
 #%%
 #Selecting boundaries
-
 #TO DO : insert a control on the area of the features. soppress the too small ones
 bounds = io.imread('selections/57_85.00_selection.png')
 l = 20
 selem = np.resize(np.array([1]*l**2), (l, l))
-filts = filters.median(bounds, selem=selem, out=None, mask=None, shift_x=False, shift_y=False, mode='nearest', cval=0.0, behavior='ndimage')
-io.imsave('filts.png',img_as_ubyte((filts>0).astype(float)))
-
-bounds = morphology.binary_erosion(bounds)
-bounds = bounds*255
-bounds = bounds + filts
+bounds = filters.median(bounds, selem=selem, out=None, mask=None, shift_x=False, shift_y=False, mode='nearest', cval=0.0, behavior='ndimage')
 io.imsave('bounds.png',img_as_ubyte((bounds>0).astype(float)))
+
 bounds_lab, n_bounds = label(bounds, structure = s)
 print(n_bounds)
-image[:,:,3] = image[:,:,3] - bounds_lab
-
+image[:,:,4] = image[:,:,4] + bounds_lab
 #%%
-
 #-------------------------------------------------------------------------------
+bounds_hue = np.zeros((bounds_lab.shape))
+bounds_sat = np.zeros((bounds_hue.shape))
+bounds_val = np.ones((bounds_hue.shape))
 
+hue = np.linspace(0,1, num=n_bounds+2)
+hue_dict = {n : h for n,h in enumerate(hue)}
 
+for n,h in hue_dict.items():
+    bounds_hue[np.where(bounds_lab == n)]= h
+    bounds_hue[np.where(lumes_lab == n)] = h
 
+bounds_sat[np.where(bounds_lab > 0)] = 1
+bounds_sat[np.where(lumes_lab > 0)] = 0.3
 
+hsv_bounds = np.stack((bounds_hue, bounds_sat, bounds_val), axis = 2)
 
-
-
-
-
-sel_epits = v_select(image[:,:,0], top = 30)
-#sel_epits = morphology.binary_dilation(sel_epits)
-epits, n_epits = label(sel_epits, structure = s)
-#Saving labels
-image[:,:,1] = image[:,:,1] + epits
-io.imsave('big_epits.png', img_as_ubyte((epits>0).astype(float)))
+io.imsave('rgb_bounds.png',color.hsv2rgb(img_as_ubyte(hsv_bounds)))
 #%%
-#Selecting epitelia
-sel_lumes = v_select(image[:,:,0], bot = 31, top = 200)
-lumes, n_lumes = label(sel_lumes, structure = s)
-n_lumes
-n_erosion = 0
-n_epits
-
-while n_lumes > n_epits:
-    print("erosion")
-    sel_lumes = morphology.binary_erosion(sel_lumes)
-    lumes, n_lumes = label(sel_lumes, structure = s)
-    n_erosion =+ n_erosion
-
-for _ in range(n_erosion):
-    print("dilation")
-    sel_lumes = morphology.binary_dilation(sel_lumes)
-
-#Saving labels
-image[:,:,1] = image[:,:,1] - lumes
-io.imsave('big_lumes.png',img_as_ubyte((lumes>0).astype(float)))
-
-#%%
-#Selecting background
-sel_back = v_select(image[:,:,0], bot = 201)
-backg, _ = label(sel_back, structure = s)
-io.imsave('big_backg.png',img_as_ubyte((backg>0).astype(float)))
-#%%
-#Testing correspondece between identified regions
-np.unique(image[:,:,1])
-epit1 = image[:,:,1] == 2
-lume1 = image[:,:,1] == 256 -2
-cell1 = epit1 + lume1
+#-------------------------------------------------------------------------------

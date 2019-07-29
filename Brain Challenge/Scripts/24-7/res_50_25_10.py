@@ -101,10 +101,9 @@ melt_y_df.head()
 lp = sns.lmplot(data=melt_y_df,
                 x='y_test',
                 y='y_pred',
-                hue='run', # <== 😀 Look here!
-                #palette={"red": "#FF9999", "white": "#FFE888"},
-                robust=True, # <== 😀 Look here!
+                hue='run',
+                robust=True,
                 legend=True,\
-                scatter_kws = dict(alpha = 0.7))                #scatter_kws=dict(edgecolor="k", linewidth=0.5))
+                scatter_kws = dict(alpha = 0.7))
 
 g.fig.suptitle('Linear regression $R^2$={:.2f}'.format(r_value**2))
