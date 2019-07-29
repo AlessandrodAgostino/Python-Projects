@@ -6,7 +6,7 @@ from shapely.ops import polygonize,unary_union
 from shapely.geometry import LineString, MultiPolygon, MultiPoint, Point, Polygon
 from scipy.spatial import Voronoi
 from SALib.sample import saltelli
-from skimage import io, morphology, img_as_uint, img_as_ubyte
+from skimage import io, morphology, img_as_uint, img_as_ubyte, filters
 
 #structure elements for recognizing features
 s = [[1,1,1],
@@ -92,18 +92,22 @@ image[:,:,3] = image[:,:,3] + lumes_lab
 
 #%%
 #Selecting boundaries
+
+#TO DO : insert a control on the area of the features. soppress the too small ones
 bounds = io.imread('selections/57_85.00_selection.png')
+l = 20
+selem = np.resize(np.array([1]*l**2), (l, l))
+filts = filters.median(bounds, selem=selem, out=None, mask=None, shift_x=False, shift_y=False, mode='nearest', cval=0.0, behavior='ndimage')
+io.imsave('filts.png',img_as_ubyte((filts>0).astype(float)))
+
 bounds = morphology.binary_erosion(bounds)
-
-bounds = morphology.binary_dilation(bounds)
-bounds = morphology.binary_dilation(bounds)
-bounds = morphology.binary_dilation(bounds)
-
 bounds = bounds*255
+bounds = bounds + filts
 io.imsave('bounds.png',img_as_ubyte((bounds>0).astype(float)))
 bounds_lab, n_bounds = label(bounds, structure = s)
 print(n_bounds)
 image[:,:,3] = image[:,:,3] - bounds_lab
+
 #%%
 
 #-------------------------------------------------------------------------------
