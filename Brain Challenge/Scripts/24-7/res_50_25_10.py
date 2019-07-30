@@ -61,6 +61,8 @@ X_10 = data_train.loc[:,features_top10]
 filename="grid_SVR_50.joblib"
 grid_SVR = load( pj(scripts_dir,'24-7',filename))
 
+grid_SVR.best_estimator_
+
 x_train,x_test,y_train,y_test=tts(X_50, y, test_size=0.1, shuffle=False)
 
 grid_SVR.score(x_test, y_test)
@@ -73,6 +75,9 @@ x_train,x_test,y_train,y_test=tts(X_25, y, test_size=0.1, shuffle=False)
 
 filename="grid_SVR_25.joblib"
 grid_SVR = load( pj(scripts_dir,'24-7',filename))
+
+grid_SVR.best_estimator_
+
 
 grid_SVR.score(x_test, y_test)
 y_pred_25 = grid_SVR.predict(x_test)

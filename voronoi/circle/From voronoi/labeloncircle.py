@@ -1,6 +1,6 @@
 import numpy as np
 import time
-from scipy.ndimage import label
+from scipy.ndimage import label, morphology
 import matplotlib.pyplot as plt
 from shapely.ops import polygonize,unary_union
 from shapely.geometry import LineString, MultiPolygon, MultiPoint, Point, Polygon
@@ -8,6 +8,8 @@ from scipy.spatial import Voronoi
 from SALib.sample import saltelli
 from skimage import io, morphology, img_as_uint, img_as_ubyte, filters, color
 from skimage import util
+
+scipy.ndimage.morphology.binary_fill_holes
 
 #structure elements for recognizing features
 s = [[1,1,1],
@@ -77,6 +79,7 @@ lumes = io.imread('selections/142_170.00_selection.png')
 l = 20
 selem = np.resize(np.array([1]*l**2), (l, l))
 lumes = filters.median(lumes, selem=selem, out=None, mask=None, shift_x=False, shift_y=False, mode='nearest', cval=0.0, behavior='ndimage')
+lumes = morphology.binary_fill_holes(lumes)
 io.imsave('lumes.png',img_as_ubyte((lumes>0).astype(float)))
 
 lumes_lab, n_lumes = label(lumes, structure = s)
@@ -96,7 +99,6 @@ bounds_lab, n_bounds = label(bounds, structure = s)
 print(n_bounds)
 image[:,:,4] = image[:,:,4] + bounds_lab
 #%%
-#-------------------------------------------------------------------------------
 bounds_hue = np.zeros((bounds_lab.shape))
 bounds_sat = np.zeros((bounds_hue.shape))
 bounds_val = np.ones((bounds_hue.shape))
