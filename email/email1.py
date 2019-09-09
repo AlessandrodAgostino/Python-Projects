@@ -32,7 +32,7 @@ def read_template(filename):
 def main():
     #User-ID and password for the connection on gmail
     username = 'alessandro.dagostino.notifica@gmail.com'
-    password = 'notific@'
+    password = --------
 
     #Not full-safe connection to the mail server
     server = smtplib.SMTP('smtp.gmail.com',587)

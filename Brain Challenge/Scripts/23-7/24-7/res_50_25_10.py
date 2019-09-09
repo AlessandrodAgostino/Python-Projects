@@ -22,19 +22,6 @@ from joblib import dump, load
 from os.path import join as pj
 
 
-class CoefFilter(BaseEstimator, TransformerMixin):
-    history = []
-    def __init__(self, treshold, coef):
-        self.treshold = treshold
-        self.coef = coef
-
-    def fit(self, X, y = None):
-        return self
-
-    def transform(self, X, y = None):
-        filter = self.coef >= self.treshold
-        self.history.append(list(filter))
-        return X[:,filter]
 
 #%%
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
@@ -49,9 +36,9 @@ X = feats #n_features = 954 n_samples = 2364
 
 #%%
 sorted_scores = pd.read_csv(pj(scripts_dir, '24-7','Sorted_scores.csv'))
-features_top50 = list(sorted_scores.loc[sorted_scores['top50_scores']>=0].iloc[:,0])
-features_top25 = list(sorted_scores.loc[sorted_scores['top50_scores']>=5].iloc[:,0])
-features_top10 = list(sorted_scores.loc[sorted_scores['top50_scores']>=7].iloc[:,0])
+features_top50 = list(sorted_scores.loc[sorted_scores['top50_scores']>0].iloc[:,0])
+features_top25 = list(sorted_scores.loc[sorted_scores['top25_scores']>0].iloc[:,0])
+features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>0].iloc[:,0])
 
 X_50 = data_train.loc[:,features_top50]
 X_25 = data_train.loc[:,features_top25]
