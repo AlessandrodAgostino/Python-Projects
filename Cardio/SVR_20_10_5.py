@@ -43,27 +43,27 @@ X_20 = data.loc[:,features_top20]
 X_10 = data.loc[:,features_top10]
 X_5 = data.loc[:,features_top5]
 
-SVR1 =SVR(kernel='poly', C=3)
 cv=KF(10, shuffle=True)
 scaler = StandardScaler()
 
-pipeline = Pipeline([('scaler', scaler),('SVR', SVR1)])
-
-pargrid1 = {'SVR__kernel' : ['poly'],
-            'SVR__C': [5, 7.5, 10],
-            'SVR__gamma': [0.1, 1, 3]}
-
-list_par_grid_SVR = {'SVR__kernel': ["linear", 'poly', 'rbf'],\
-                     'SVR__C': [5, 7.5, 10],\
-                     'SVR__degree': [1, 3, 5],\
-                     'SVR__gamma': [0.1, 1, 3]}
-
-grid_SVR = GridSearchCV(pipeline,
-                         param_grid = pargrid1,
-                         n_jobs=16,
-                         pre_dispatch=8,
-                         cv=cv)
-
+# SVR1 =SVR(kernel='poly', C=3)
+# pipeline = Pipeline([('scaler', scaler),('SVR', SVR1)])
+#
+# pargrid1 = {'SVR__kernel' : ['poly'],
+#             'SVR__C': [5, 7.5, 10],
+#             'SVR__gamma': [0.1, 1, 3]}
+#
+# list_par_grid_SVR = {'SVR__kernel': ["linear", 'poly', 'rbf'],\
+#                      'SVR__C': [5, 7.5, 10],\
+#                      'SVR__degree': [1, 3, 5],\
+#                      'SVR__gamma': [0.1, 1, 3]}
+#
+# grid_SVR = GridSearchCV(pipeline,
+#                          param_grid = pargrid1,
+#                          n_jobs=16,
+#                          pre_dispatch=8,
+#                          cv=cv)
+#
 GPR=GaussianProcessRegressor(normalize_y=True, n_restarts_optimizer=50, kernel=RBF())
 pipe_gpr = Pipeline([('scaler', scaler),('GPR', GPR)])
 grid_GPR = GridSearchCV(pipe_gpr,
