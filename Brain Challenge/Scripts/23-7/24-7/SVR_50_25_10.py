@@ -17,20 +17,6 @@ from sklearn.model_selection import KFold as KF
 from joblib import dump, load
 from os.path import join as pj
 
-
-class CoefFilter(BaseEstimator, TransformerMixin):
-    history = []
-    def __init__(self, treshold, coef):
-        self.treshold = treshold
-        self.coef = coef
-
-    def fit(self, X, y = None):
-        return self
-
-    def transform(self, X, y = None):
-        filter = self.coef >= self.treshold
-        self.history.append(list(filter))
-        return X[:,filter]
 #%%
 data_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Data'
 results_dir='/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Results'
@@ -40,17 +26,19 @@ data_train=pd.read_csv(pj(data_dir, 'Training_Set_YESregressBYeTIVifCorr_LogScal
                         header=0, sep='\t')
 feats = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].values
 y = data_train['age_floor'].values
-X = feats #n_features = 954 n_samples = 2364
+X = feats
+#n_features = 954 n_samples = 2364
 
 #%%
 sorted_scores = pd.read_csv(pj(scripts_dir, '24-7','Sorted_scores.csv'))
-features_top50 = list(sorted_scores.loc[sorted_scores['top50_scores']>=0].iloc[:,0])
-features_top25 = list(sorted_scores.loc[sorted_scores['top50_scores']>=5].iloc[:,0])
-features_top10 = list(sorted_scores.loc[sorted_scores['top50_scores']>=7].iloc[:,0])
+features_top50 = list(sorted_scores.loc[sorted_scores['top50_scores']>0].iloc[:,0])
+features_top25 = list(sorted_scores.loc[sorted_scores['top25_scores']>0].iloc[:,0])
+features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>0].iloc[:,0])
 
 X_50 = data_train.loc[:,features_top50]
 X_25 = data_train.loc[:,features_top25]
 X_10 = data_train.loc[:,features_top10]
+
 
 SVR1 =SVR(kernel='poly', C=3)
 cv=KF(10, shuffle=True)
@@ -108,3 +96,5 @@ y_df['y_pred_10'] = y_pred_10
 
 filename="grid_SVR_10.joblib"
 dump(grid_SVR, pj(scripts_dir,'24-7',filename))
+#%%
+y_df.to_csv(pj(scripts_dir, '24-7','y_df_50_25_10.csv'), sep='\t')
