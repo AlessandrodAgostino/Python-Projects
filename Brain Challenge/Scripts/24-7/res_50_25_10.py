@@ -21,6 +21,9 @@ from sklearn.model_selection import KFold as KF
 from joblib import dump, load
 from os.path import join as pj
 
+from sklearn.metrics import r2_score
+
+
 
 
 #%%
@@ -43,59 +46,30 @@ features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>0].iloc[:,
 X_50 = data_train.loc[:,features_top50]
 X_25 = data_train.loc[:,features_top25]
 X_10 = data_train.loc[:,features_top10]
-
 #%%
-filename="grid_SVR_50.joblib"
-grid_SVR = load( pj(scripts_dir,'24-7',filename))
+#MISSING THE X_10 ANALYSIS
+y_df = pd.read_csv(pj(scripts_dir, '24-7','y_df_50_25_10.csv'), sep='\t')
 
-grid_SVR.best_estimator_
-
-x_train,x_test,y_train,y_test=tts(X_50, y, test_size=0.1, shuffle=False)
-
-grid_SVR.score(x_test, y_test)
-
-y_pred_50 = grid_SVR.predict(x_test)
-y_df = pd.DataFrame({'y_test':y_test,'y_pred_50':y_pred_50})
-
-#%%Working on 25 features
-x_train,x_test,y_train,y_test=tts(X_25, y, test_size=0.1, shuffle=False)
-
-filename="grid_SVR_25.joblib"
-grid_SVR = load( pj(scripts_dir,'24-7',filename))
-
-grid_SVR.best_estimator_
-
-
-grid_SVR.score(x_test, y_test)
-y_pred_25 = grid_SVR.predict(x_test)
-
-y_df['y_pred_25'] = y_pred_25
-
-#%% Working on 10 features
-filename="grid_SVR_10.joblib"
-grid_SVR = load( pj(scripts_dir,'24-7',filename))
-x_train,x_test,y_train,y_test=tts(X_10, y, test_size=0.1, shuffle=False)
-
-grid_SVR.score(x_test, y_test)
-y_pred_10 = grid_SVR.predict(x_test)
-
-y_df['y_pred_10'] = y_pred_10
-
-
-#%%
+y_df.head()
 melt_y_df = pd.melt(y_df,
                     id_vars=['y_test'],
                     value_vars=['y_pred_50', 'y_pred_25'],
                     var_name='run',
                     value_name = 'y_pred')
-melt_y_df.head()
 
+r2 = []
+r2.append(r2_score(y_df['y_pred_50'],y_df['y_test']))
+r2.append(r2_score(y_df['y_pred_25'],y_df['y_test']))
+#%%
 lp = sns.lmplot(data=melt_y_df,
                 x='y_test',
                 y='y_pred',
                 hue='run',
+                col='run',
                 robust=True,
                 legend=True,\
-                scatter_kws = dict(alpha = 0.7))
-
-g.fig.suptitle('Linear regression $R^2$={:.2f}'.format(r_value**2))
+                scatter_kws = dict(alpha = 0.5))
+fig = lp.fig
+for n,ax in enumerate(fig.axes):
+    ax.set_title("run = {}  $R^2=${:.4f}".format(y_df.columns[-len(fig.axes)+n], r2[n] ))
+fig.savefig(pj(scripts_dir, '24-7','two_graphs.png'))

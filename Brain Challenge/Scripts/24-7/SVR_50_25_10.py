@@ -67,7 +67,7 @@ x_train,x_test,y_train,y_test=tts(X_50, y, test_size=0.1, shuffle=False)
 grid_SVR.fit(x_train, y_train)
 y_pred_50 = grid_SVR.predict(x_test)
 
-y_df = pd.DataFrame({'y_test_50':y_test,'y_pred_50':y_pred_50})
+y_df = pd.DataFrame({'y_test':y_test,'y_pred_50':y_pred_50})
 filename="grid_SVR_50.joblib"
 dump(grid_SVR, pj(scripts_dir,'24-7',filename))
 
@@ -77,7 +77,6 @@ x_train,x_test,y_train,y_test=tts(X_25, y, test_size=0.1, shuffle=False)
 grid_SVR.fit(x_train, y_train)
 y_pred_25 = grid_SVR.predict(x_test)
 
-y_df['y_test_25'] = y_test
 y_df['y_pred_25'] = y_pred_25
 
 filename="grid_SVR_25.joblib"
@@ -87,14 +86,11 @@ dump(grid_SVR, pj(scripts_dir,'24-7',filename))
 x_train,x_test,y_train,y_test=tts(X_10, y, test_size=0.1, shuffle=False)
 
 grid_SVR.fit(x_train, y_train)
-grid_SVR.score(x_test, y_test)
-
 y_pred_10 = grid_SVR.predict(x_test)
 
-y_df['y_test_10'] = y_test
 y_df['y_pred_10'] = y_pred_10
 
 filename="grid_SVR_10.joblib"
 dump(grid_SVR, pj(scripts_dir,'24-7',filename))
 #%%
-y_df.to_csv(pj(scripts_dir, '24-7','y_df_50_25_10.csv'), sep='\t')
+y_df.to_csv(pj(scripts_dir, '24-7','y_df_50_25_10.csv'), sep='\t', index = "False")
