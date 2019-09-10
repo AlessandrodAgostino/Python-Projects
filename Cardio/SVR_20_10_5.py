@@ -70,6 +70,7 @@ grid_GPR = GridSearchCV(pipe_gpr,
                         param_grid = {'GPR__kernel': [RBF(), Matern(), RationalQuadratic()]},
                         n_jobs=16, pre_dispatch=8, )
 
+#%%
 #Working on all features
 x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
 grid_GPR.fit(x_train, y_train)
@@ -80,7 +81,8 @@ y_df = pd.DataFrame({'y_test':y_test,'y_pred_all':y_pred_all})
 filename="grid_GPR_all.joblib"
 dump(grid_GPR, pj(cardio_dir,filename))
 
-#%%Working on 20 features
+#%%
+#Working on 20 features
 x_train,x_test,y_train,y_test=tts(X_20, y, test_size=0.1, shuffle=False)
 
 grid_GPR.fit(x_train, y_train)
@@ -92,7 +94,8 @@ y_df['y_pred_20'] = y_pred_20
 filename="grid_SVR_20.joblib"
 dump(grid_GPR, pj(cardio_dir,filename))
 
-#%%Working on 10 features
+#%%
+#Working on 10 features
 x_train,x_test,y_train,y_test=tts(X_10, y, test_size=0.1, shuffle=False)
 grid_GPR.fit(x_train, y_train)
 print(grid_GPR.best_score_)
@@ -104,7 +107,8 @@ filename="grid_SVR_10.joblib"
 dump(grid_GPR, pj(cardio_dir,filename))
 
 
-#%%Working on 5 features
+#%%
+#Working on 5 features
 x_train,x_test,y_train,y_test=tts(X_5, y, test_size=0.1, shuffle=False)
 grid_GPR.fit(x_train, y_train)
 print(grid_GPR.best_score_)
@@ -115,5 +119,37 @@ y_df['y_pred_5'] = y_pred_5
 filename="grid_SVR_5.joblib"
 dump(grid_GPR, pj(cardio_dir,filename))
 
+#&&
+#Loading all the results and reproducing predicitons
+# --- all ---
+x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
+filename="grid_GPR_all.joblib"
+GPR = load(pj(cardio_dir,filename))
+y_pred_all = GPR.predict(x_test)
 
-y_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Cardio/pred_20_10_5.csv'), sep='\t')
+# --- 20 ---
+x_train,x_test,y_train,y_test=tts(X_20, y, test_size=0.1, shuffle=False)
+filename="grid_SVR_20.joblib"
+GPR = load(pj(cardio_dir,filename))
+y_pred_20 = GPR.predict(x_test)
+
+# --- 10 ---
+x_train,x_test,y_train,y_test=tts(X_10, y, test_size=0.1, shuffle=False)
+filename="grid_SVR_10.joblib"
+GPR = load(pj(cardio_dir,filename))
+y_pred_10 = GPR.predict(x_test)
+
+# --- 5 ---
+x_train,x_test,y_train,y_test=tts(X_5, y, test_size=0.1, shuffle=False)
+filename="grid_SVR_5.joblib"
+GPR = load(pj(cardio_dir,filename))
+y_pred_5 = GPR.predict(x_test)
+
+
+#Creating the DataFrame
+y_df = pd.DataFrame({'y_test':y_test,'y_pred_all':y_pred_all})
+y_df['y_pred_20'] = y_pred_20
+y_df['y_pred_10'] = y_pred_10
+y_df['y_pred_5'] = y_pred_5
+
+y_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/pred_20_10_5.csv'), sep='\t')

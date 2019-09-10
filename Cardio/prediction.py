@@ -33,7 +33,7 @@ features = data.loc[:,[i for i in data.columns if i not in not_num_features]]
 features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
-
+#%%
 y_pred =pd.read_csv(pj('/home/STUDENTI/alessandr.dagostino2/Cardio/pred_20_10_5.csv'), sep='\t')
 
 y_pred.head()
@@ -44,12 +44,13 @@ melt_y_df = pd.melt(y_pred,
                     value_name = 'y_pred')
 
 #%%
-#INVERTIRE GLI ARGOMENTI!!!!!!!!
 r2 = []
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_all']))
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_20']))
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_10']))
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_5']))
+
+r2
 
 #%%
 lp = sns.lmplot(data=melt_y_df,

@@ -33,7 +33,7 @@ lasso = LassoCV(alphas=alphas, max_iter=100000, cv=5)
 ridge = RidgeCV(alphas=alphas, cv=5)
 elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
 regressors = [lasso, ridge, elnet]
-
+#%%
 #Fitting all the combinations
 pipes = []
 coefs = []
@@ -99,4 +99,4 @@ sort_score_df = scores_df.sort_values(by=['top5_scores'], ascending= False)
 
 sort_score_df
 
-sort_score_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Cardio/Sorted_scores.csv'), sep='\t')
+sort_score_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/Sorted_scores.csv'), sep='\t')
