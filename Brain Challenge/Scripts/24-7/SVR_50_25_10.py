@@ -39,7 +39,7 @@ X_50 = data_train.loc[:,features_top50]
 X_25 = data_train.loc[:,features_top25]
 X_10 = data_train.loc[:,features_top10]
 
-
+#%%
 SVR1 =SVR(kernel='poly', C=3)
 cv=KF(10, shuffle=True)
 scaler = StandardScaler()
@@ -47,16 +47,16 @@ scaler = StandardScaler()
 pipeline = Pipeline([('scaler', scaler),('SVR', SVR1)])
 
 pargrid1 = {'SVR__kernel' : ['poly'],
-            'SVR__C': [5, 7.5, 10],
+            'SVR__C': [5, 7.5, 10],\
+            'SVR__degree': [1, 3, 5],\
             'SVR__gamma': [0.1, 1, 3]}
 
-list_par_grid_SVR = {'SVR__kernel': ["linear", 'poly', 'rbf'],\
-                     'SVR__C': [5, 7.5, 10],\
-                     'SVR__degree': [1, 3, 5],\
+list_par_grid_SVR = {'SVR__kernel': ['linear','rbf'],
+                     'SVR__C': [5, 7.5, 10],
                      'SVR__gamma': [0.1, 1, 3]}
 
 grid_SVR = GridSearchCV(pipeline,
-                         param_grid = pargrid1,
+                         param_grid = list_par_grid_SVR,
                          n_jobs=16,
                          pre_dispatch=8,
                          cv=cv)
@@ -66,7 +66,7 @@ x_train,x_test,y_train,y_test=tts(X_50, y, test_size=0.1, shuffle=False)
 
 grid_SVR.fit(x_train, y_train)
 y_pred_50 = grid_SVR.predict(x_test)
-
+grid_SVR.score(x_test, y_test)
 y_df = pd.DataFrame({'y_test':y_test,'y_pred_50':y_pred_50})
 filename="grid_SVR_50.joblib"
 dump(grid_SVR, pj(scripts_dir,'24-7',filename))
