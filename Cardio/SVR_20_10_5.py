@@ -35,9 +35,9 @@ y = data["age"].values
 #%%
 sorted_scores = pd.read_csv(pj(cardio_dir,'Sorted_scores.csv'), sep = '\t')
 
-features_top20 = list(sorted_scores.loc[sorted_scores['top20_scores']>=0].iloc[:,0])
-features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>=5].iloc[:,0])
-features_top5 = list(sorted_scores.loc[sorted_scores['top5_scores']>=7].iloc[:,0])
+features_top20 = list(sorted_scores.loc[sorted_scores['top20_scores']>0].iloc[:,0])
+features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>5].iloc[:,0])
+features_top5 = list(sorted_scores.loc[sorted_scores['top5_scores']>7].iloc[:,0])
 
 X_20 = data.loc[:,features_top20]
 X_10 = data.loc[:,features_top10]
@@ -122,7 +122,7 @@ y_df['y_pred_5'] = y_pred_5
 filename="grid_SVR_5.joblib"
 dump(grid_GPR, pj(cardio_dir,filename))
 
-#&&
+#%%
 #Loading all the results and reproducing predicitons
 # --- all ---
 x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)

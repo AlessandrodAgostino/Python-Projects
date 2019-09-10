@@ -34,7 +34,7 @@ features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
 #%%
-y_pred =pd.read_csv(pj('/home/STUDENTI/alessandr.dagostino2/Cardio/pred_20_10_5.csv'), sep='\t')
+y_pred =pd.read_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/pred_20_10_5.csv'), sep='\t')
 
 y_pred.head()
 melt_y_df = pd.melt(y_pred,
@@ -64,4 +64,4 @@ lp = sns.lmplot(data=melt_y_df,
 fig = lp.fig
 for n,ax in enumerate(fig.axes):
     ax.set_title("run = {}  $R^2=${:.4f}".format(y_pred.columns[-len(fig.axes)+n], r2[n] ))
-fig.savefig(pj('/home/STUDENTI/alessandr.dagostino2/Cardio/four_graphs.png'))
+fig.savefig(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/','four_graphs.png'))
