@@ -32,6 +32,8 @@ ridge = RidgeCV(alphas=alphas, cv=5)
 elnet = ElasticNetCV(alphas=alphas, max_iter=100000, cv=5)
 regressors = [lasso, ridge, elnet]
 
+data_train
+
 #%% Loading
 pipes = []
 coefs = []

@@ -26,6 +26,8 @@ features = data.loc[:,[i for i in data.columns if i not in not_num_features]]
 features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
+
+
 #%%
 scalers = [MinMaxScaler(), StandardScaler(), RobustScaler()]
 alphas=np.arange(0.001, 10, 0.005)

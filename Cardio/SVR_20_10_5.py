@@ -43,6 +43,9 @@ X_20 = data.loc[:,features_top20]
 X_10 = data.loc[:,features_top10]
 X_5 = data.loc[:,features_top5]
 
+X_20
+
+
 cv=KF(10, shuffle=True)
 scaler = StandardScaler()
 
