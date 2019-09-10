@@ -44,6 +44,7 @@ melt_y_df = pd.melt(y_pred,
                     value_name = 'y_pred')
 
 #%%
+#INVERTIRE GLI ARGOMENTI!!!!!!!!
 r2 = []
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_all']))
 r2.append(r2_score(y_pred['y_test'], y_pred['y_pred_20']))
