@@ -47,38 +47,3 @@ for sca, reg in product(scalers, regressors):
 #Computing the scores for each features
 coefs = np.array(coefs)
 ord_coef = np.sort(np.abs(coefs), axis=1)
-
-top50_scores = np.zeros(*coefs[0].shape)
-top25_scores = np.zeros(*coefs[0].shape)
-top10_scores = np.zeros(*coefs[0].shape)
-
-for i in range(9):
-    top50_scores += (np.abs(coefs[i]) >= ord_coef[i,-50])*1
-    top25_scores += (np.abs(coefs[i]) >= ord_coef[i,-25])*1
-    top10_scores += (np.abs(coefs[i]) >= ord_coef[i,-10])*1
-
-#%%
-fig = plt.figure(figsize=(20, 20))
-for i,coef in enumerate(coefs):
-    plt.subplot(3, 3, i+1)
-    coef = np.sort(np.abs(coef))
-    plt.plot(coef[::-1], )
-    plt.axvline(x=50, color='r')
-    plt.axhline(y=coef[-50], color='g', label='50 feat threshold = {:.3}'.format(coef[-50]))
-    plt.legend(fontsize=12)
-    plt.title("Reg Coef for {!s:.12} + {!s:.10}".format(str(pipes[i][0]).split("(")[0],str(pipes[i][1]).split("CV")[0]),  fontsize = 15)
-    plt.tight_layout()
-plt.savefig(pj(scripts_dir,'24-7','NineCoefPlot.png'), bbox_inches='tight')
-
-#%%
-#Writing the dataframe with the scores of different top  ranks
-scores_df = pd.DataFrame([top50_scores,top25_scores,top10_scores],
-                         columns = data_train.loc[:,'lh_bankssts_area' :'rh.Whole_hippocampus'].columns)
-scores_df = scores_df.T
-scores_df.columns = ['top50_scores', 'top25_scores', 'top10_scores']
-sort_score_df = scores_df.sort_values(by=['top10_scores'], ascending= False)
-sort_score_df = sort_score_df.query("top50_scores > 0")
-sort_score_df.to_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/Scripts/24-7/Sorted_scores.csv'))
-
-sort_score_df = scores_df.sort_values(by=['top10_scores'], ascending= False)
-sort_score_df
