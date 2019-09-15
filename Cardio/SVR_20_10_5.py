@@ -33,7 +33,7 @@ X = features.values
 y = data["age"].values
 
 #%%
-sorted_scores = pd.read_csv(pj(cardio_dir,'Sorted_scores.csv'), sep = '\t')
+sorted_scores = pd.read_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/Sorted_scores.csv'), sep = '\t')
 
 features_top20 = list(sorted_scores.loc[sorted_scores['top20_scores']>0].iloc[:,0])
 features_top10 = list(sorted_scores.loc[sorted_scores['top10_scores']>5].iloc[:,0])
@@ -129,7 +129,7 @@ x_train,x_test,y_train,y_test=tts(X, y, test_size=0.1, shuffle=False)
 filename="grid_GPR_all.joblib"
 GPR = load(pj(cardio_dir,filename))
 y_pred_all = GPR.predict(x_test)
-
+GPR.best_estimator_
 # --- 20 ---
 x_train,x_test,y_train,y_test=tts(X_20, y, test_size=0.1, shuffle=False)
 filename="grid_SVR_20.joblib"

@@ -3,6 +3,7 @@ import pylab as plt
 import pandas as pd
 from itertools import product
 import time
+import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, RobustScaler
 from os.path import join as pj
 from sklearn.linear_model import ElasticNetCV, LassoCV, RidgeCV
@@ -27,6 +28,13 @@ features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
 
+data.dtypes
+
+
+ax = sns.violinplot(x = "mean_time", y="age", hue = "sex",
+                    data=data, palette="muted", split=True)
+
+ax.get_figure().savefig(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/LateX','violin_swarm_gender_site_1_8.png'), dpi=1000)
 
 #%%
 scalers = [MinMaxScaler(), StandardScaler(), RobustScaler()]
