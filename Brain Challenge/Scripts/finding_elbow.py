@@ -44,6 +44,43 @@ for sca, reg in product(scalers, regressors):
     coefs.append(list(pipe.named_steps['regressor'].coef_))
 
 #%%
-#Computing the scores for each features
 coefs = np.array(coefs)
-ord_coef = np.sort(np.abs(coefs), axis=1)
+ord_coefs = np.flip(np.sort(np.abs(coefs), axis=1),axis=1)
+
+#%%
+#computing discrete derivatives
+der = ord_coefs[:,0:-2] - ord_coefs[:,1:-1]
+der[:,50][:3]
+# plt.plot(der[0])
+plt.plot(ord_coefs[0])
+
+n=10
+mean_elb_der = np.mean(der[:,50-n:50+n])
+print(mean_elb_der)
+
+ord_coefs[0,50]
+
+def tangent_50(x):
+    return (x-50) * (-1) *mean_elb_der + ord_coefs[0,50]
+
+int = np.arange(0,800)
+
+plt.plot(int, tangent_50(int))
+#%%
+coef_0 = ord_coefs[0]
+np.max(coef_0)
+np.min(coef_0)
+
+coef_0/np.max(coef_0)
+len(coef_0)
+dists = np.zeros(coef_0.shape)
+
+for n, c in enumerate(coef_0):
+    dists[n] = (c/np.max(coef_0))**2 + (n/len(coef_0))**2
+
+np.min(dists)
+plt.plot(dists)
+dists[91]
+
+np.where(dists == np.min(dists))
+#This minimun methods doesn't really work well. should try this one https://github.com/arvkevi/kneed

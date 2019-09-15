@@ -33,6 +33,7 @@ features = data.loc[:,[i for i in data.columns if i not in not_num_features]]
 features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
+
 #%%
 y_pred =pd.read_csv(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Cardio/pred_20_10_5.csv'), sep='\t')
 
