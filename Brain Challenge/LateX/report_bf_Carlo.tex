@@ -106,7 +106,7 @@ The SVR was trained on these dataset through a cross validated grid agorithm, th
 	\centering
 \end{figure}
 
-In the plots in Figure \ref{fig:Brain_graphs} those $R^2$ score are reported. It's easy to see that reducing the dimension of the space the $R^2$ value drops. The first linear fit it's the one relative to the reduction in dimension to the most important 98 features. The $R^2$ score of that prediction is quite good (~ 0.74). The successive two plot instead represent two more strict reduction to 49 and 18 features, in these cases the $R^2$ score drops coherently with the reduction.
+In the plots in Figure \ref{fig:Brain_graphs} those $R^2$ score are reported. It's easy to see that reducing the dimension of the space the $R^2$ value drops. The first linear fit it's the one relative to the reduction in dimension to the most important 98 features. The $R^2$ score of that prediction is quite good (.ca 0.74). The successive two plot instead represent two more strict reduction to 49 and 18 features, in these cases the $R^2$ score drops coherently with the reduction.
 
 It's interesting seeing how a reduction in dimension from 954 to 98 (a solid order of magnitude) could anyway provide such a good $R^2$ score, around 0.74. These behaviors have been considered as good hints of the correct work of this pipeline for the dimensionality reduction.
 
@@ -152,6 +152,7 @@ and a lot of other tools from that library.
 
 \newpage
 \section*{Appendix 1 - Brain Challenge Features Charts} \label{sec:app1}
+A more extended but not complete list of the most important features (they're .ca 200).
 \begin{table}[ht]
 \begin{tabular}{llll}
 Feature Name                                        & TOP50 scores & TOP25 scores & TOP10 scores    \\
@@ -182,6 +183,7 @@ Feature Name                                        & TOP50 scores & TOP25 score
 
 \newpage
 \section*{Appendix 2 - Cardiological Data Features Charts} \label{sec:app2}
+The complete list of the most important features.
 \begin{table}[ht]
 \begin{tabular}{llll}
 Feature Name       & TOP20 scores  & TOP10 scores  & TOP5 scores \\

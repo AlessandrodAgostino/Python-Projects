@@ -27,8 +27,15 @@ features = data.loc[:,[i for i in data.columns if i not in not_num_features]]
 features.apply(lambda col:pd.to_numeric(col, errors='coerce'))
 X = features.values
 y = data["age"].values
+#%%
 
-data.dtypes
+g = sns.FacetGrid(data, hue="sex")
+g =(g.map(sns.distplot, "age", norm_hist=False)
+    .add_legend())
+g.savefig(pj('/home/STUDENTI/alessandr.dagostino2/Python-Projects/Brain Challenge/LateX','Cardio_distribution.png'), dpi=1000)
+
+
+#%%
 
 
 ax = sns.violinplot(x = "mean_time", y="age", hue = "sex",

@@ -1,10 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.13)  15 SEP 2019 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.13)  15 SEP 2019 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**prova.tex
-(/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/prova.tex
+**report_bf_Carlo.tex
+
+(/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/report_bf_Carl
+o.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -72,8 +74,10 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@hangindent=\dimen111
 )
 \c@ContinuedFloat=\count87
-) (/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/prova.aux)
-\openout1 = `prova.aux'.
+)
+(/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/report_bf_Carl
+o.aux)
+\openout1 = `report_bf_Carlo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -224,38 +228,39 @@ andardScaler, RobustScaler
  []
 
 [7]
-Overfull \hbox (43.44377pt too wide) in paragraph at lines 156--181
+Overfull \hbox (43.44377pt too wide) in paragraph at lines 157--182
 [][] 
  []
 
-[8] [9] (/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/prova.
-aux) ) 
+[8] [9]
+(/home/alessandro/Projects/Python-Projects/Brain Challenge/LateX/report_bf_Carl
+o.aux) ) 
 Here is how much of TeX's memory you used:
- 3124 strings out of 492982
- 48080 string characters out of 6134895
- 114645 words of memory out of 5000000
- 6666 multiletter control sequences out of 15000+600000
+ 3123 strings out of 492982
+ 48165 string characters out of 6134895
+ 114640 words of memory out of 5000000
+ 6665 multiletter control sequences out of 15000+600000
  11000 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,39p,799b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on prova.pdf (9 pages, 1262927 bytes).
+ 41i,10n,39p,809b,346s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report_bf_Carlo.pdf (9 pages, 1263103 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  77 compressed objects within 1 object stream

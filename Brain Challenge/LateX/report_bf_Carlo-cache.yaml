@@ -1,5 +1,5 @@
 version: 0.12.2
-filePath: prova.tex
+filePath: report_bf_Carlo.tex
 options:
   $BIBINPUTS:
     - $ROOTDIR
@@ -70,7 +70,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-09-15T10:39:20.885Z
+    timeStamp: 2019-09-15T13:33:36.024Z
     jobNames: []
     value:
       severity: info
@@ -78,16 +78,16 @@ files:
   dicy.yaml-ParsedYAML:
     jobNames: []
     type: ParsedYAML
-  prova.yaml-ParsedYAML:
+  report_bf_Carlo.yaml-ParsedYAML:
     jobNames: []
     type: ParsedYAML
-  prova.tex-ParsedLaTeXMagic:
-    timeStamp: 2019-09-12T13:22:07.278Z
+  report_bf_Carlo.tex-ParsedLaTeXMagic:
+    timeStamp: 2019-09-15T13:30:59.214Z
     jobNames: []
     value: {}
     type: ParsedLaTeXMagic
   /home/alessandro/.config/dicy/config.yaml-ParsedYAML:
-    timeStamp: 2019-09-12T13:22:07.276Z
+    timeStamp: 2019-09-15T13:30:59.205Z
     jobNames: []
     value:
       synctex: true
@@ -127,21 +127,21 @@ files:
         - /texput.aux
       intermediatePostScript: false
     type: ParsedYAML
-  prova.tex:
-    timeStamp: 2019-09-15T13:29:58.132Z
+  report_bf_Carlo.tex:
+    timeStamp: 2019-09-15T13:34:25.434Z
     jobNames: []
-    hash: Ra5bNiBavfScxIaFHipn4GPs/D9AUkG+nqCxdDBOcAo=
+    hash: Be/58ShvRvhCKMXHGHahijPkWH2445/HFCu3D6PnOgE=
     type: LaTeX
     subType: article
   /home/alessandro/.config/dicy/config.yaml:
-    timeStamp: 2019-09-15T08:39:04.974Z
+    timeStamp: 2019-09-15T13:33:36.030Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
-  prova.fls-ParsedFileListing:
-    timeStamp: 2019-09-15T13:30:05.945Z
+  report_bf_Carlo.fls-ParsedFileListing:
+    timeStamp: 2019-09-15T13:31:08.447Z
     jobNames: []
     value:
       messages: []
@@ -227,18 +227,18 @@ files:
         - Cardio_distribution.png
         - four_graphs.png
         - one_set_coefs.png
-        - prova.aux
-        - prova.tex
+        - report_bf_Carlo.aux
+        - report_bf_Carlo.tex
         - three_graphs.png
         - violin_gender_site.png
       outputs:
-        - prova.aux
-        - prova.log
-        - prova.pdf
+        - report_bf_Carlo.aux
+        - report_bf_Carlo.log
+        - report_bf_Carlo.pdf
       calls: []
     type: ParsedFileListing
-  prova.log-ParsedLaTeXLog:
-    timeStamp: 2019-09-15T13:26:08.265Z
+  report_bf_Carlo.log-ParsedLaTeXLog:
+    timeStamp: 2019-09-15T13:31:15.423Z
     jobNames: []
     value:
       messages:
@@ -248,40 +248,40 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 27
-              end: 27
+              start: 29
+              end: 29
         - name: pdfTeX
           severity: info
           text: keyval 2014/10/28 v1.15 key=value parser (DPC)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 29
-              end: 29
+              start: 31
+              end: 31
         - name: pdfTeX
           severity: info
           text: 'graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)'
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 32
-              end: 32
+              start: 34
+              end: 34
         - name: pdfTeX
           severity: info
           text: trig 2016/01/03 v1.10 sin cos tan (DPC)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 34
-              end: 34
+              start: 36
+              end: 36
         - severity: info
           name: pdfTeX
           category: Package graphics
@@ -292,20 +292,20 @@ files:
               start: 99
               end: 99
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 38
-              end: 38
+              start: 40
+              end: 40
         - name: pdfTeX
           severity: info
           text: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 45
-              end: 45
+              start: 47
+              end: 47
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -316,10 +316,10 @@ files:
               start: 225
               end: 225
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 49
-              end: 49
+              start: 51
+              end: 51
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -330,10 +330,10 @@ files:
               start: 1348
               end: 1348
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 50
-              end: 50
+              start: 52
+              end: 52
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -344,10 +344,10 @@ files:
               start: 1352
               end: 1352
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 51
-              end: 51
+              start: 53
+              end: 53
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -358,10 +358,10 @@ files:
               start: 1364
               end: 1364
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 52
-              end: 52
+              start: 54
+              end: 54
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -372,10 +372,10 @@ files:
               start: 1366
               end: 1366
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 53
-              end: 53
+              start: 55
+              end: 55
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -386,10 +386,10 @@ files:
               start: 1367
               end: 1367
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 54
-              end: 54
+              start: 56
+              end: 56
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -400,10 +400,10 @@ files:
               start: 1368
               end: 1368
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 55
-              end: 55
+              start: 57
+              end: 57
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -414,10 +414,10 @@ files:
               start: 1369
               end: 1369
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 56
-              end: 56
+              start: 58
+              end: 58
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -428,10 +428,10 @@ files:
               start: 1370
               end: 1370
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 57
-              end: 57
+              start: 59
+              end: 59
         - severity: info
           name: pdfTeX
           category: Package xcolor
@@ -442,30 +442,30 @@ files:
               start: 1371
               end: 1371
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 58
-              end: 58
+              start: 60
+              end: 60
         - name: pdfTeX
           severity: info
           text: caption 2016/02/21 v3.3-144 Customizing captions (AR)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 62
-              end: 62
+              start: 64
+              end: 64
         - name: pdfTeX
           severity: info
           text: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 64
-              end: 64
+              start: 66
+              end: 66
         - severity: info
           name: pdfTeX
           category: Package caption3
@@ -476,124 +476,124 @@ files:
               start: 67
               end: 67
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 65
-              end: 65
+              start: 67
+              end: 67
         - severity: info
           name: pdfTeX
           category: LaTeX Font
           text: Checking defaults for OML/cmm/m/it ... okay
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 12
               end: 12
           log:
-            file: prova.log
-            range:
-              start: 78
-              end: 79
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for T1/cmr/m/n ... okay
-          source:
-            file: prova.tex
-            range:
-              start: 12
-              end: 12
-          log:
-            file: prova.log
-            range:
-              start: 80
-              end: 81
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for OT1/cmr/m/n ... okay
-          source:
-            file: prova.tex
-            range:
-              start: 12
-              end: 12
-          log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 82
               end: 83
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Checking defaults for OMS/cmsy/m/n ... okay
+          text: Checking defaults for T1/cmr/m/n ... okay
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 12
               end: 12
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 84
               end: 85
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Checking defaults for OMX/cmex/m/n ... okay
+          text: Checking defaults for OT1/cmr/m/n ... okay
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 12
               end: 12
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 86
               end: 87
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Checking defaults for U/cmr/m/n ... okay
+          text: Checking defaults for OMS/cmsy/m/n ... okay
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 12
               end: 12
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 88
               end: 89
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OMX/cmex/m/n ... okay
+          source:
+            file: report_bf_Carlo.tex
+            range:
+              start: 12
+              end: 12
+          log:
+            file: report_bf_Carlo.log
+            range:
+              start: 90
+              end: 91
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for U/cmr/m/n ... okay
+          source:
+            file: report_bf_Carlo.tex
+            range:
+              start: 12
+              end: 12
+          log:
+            file: report_bf_Carlo.log
+            range:
+              start: 92
+              end: 93
         - name: pdfTeX
           severity: info
           text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 104
-              end: 104
+              start: 108
+              end: 108
         - name: pdfTeX
           severity: info
           text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 106
-              end: 106
+              start: 110
+              end: 110
         - name: pdfTeX
           severity: info
           text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 108
-              end: 108
+              start: 112
+              end: 112
         - name: pdfTeX
           severity: info
           text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
@@ -601,60 +601,60 @@ files:
             file: >-
               /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 110
-              end: 110
+              start: 114
+              end: 114
         - name: pdfTeX
           severity: info
           text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 112
-              end: 112
+              start: 116
+              end: 116
         - name: pdfTeX
           severity: info
           text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 114
-              end: 114
+              start: 118
+              end: 118
         - name: pdfTeX
           severity: info
           text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 116
-              end: 116
+              start: 120
+              end: 120
         - name: pdfTeX
           severity: info
           text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 118
-              end: 118
+              start: 122
+              end: 122
         - name: pdfTeX
           severity: info
           text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 120
-              end: 120
+              start: 124
+              end: 124
         - severity: info
           name: pdfTeX
           category: Package ifluatex
@@ -662,10 +662,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 121
-              end: 121
+              start: 125
+              end: 125
         - severity: info
           name: pdfTeX
           category: Package etexcmds
@@ -676,10 +676,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 123
-              end: 126
+              start: 127
+              end: 130
         - name: pdfTeX
           severity: info
           text: >-
@@ -688,20 +688,20 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 128
-              end: 129
+              start: 132
+              end: 133
         - name: pdfTeX
           severity: info
           text: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 131
-              end: 131
+              start: 135
+              end: 135
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -709,10 +709,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 133
-              end: 133
+              start: 137
+              end: 137
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -720,10 +720,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 134
-              end: 134
+              start: 138
+              end: 138
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -731,10 +731,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 135
-              end: 135
+              start: 139
+              end: 139
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -742,10 +742,10 @@ files:
           source:
             file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 136
-              end: 136
+              start: 140
+              end: 140
         - severity: info
           name: pdfTeX
           category: Package epstopdf-base
@@ -756,10 +756,10 @@ files:
               start: 438
               end: 438
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 138
-              end: 139
+              start: 142
+              end: 143
         - severity: info
           name: pdfTeX
           category: Package grfext
@@ -773,172 +773,172 @@ files:
               start: 456
               end: 456
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 140
-              end: 143
+              start: 144
+              end: 147
         - severity: info
           name: pdfTeX
           category: Package caption
           text: Begin \AtBeginDocument code.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 148
-              end: 148
+              start: 152
+              end: 152
         - severity: info
           name: pdfTeX
           category: Package caption
           text: End \AtBeginDocument code.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 149
-              end: 149
+              start: 153
+              end: 153
         - severity: info
           name: pdfTeX
           category: LaTeX Font
           text: External font `cmex10' loaded for size <12>.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 14
               end: 14
           log:
-            file: prova.log
-            range:
-              start: 150
-              end: 151
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: External font `cmex10' loaded for size <8>.
-          source:
-            file: prova.tex
-            range:
-              start: 14
-              end: 14
-          log:
-            file: prova.log
-            range:
-              start: 152
-              end: 153
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: External font `cmex10' loaded for size <6>.
-          source:
-            file: prova.tex
-            range:
-              start: 14
-              end: 14
-          log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 154
               end: 155
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: External font `cmex10' loaded for size <7>.
+          text: External font `cmex10' loaded for size <8>.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
-              start: 30
-              end: 30
+              start: 14
+              end: 14
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 156
               end: 157
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: External font `cmex10' loaded for size <5>.
+          text: External font `cmex10' loaded for size <6>.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
-              start: 30
-              end: 30
+              start: 14
+              end: 14
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
               start: 158
               end: 159
         - severity: info
           name: pdfTeX
+          category: LaTeX Font
+          text: External font `cmex10' loaded for size <7>.
+          source:
+            file: report_bf_Carlo.tex
+            range:
+              start: 30
+              end: 30
+          log:
+            file: report_bf_Carlo.log
+            range:
+              start: 160
+              end: 161
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: External font `cmex10' loaded for size <5>.
+          source:
+            file: report_bf_Carlo.tex
+            range:
+              start: 30
+              end: 30
+          log:
+            file: report_bf_Carlo.log
+            range:
+              start: 162
+              end: 163
+        - severity: info
+          name: pdfTeX
           category: Package pdftex.def
           text: 'one_set_coefs.png used Requested size: 345.0pt x 112.80832pt.'
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 46
               end: 46
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 166
-              end: 167
+              start: 170
+              end: 171
         - severity: info
           name: pdfTeX
           category: LaTeX Font
           text: External font `cmex10' loaded for size <9>.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 47
               end: 47
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 168
-              end: 169
+              start: 172
+              end: 173
         - severity: info
           name: pdfTeX
           category: LaTeX Font
           text: External font `cmex10' loaded for size <14.4>.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 84
               end: 84
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 183
-              end: 184
+              start: 187
+              end: 188
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
           text: 'violin_gender_site.png used Requested size: 345.0pt x 230.01158pt.'
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 89
               end: 89
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 189
-              end: 190
+              start: 193
+              end: 194
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
           text: 'three_graphs.png used Requested size: 345.0pt x 115.00027pt.'
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 103
               end: 103
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 196
-              end: 197
+              start: 200
+              end: 201
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -946,43 +946,43 @@ files:
             Cardio_distribution.png used Requested size: 207.0021pt x
             169.01025pt.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 118
               end: 118
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 201
-              end: 202
+              start: 205
+              end: 206
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
           text: 'four_graphs.png used Requested size: 448.50105pt x 112.1221pt.'
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 130
               end: 130
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 208
-              end: 209
+              start: 212
+              end: 213
         - severity: info
           name: pdfTeX
           category: LaTeX Font
           text: Try loading font information for OMS+cmr
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 145
               end: 145
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 213
-              end: 213
+              start: 217
+              end: 217
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -990,22 +990,48 @@ files:
             Font shape `OMS/cmr/m/n' in size <10> not available Font shape
             `OMS/cmsy/m/n' tried instead.
           source:
-            file: prova.tex
+            file: report_bf_Carlo.tex
             range:
               start: 145
               end: 145
           log:
-            file: prova.log
+            file: report_bf_Carlo.log
             range:
-              start: 218
-              end: 219
+              start: 222
+              end: 223
       inputs: []
       outputs:
-        - prova.pdf
+        - report_bf_Carlo.pdf
       calls: []
     type: ParsedLaTeXLog
-  prova.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-09-15T13:30:05.932Z
+  report_bf_Carlo.log:
+    timeStamp: 2019-09-15T13:34:31.370Z
+    jobNames: []
+    hash: Wc/JLLXcXx38ixiGhrM1IaAhdvgMqlQKRURd5eGeyK8=
+    type: LaTeXLog
+    subType: pdfTeX
+  report_bf_Carlo.aux:
+    timeStamp: 2019-09-15T13:34:31.310Z
+    jobNames: []
+    hash: QA99WtvmCrRNQ8OhTGiL+Z3eC2rpWA9d3bGtNR3ZkHc=
+    type: LaTeXAuxilary
+  report_bf_Carlo.fls:
+    timeStamp: 2019-09-15T13:34:31.342Z
+    jobNames: []
+    hash: QOd+zcz3pmsEPNFvX+xj+OOGWi421FP442Co69F3/DU=
+    type: FileListing
+  report_bf_Carlo.synctex.gz:
+    timeStamp: 2019-09-15T13:34:31.370Z
+    jobNames: []
+    hash: hb5IjOuA2qG54vgFG1IKVG7IVpYbW3F7fu64KhW+J6U=
+    type: SyncTeX
+  report_bf_Carlo.pdf:
+    timeStamp: 2019-09-15T13:34:31.366Z
+    jobNames: []
+    hash: CoziT8KeTxta1JyXBSAr2TlYsRses630iHPm4WjiscU=
+    type: PortableDocumentFormat
+  report_bf_Carlo.aux-ParsedLaTeXAuxilary:
+    timeStamp: 2019-09-15T13:31:08.434Z
     jobNames: []
     value:
       commands:
@@ -1048,6 +1074,9 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
@@ -1055,6 +1084,9 @@ files:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm:
@@ -1081,10 +1113,16 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm:
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti9.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb:
@@ -1096,6 +1134,21 @@ files:
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
@@ -1105,10 +1158,10 @@ files:
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb:
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb:
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb:
@@ -1117,69 +1170,13 @@ files:
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/base/article.cls:
-    timeStamp: 2016-11-25T18:33:41.000Z
-    jobNames: []
-    type: LaTeXClass
-  /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd:
-    timeStamp: 2016-11-25T18:33:41.000Z
-    jobNames: []
-    type: FontDescription
-  /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo:
-    timeStamp: 2016-11-25T18:33:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/web2c/texmf.cnf:
-    timeStamp: 2018-03-05T00:41:47.000Z
-    jobNames: []
-  /usr/share/texmf/web2c/texmf.cnf:
-    timeStamp: 2018-03-05T00:41:47.000Z
-    jobNames: []
-  /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map:
-    timeStamp: 2018-07-30T09:03:34.240Z
-    jobNames: []
-  /var/lib/texmf/web2c/pdftex/pdflatex.fmt:
-    timeStamp: 2018-10-13T07:45:51.418Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti9.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb:
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii:
@@ -1217,11 +1214,36 @@ files:
     timeStamp: 2018-01-26T22:43:53.000Z
     jobNames: []
     type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/base/article.cls:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+    type: LaTeXClass
+  /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty:
+    timeStamp: 2016-11-25T18:33:43.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty:
+    timeStamp: 2016-11-25T18:33:43.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg:
+    timeStamp: 2016-11-25T18:33:50.000Z
+    jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg:
     timeStamp: 2016-11-25T18:33:50.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def:
     timeStamp: 2018-01-09T22:36:08.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def:
+    timeStamp: 2016-11-25T18:33:50.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty:
     timeStamp: 2017-06-25T21:52:12.000Z
@@ -1254,86 +1276,42 @@ files:
     timeStamp: 2016-11-25T18:33:56.000Z
     jobNames: []
     type: LaTeXStyle
-  one_set_coefs.png:
-    timeStamp: 2019-09-12T12:55:25.927Z
-    jobNames: []
-    hash: y+VJzoTdpXc8lDiXRVA+v9qd2Hkhnf/J4IVqdXPZtyM=
-  /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg:
-    timeStamp: 2016-11-25T18:33:50.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty:
     timeStamp: 2016-11-25T18:34:03.000Z
     jobNames: []
     type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def:
-    timeStamp: 2016-11-25T18:33:50.000Z
+  /usr/share/texlive/texmf-dist/web2c/texmf.cnf:
+    timeStamp: 2018-03-05T00:41:47.000Z
     jobNames: []
-  prova.aux:
-    timeStamp: 2019-09-15T13:30:05.584Z
+  /usr/share/texmf/web2c/texmf.cnf:
+    timeStamp: 2018-03-05T00:41:47.000Z
     jobNames: []
-    hash: QA99WtvmCrRNQ8OhTGiL+Z3eC2rpWA9d3bGtNR3ZkHc=
-    type: LaTeXAuxilary
-  prova.fls:
-    timeStamp: 2019-09-15T13:30:05.628Z
+  /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map:
+    timeStamp: 2018-07-30T09:03:34.240Z
     jobNames: []
-    hash: FndH7fhf2Pm8DzbkadPP4QN3NSXWEKxRDTXtNOTsz28=
-    type: FileListing
-  prova.log:
-    timeStamp: 2019-09-15T13:30:05.668Z
+  /var/lib/texmf/web2c/pdftex/pdflatex.fmt:
+    timeStamp: 2018-10-13T07:45:51.418Z
     jobNames: []
-    hash: UGkUbu1cey3sKDi2W/8Mx4nnUphwPs/r3IZfhaNosqk=
-    type: LaTeXLog
-    subType: pdfTeX
-  violin_gender_site.png:
-    timeStamp: 2019-09-13T09:51:35.878Z
-    jobNames: []
-    hash: pFW+B2KJXpPVYRjV0ZjwxCX9rbQrVqqmQfk482n2sMQ=
-  three_graphs.png:
-    timeStamp: 2019-09-13T09:51:35.874Z
-    jobNames: []
-    hash: yQSpXPjVDvu6HUKV/xXYKxkQtznvBr+zLPvQdWPPyLc=
-  four_graphs.png:
-    timeStamp: 2019-09-15T10:25:26.931Z
-    jobNames: []
-    hash: DCg1XsoLQTsE10Sc1lbTiQZkbcWiQuTa93EqKxsY8/A=
-  prova.pdf:
-    timeStamp: 2019-09-15T13:30:05.664Z
-    jobNames: []
-    hash: SzBtRhKk64Ka62xVY0T9Vu6XddT2ZmjbVnTxzlr8AIg=
-    type: PortableDocumentFormat
-  prova.dvi:
-    timeStamp: 2019-09-15T10:45:27.443Z
-    jobNames: []
-    type: DeviceIndependentFile
-  prova.synctex.gz:
-    timeStamp: 2019-09-15T13:30:05.668Z
-    jobNames: []
-    hash: 0s+23hUA0Ogc+TRme8lIt3mFjFS+bqIzKCLmatMYbTY=
-    type: SyncTeX
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty:
-    timeStamp: 2016-11-25T18:33:43.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty:
-    timeStamp: 2016-11-25T18:33:43.000Z
-    jobNames: []
-    type: LaTeXStyle
   Cardio_distribution.png:
     timeStamp: 2019-09-15T13:09:36.115Z
     jobNames: []
     hash: 853/WrqkpYnQDasXja6Z3kzDtDzdQ3zFSRLxSe9GwTs=
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
+  four_graphs.png:
+    timeStamp: 2019-09-15T10:25:26.931Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
+    hash: DCg1XsoLQTsE10Sc1lbTiQZkbcWiQuTa93EqKxsY8/A=
+  one_set_coefs.png:
+    timeStamp: 2019-09-12T12:55:25.927Z
     jobNames: []
+    hash: y+VJzoTdpXc8lDiXRVA+v9qd2Hkhnf/J4IVqdXPZtyM=
+  three_graphs.png:
+    timeStamp: 2019-09-13T09:51:35.874Z
+    jobNames: []
+    hash: yQSpXPjVDvu6HUKV/xXYKxkQtznvBr+zLPvQdWPPyLc=
+  violin_gender_site.png:
+    timeStamp: 2019-09-13T09:51:35.878Z
+    jobNames: []
+    hash: pFW+B2KJXpPVYRjV0ZjwxCX9rbQrVqqmQfk482n2sMQ=
 rules:
   - name: ApplyOptions
     command: load
@@ -1342,9 +1320,9 @@ rules:
     inputs:
       - file: dicy.yaml-ParsedYAML
         type: default
-      - file: prova.yaml-ParsedYAML
+      - file: report_bf_Carlo.yaml-ParsedYAML
         type: default
-      - file: prova.tex-ParsedLaTeXMagic
+      - file: report_bf_Carlo.tex-ParsedLaTeXMagic
         type: default
       - file: dicy-instance.yaml-ParsedYAML
         type: default
@@ -1370,9 +1348,9 @@ rules:
     inputs:
       - file: dicy.yaml-ParsedYAML
         type: default
-      - file: prova.yaml-ParsedYAML
+      - file: report_bf_Carlo.yaml-ParsedYAML
         type: default
-      - file: prova.tex-ParsedLaTeXMagic
+      - file: report_bf_Carlo.tex-ParsedLaTeXMagic
         type: default
       - file: dicy-instance.yaml-ParsedYAML
         type: default
@@ -1393,12 +1371,12 @@ rules:
     command: load
     phase: execute
     parameters:
-      - prova.tex
+      - report_bf_Carlo.tex
     inputs:
-      - file: prova.tex
+      - file: report_bf_Carlo.tex
         type: default
     outputs:
-      - file: prova.tex-ParsedLaTeXMagic
+      - file: report_bf_Carlo.tex-ParsedLaTeXMagic
         type: default
   - name: AssignJobNames
     command: load
@@ -1416,13 +1394,15 @@ rules:
     command: build
     phase: execute
     parameters:
-      - prova.tex
+      - report_bf_Carlo.tex
     inputs:
-      - file: prova.tex
+      - file: report_bf_Carlo.tex
         type: default
-      - file: prova.fls-ParsedFileListing
+      - file: report_bf_Carlo.fls-ParsedFileListing
         type: default
-      - file: prova.log-ParsedLaTeXLog
+      - file: report_bf_Carlo.log-ParsedLaTeXLog
+        type: default
+      - file: report_bf_Carlo.aux
         type: default
       - file: /etc/texmf/web2c/texmf.cnf
         type: default
@@ -1434,11 +1414,15 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
         type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
         type: default
@@ -1456,9 +1440,13 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
         type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         type: default
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -1468,65 +1456,40 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
         type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
+        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
         type: default
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
-        type: default
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-        type: default
-      - file: /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-        type: default
-      - file: /usr/share/texmf/web2c/texmf.cnf
-        type: default
-      - file: /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-        type: default
-      - file: /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-        type: default
-      - file: >-
-          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-        type: default
       - file: >-
-          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         type: default
@@ -1546,9 +1509,23 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
         type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+        type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
         type: default
@@ -1566,50 +1543,70 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
         type: default
-      - file: one_set_coefs.png
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-        type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
         type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+      - file: /usr/share/texlive/texmf-dist/web2c/texmf.cnf
         type: default
-      - file: prova.aux
+      - file: /usr/share/texmf/web2c/texmf.cnf
         type: default
-      - file: violin_gender_site.png
+      - file: /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
         type: default
-      - file: three_graphs.png
-        type: default
-      - file: four_graphs.png
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+      - file: /var/lib/texmf/web2c/pdftex/pdflatex.fmt
         type: default
       - file: Cardio_distribution.png
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+      - file: four_graphs.png
         type: default
-      - file: >-
-          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+      - file: one_set_coefs.png
+        type: default
+      - file: three_graphs.png
+        type: default
+      - file: violin_gender_site.png
         type: default
     outputs:
-      - file: prova.aux
+      - file: report_bf_Carlo.aux
         type: default
-      - file: prova.fls
+      - file: report_bf_Carlo.fls
         type: default
-      - file: prova.log
+      - file: report_bf_Carlo.log
         type: default
-      - file: prova.pdf
+      - file: report_bf_Carlo.synctex.gz
         type: target
-      - file: prova.dvi
-        type: default
-      - file: prova.synctex.gz
+      - file: report_bf_Carlo.pdf
         type: target
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - report_bf_Carlo.log
+    inputs:
+      - file: report_bf_Carlo.log
+        type: default
+    outputs:
+      - file: report_bf_Carlo.log-ParsedLaTeXLog
+        type: default
+  - name: ParseLaTeXAuxilary
+    command: build
+    phase: execute
+    parameters:
+      - report_bf_Carlo.aux
+    inputs:
+      - file: report_bf_Carlo.aux
+        type: default
+    outputs:
+      - file: report_bf_Carlo.aux-ParsedLaTeXAuxilary
+        type: default
+  - name: ParseFileListing
+    command: build
+    phase: execute
+    parameters:
+      - report_bf_Carlo.fls
+    inputs:
+      - file: report_bf_Carlo.fls
+        type: default
+    outputs:
+      - file: report_bf_Carlo.fls-ParsedFileListing
+        type: default
   - name: LogProducedTargets
     command: build
     phase: finalize
@@ -1620,9 +1617,9 @@ rules:
     command: build
     phase: finalize
     parameters:
-      - prova.tex
+      - report_bf_Carlo.tex
     inputs:
-      - file: prova.tex
+      - file: report_bf_Carlo.tex
         type: default
     outputs: []
   - name: FindLogFiles
@@ -1635,69 +1632,25 @@ rules:
     command: log
     phase: execute
     parameters:
-      - prova.log-ParsedLaTeXLog
+      - report_bf_Carlo.log-ParsedLaTeXLog
     inputs:
-      - file: prova.log-ParsedLaTeXLog
+      - file: report_bf_Carlo.log-ParsedLaTeXLog
         type: default
     outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - report_bf_Carlo.log
+    inputs:
+      - file: report_bf_Carlo.log
+        type: default
+    outputs:
+      - file: report_bf_Carlo.log-ParsedLaTeXLog
+        type: default
   - name: SaveCache
     command: save
     phase: execute
     parameters: []
     inputs: []
     outputs: []
-  - name: ParseLaTeXAuxilary
-    command: build
-    phase: execute
-    parameters:
-      - prova.aux
-    inputs:
-      - file: prova.aux
-        type: default
-    outputs:
-      - file: prova.aux-ParsedLaTeXAuxilary
-        type: default
-  - name: ParseFileListing
-    command: build
-    phase: execute
-    parameters:
-      - prova.fls
-    inputs:
-      - file: prova.fls
-        type: default
-    outputs:
-      - file: prova.fls-ParsedFileListing
-        type: default
-  - name: ParseLaTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - prova.log
-    inputs:
-      - file: prova.log
-        type: default
-    outputs:
-      - file: prova.log-ParsedLaTeXLog
-        type: default
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - prova.log
-    inputs:
-      - file: prova.log
-        type: default
-    outputs:
-      - file: prova.log-ParsedLaTeXLog
-        type: default
-  - name: DviToPdf
-    command: build
-    phase: execute
-    parameters:
-      - prova.dvi
-    inputs:
-      - file: prova.dvi
-        type: target
-    outputs:
-      - file: prova.pdf
-        type: target
