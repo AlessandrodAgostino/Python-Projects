@@ -14,12 +14,12 @@
 \maketitle
 
 \begin{abstract}
-	This project shows a \emph{dimensionality reduction} method for regression based on the selection of the most significant features in a dataset for the regression purpose. The selection is made through different penalized regression methods (Ridge, Lasso and ElasticNet) and looking at those features that receive the highest regression coefficient as the most significant.
-	A detailed description of the process and the results of two different \emph{applications} on real datasets follow below: the algorithm gave positive results in both the cases.
+	This project shows a \emph{dimensionality reduction} method via feature selection for prediction. The selection is made through different penalized regression methods (Ridge, Lasso and ElasticNet) and looking at those features that receive the highest regression coefficient as the most significant.
+	A detailed description of the process and the results of two different \emph{applications} on real datasets is shown: the algorithm gave positive results in both the cases.
 \end{abstract}
 
 \section*{The Method}
-Given a whole dataset on which perform a regression, being able of detecting those features that contains the most of the information could be very useful. In this specific case it was avoided the use of any technique that perform linear combination in the feature space in order to maintain those features "pure" and allowing the possibility of a \emph{a posteriori} interpretation of the results.
+Being able to detect features that contains the majority of information in a dataset is an essential task for prediction. It will be shown that the method allows dimensionality reduction without the need of projection on latent variables based techniques. The features are not transformed allowing a direct \emph{a posteriori} interpretation of the results.
 
 \paragraph{Prior Penalized regression}
 
@@ -53,10 +53,10 @@ After performing the standardization step and the regression step for every poss
 
 From the silhouette of the curves in Figure \ref{fig:3_coef} it's clear the presence of an \textbf{\emph{elbow}}: a point where the curve starts decreasing more gently. That point was taken as \emph{reference} for the number of features to select from the whole set. The idea under this choice is that considering features beyond the elbow point pay less and less back respect to those feature before this point.
 
-The coefficients form different regressors live in different value range, so I devised a \emph{non parametric} comparison method to score the features. The method is not based on the value of a feature's coefficient but on its \emph{position} in the sorted (by absolute value) array. As a score for each feature it was made a count of how frequent every feature appears in the top ranked in the different charts given by the different regression methods.
+The coefficients form different regressors live in different value range, so I devised a \emph{non parametric} comparison method to score the features. The method is not based on the value of a feature's coefficient but on its \emph{position} in the sorted (by absolute value) array. A score based on the frequency of the presence of each feature amongst the top ranked for each method as been used to assess the predictive capabilities of each feature.
 
 \paragraph{Example - \emph{Brain Challenge}}
-The \emph{Brain Challenge}'s dataset contains around 1000 features (i.e. 954 numerical values). After the prior regressions the nine sets of coefficients were procured (three of which are shown in Figure \ref{fig:3_coef}). The precise detection of the \emph{elbow} point it's not a trivial task, so in a first phase of the project it was detected by eye to be around the 50$^{th}$ sorted features for each one of the values sets. This way it was possible to give a point to each features when it fell in the \emph{TOP 50} sorted set. The same exact process was repeated for smaller sets of features, in this case for the \emph{TOP 25} and the \emph{TOP 10}. A brief snapshot of the classification obtained follows below (a more detailed list in  Appendix \ref{sec:app1})
+The \emph{Brain Challenge}'s dataset contains around 1000 features (i.e. 954 numerical values). After the prior regressions the nine sets of coefficients were computed (three of which are shown in Figure \ref{fig:3_coef}). The precise detection of the \emph{elbow} point it's not a trivial task, so in a first phase of the project it was detected graphically to be around the 50$^{th}$ sorted features for each one of the values sets. This way it was possible to give a point to each features when it fell in the \emph{TOP 50} sorted set. The same exact process was repeated for smaller sets of features, in this case for the \emph{TOP 25} and the \emph{TOP 10}. A brief snapshot of the classification obtained follows below (a more detailed list in  Appendix \ref{sec:app1})
 
 \begin{table}[ht]
 \begin{tabular}{llll}
@@ -97,7 +97,7 @@ Has previously stated, as can be seen in Figure \ref{fig:3_coef}, the elbow poin
 
 \paragraph{Regression on Reduced Dataset}
 In order to test the dimensionality reduction efficacy I performed as described above a further regression, using a Support Vector Regression (SVR) algorithm. The three reduction that were employed were the dataset containing all and only the 98 features that appeared at least once in a coefficient \emph{TOP 50}, the 49 appeared in the \emph{TOP 25} and the 18 appeared in the \emph{TOP 10}.
-The SVR was trained on these dataset through a cross validated grid agorithm, that allows to scearch directly for those parameter that better fit the samples. The three different age predictions on the three dataset were put in relation with the true test values with a simple linear fitting, and a $R^2$ score were computed. In Figure \ref{fig:Brain_graphs} those three fitting are shown.
+The SVR was trained on these dataset through a cross validated grid-search algorithm, that allows to detect directly those parameters that better fit the samples. The three different age predictions on the three dataset were put in relation with the true test values with a simple linear fitting, and a $R^2$ score were computed. In Figure \ref{fig:Brain_graphs} those three fitting are shown.
 
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{three_graphs}
@@ -136,8 +136,7 @@ It's interesting seeing how a reduction in dimension from 954 to 98 (a solid ord
 In the plots shown in Figure \ref{fig:Cardio_graphs} it's possible to see the same behaviour of the $R^2$ score as in the 1$^{st}$ application: the more the feature space is reduced the more the score drops. It's interesting to see how the reduction in dimension from the whole dataset (72 features) to the 23 features in the \emph{TOP 20} slightly reduces the score from 0.35 to 0.31, a further reduction instead sharply reduces the score. This particular behavior strengthen the belief in the the efficacy of the algorithm for the dimensionality reduction.
 
 
-
-\section*{Used Material}
+\section*{Material}
 In order to read and analyze the data for this project it was used exclusively \texttt{Python} code. In particular for reading and manipulating dataframe the library \texttt{Pandas}, for visualizing the results the library \texttt{Seaborn} and for the computing parts mainly the library \texttt{SciKitLeaern}.
 In particular:
 
@@ -149,6 +148,13 @@ In particular:
 \end{itemize}
 
 and a lot of other tools from that library.
+
+\section*{Open Problems}
+One problem mentioned above in the report is the elbow point's detection, actually made graphically in these applications.
+The formal definition of \emph{elbow} point it's not so clear at all and different methods are proposed in the literature. The most convincing one, in my opinion, exploit the concept of \emph{curvature} of a certain curve identifying the elbow point as the maximum curvature point [\textit{Finding a “Kneedle” in a Haystack: Detecting Knee Points in System Behavior, V. Satopa, J. Albrecht† , et al.}]. The curvature of a curve it's defined using the second order derivative, a kind of computation that really suffers from a noisy data set such the used ones. Hence, only poor results (completely out of target) were obtained practically.
+
+The entire pipeline could be completely automatized if this particular passage would be formalized, leading to a more powerful tool.
+
 
 \newpage
 \section*{Appendix 1 - Brain Challenge Features Charts} \label{sec:app1}
