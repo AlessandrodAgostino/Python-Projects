@@ -1,4 +1,4 @@
-The Method {#the-method .unnumbered}
+The Method
 ==========
 
 Being able to detect features that contains the majority of information
@@ -18,7 +18,7 @@ used for the regularization purpose:
     scaling to unit variance.
 
 -   MinMax: Transforming the features by scaling each feature in the
-    range $[0,1]$.
+    range [0,1].
 
 -   Robust: Standardizing the features to unite variance giving less
     importance to the outliers, so in a more *robust* way.
@@ -26,7 +26,7 @@ used for the regularization purpose:
 In combination with each one of these method three different penalized
 *regression* algorithm were used:
 
--   **Ridge** regression, which implements a penalization on the $L^2$
+-   **Ridge** regression, which implements a penalization on the $L^{2}$
     norm of the coefficients vector.
 
 -   **Lasso** regression, which implements a penalization on the $L^1$
@@ -340,5 +340,3 @@ The complete list of the most important features.
   *b - (d/a)*    3              0              0
   *pnn20*        3              0              0
   -------------- -------------- -------------- -------------
-
-
